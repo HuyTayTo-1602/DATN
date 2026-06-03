@@ -1,0 +1,47 @@
+# =============================================================================
+# .gitignore - Các file/thư mục KHÔNG được commit lên git
+# =============================================================================
+
+# --- Biến môi trường (chứa thông tin nhạy cảm) ---
+.env
+*.env
+.env.local
+.env.production
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# --- Node.js (Frontend) ---
+node_modules/
+frontend/dist/
+frontend/build/
+frontend/.next/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Docker ---
+*.log
+
+# --- Executables & Installers ---
+*.exe
+*.msi
+
+# --- Claude Code ---
+.claude/
