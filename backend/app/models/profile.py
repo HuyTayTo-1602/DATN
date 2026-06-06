@@ -9,6 +9,7 @@
 from sqlalchemy import Column, Integer, String, Text, Date, ForeignKey, TIMESTAMP
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
+from sqlalchemy.dialects.postgresql import TSVECTOR
 
 from app.db.database import Base
 
@@ -35,6 +36,9 @@ class UserProfile(Base):
     experience = Column(Text)             # Kinh nghiệm làm việc
     education = Column(Text)              # Học vấn
     bio = Column(Text)                    # Giới thiệu bản thân
+
+    # Full-text search vector: tổng hợp từ full_name (A), skills (A), experience (B)
+    search_vector = Column(TSVECTOR, nullable=True)
 
     updated_at = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now())
 

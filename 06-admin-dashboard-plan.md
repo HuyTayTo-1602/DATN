@@ -60,39 +60,39 @@ Response gợi ý gồm các block:
 
 ### Task 1: Tách service tổng hợp số liệu
 
-- [ ] Viết `admin_dashboard_service.py` với các hàm query từng nhóm dữ liệu.
-- [ ] Giữ query đơn giản, tránh một mega-query khó bảo trì.
-- [ ] Chuẩn hóa response schema để frontend chỉ render.
+- [x] Viết `admin_dashboard_service.py` với các hàm query từng nhóm dữ liệu.
+- [x] Giữ query đơn giản, tránh một mega-query khó bảo trì.
+- [x] Chuẩn hóa response schema để frontend chỉ render.
 
 ### Task 2: Expose API summary cho admin
 
-- [ ] Chỉ cho admin truy cập endpoint này.
-- [ ] Có xử lý khi một số bảng còn trống.
-- [ ] Không trả quá nhiều dữ liệu thô ngoài nhu cầu dashboard.
+- [x] Chỉ cho admin truy cập endpoint này.
+- [x] Có xử lý khi một số bảng còn trống.
+- [x] Không trả quá nhiều dữ liệu thô ngoài nhu cầu dashboard.
 
 ### Task 3: Gắn vào trang admin hiện có
 
-- [ ] Thêm các stat card ở đầu trang.
-- [ ] Thêm 1-2 chart đơn giản hoặc bar/pie cơ bản.
-- [ ] Thêm top companies table và CV parse summary.
-- [ ] Hiển thị loading và empty state gọn gàng.
+- [x] Thêm các stat card ở đầu trang.
+- [x] Thêm 1-2 chart đơn giản hoặc bar/pie cơ bản.
+- [x] Thêm top companies table và CV parse summary.
+- [x] Hiển thị loading và empty state gọn gàng.
 
 ### Task 4: Tối ưu để không ngớ ngẩn
 
-- [ ] Không nhồi quá nhiều widget khó đọc.
-- [ ] Không làm dashboard phụ thuộc vào dữ liệu cực chuẩn mới render được.
-- [ ] Mỗi chỉ số phải có ý nghĩa vận hành rõ ràng.
+- [x] Không nhồi quá nhiều widget khó đọc.
+- [x] Không làm dashboard phụ thuộc vào dữ liệu cực chuẩn mới render được.
+- [x] Mỗi chỉ số phải có ý nghĩa vận hành rõ ràng.
 
 ## 6. Checkpoint cuối
 
-- [ ] Admin mở dashboard và thấy được bức tranh tổng quát của hệ thống trong một màn hình.
-- [ ] Số liệu không lệch rõ rệt với dữ liệu seed.
-- [ ] Trang vẫn usable khi một số bảng đang ít dữ liệu.
-- [ ] Không yêu cầu truy vấn nặng hoặc loading quá chậm cho quy mô MVP.
+- [x] Admin mở dashboard và thấy được bức tranh tổng quát của hệ thống trong một màn hình.
+- [x] Số liệu không lệch rõ rệt với dữ liệu seed.
+- [x] Trang vẫn usable khi một số bảng đang ít dữ liệu.
+- [x] Không yêu cầu truy vấn nặng hoặc loading quá chậm cho quy mô MVP.
 
 ## 7. Yêu cầu test bắt buộc cho agent sau khi code xong
 
-- [ ] Tạo unit test cho từng hàm tổng hợp số liệu trong `admin_dashboard_service.py`.
-- [ ] Tạo API test cho quyền truy cập admin và response summary.
+- [x] Tạo unit test cho từng hàm tổng hợp số liệu trong `admin_dashboard_service.py`.
+- [x] Tạo API test cho quyền truy cập admin và response summary.
 - [ ] Nếu frontend có logic map dữ liệu thành chart series, thêm unit test cho phần đó.
-- [ ] Chỉ được coi là xong khi dashboard render được với cả dữ liệu đầy đủ lẫn dữ liệu ít.
+- [x] Chỉ được coi là xong khi dashboard render được với cả dữ liệu đầy đủ lẫn dữ liệu ít.

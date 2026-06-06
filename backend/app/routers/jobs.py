@@ -20,8 +20,10 @@ from app.schemas.job import (
     JobCreateRequest, JobUpdateRequest,
     JobResponse, JobListResponse, JobFilterParams,
 )
+from app.schemas.job_recommendation import RecommendedJobListResponse
 from app.services import job_service
-from app.middleware.auth import require_recruiter
+from app.services import job_recommendation_service
+from app.middleware.auth import require_recruiter, require_job_seeker
 from app.models.user import User
 
 router = APIRouter(prefix="/jobs", tags=["Tin tuyển dụng"])
@@ -51,6 +53,19 @@ def get_jobs(
         page=page, page_size=page_size,
     )
     return job_service.get_jobs(filters, db)
+
+
+@router.get("/recommendations", response_model=RecommendedJobListResponse)
+def get_job_recommendations(
+    top_n: int = Query(10, ge=1, le=30, description="Số job gợi ý tối đa"),
+    current_user: User = Depends(require_job_seeker),
+    db: Session = Depends(get_db),
+):
+    """
+    Gợi ý việc làm phù hợp cho ứng viên dựa trên CV active của họ.
+    Yêu cầu: đăng nhập với tài khoản job_seeker.
+    """
+    return job_recommendation_service.get_recommendations(current_user, db, top_n=top_n)
 
 
 @router.get("/my", response_model=list[JobResponse])

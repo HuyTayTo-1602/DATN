@@ -77,6 +77,9 @@ export const jobsApi = {
   update: (id, data) => request('PUT', `/jobs/${id}`, data, true),
 
   delete: (id) => request('DELETE', `/jobs/${id}`, null, true),
+
+  recommendations: (topN = 10) =>
+    request('GET', `/jobs/recommendations?top_n=${topN}`, null, true),
 }
 
 // ── COMPANIES ───────────────────────────────────────────────
@@ -116,6 +119,10 @@ export const adminApi = {
   createCompany: (data) => request('POST', '/admin/companies', data, true),
   updateCompany: (id, data) => request('PUT', `/admin/companies/${id}`, data, true),
   deleteCompany: (id) => request('DELETE', `/admin/companies/${id}`, null, true),
+
+  // Dashboard
+  getDashboardSummary: (period = '30d') =>
+    request('GET', `/admin/dashboard/summary?period=${encodeURIComponent(period)}`, null, true),
 
   // Jobs
   listJobs: ({ page = 1, page_size = 10, status, search } = {}) => {
@@ -183,6 +190,28 @@ export const notificationsApi = {
   markRead: (id) => request('POST', `/notifications/${id}/read`, null, true),
 
   markAllRead: () => request('POST', '/notifications/read-all', null, true),
+}
+
+// ── CANDIDATE SEARCH (recruiter / admin) ─────────────────────
+export const candidateApi = {
+  search: ({ q = '', page = 1, page_size = 10 } = {}) => {
+    const params = new URLSearchParams({ page, page_size })
+    if (q) params.append('q', q)
+    return request('GET', `/recruiter/candidates/search?${params}`, null, true)
+  },
+
+  streamCv: async (userId) => {
+    const token = getToken()
+    const res = await fetch(`${BASE}/recruiter/candidates/${userId}/cv`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}))
+      const msg = typeof data.detail === 'string' ? data.detail : 'Không thể tải CV'
+      throw new Error(msg)
+    }
+    return res.blob()
+  },
 }
 
 // ── APPLICATIONS ─────────────────────────────────────────────

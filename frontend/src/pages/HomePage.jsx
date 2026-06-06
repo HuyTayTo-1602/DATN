@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { jobsApi } from '../services/api'
 import JobCard from '../components/JobCard'
+import RecommendedJobsSection from '../components/jobs/RecommendedJobsSection'
+import { useAuth } from '../context/AuthContext'
 
 function useCountUp(end, duration = 1300) {
   const [value, setValue] = useState(0)
@@ -71,6 +73,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true)
   const [keyword, setKeyword] = useState('')
   const navigate = useNavigate()
+  const { user } = useAuth()
 
   useEffect(() => {
     jobsApi.list({ page_size: 6 })
@@ -117,6 +120,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Recommended Jobs — chỉ hiện với ứng viên đã đăng nhập */}
+      {user?.role === 'job_seeker' && <RecommendedJobsSection />}
 
       {/* Recent Jobs */}
       <section className="section section-jobs">

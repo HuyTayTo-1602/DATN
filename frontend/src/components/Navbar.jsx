@@ -47,6 +47,9 @@ export default function Navbar() {
               <NavLink to="/my-jobs" className={({ isActive }) => isActive ? 'active' : ''}>
                 Quản lý tin
               </NavLink>
+              <NavLink to="/candidates/search" className={({ isActive }) => isActive ? 'active' : ''}>
+                Tìm ứng viên
+              </NavLink>
             </>
           )}
           {user?.role === 'admin' && (

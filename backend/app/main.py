@@ -15,7 +15,7 @@ from contextlib import asynccontextmanager
 
 from app.config import get_settings
 from app.db.init_db import init_db
-from app.routers import auth, users, companies, jobs, applications, admin, cvs, notifications
+from app.routers import auth, users, companies, jobs, applications, admin, cvs, notifications, recruiter_candidates
 from app.chatbot import routes as chatbot_routes
 
 settings = get_settings()
@@ -67,6 +67,7 @@ app.include_router(chatbot_routes.router, prefix=settings.API_PREFIX)
 app.include_router(admin.router, prefix=settings.API_PREFIX)
 app.include_router(cvs.router, prefix=settings.API_PREFIX)
 app.include_router(notifications.router, prefix=settings.API_PREFIX)
+app.include_router(recruiter_candidates.router, prefix=settings.API_PREFIX)
 
 
 @app.get("/", tags=["Health Check"])

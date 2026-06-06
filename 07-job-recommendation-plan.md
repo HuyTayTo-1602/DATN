@@ -67,39 +67,39 @@
 
 ### Task 1: Xây service recommendation đơn giản và giải thích được
 
-- [ ] Viết `job_recommendation_service.py` nhận `user_id`.
-- [ ] Nếu chưa có CV active hoặc chưa parse xong, trả danh sách rỗng hoặc fallback jobs mới nhất.
-- [ ] Tách keyword bằng rule-based dictionary thay vì NLP phức tạp.
-- [ ] Giới hạn top N để response nhẹ.
+- [x] Viết `job_recommendation_service.py` nhận `user_id`.
+- [x] Nếu chưa có CV active hoặc chưa parse xong, trả danh sách rỗng hoặc fallback jobs mới nhất.
+- [x] Tách keyword bằng rule-based dictionary thay vì NLP phức tạp.
+- [x] Giới hạn top N để response nhẹ.
 
 ### Task 2: Expose API recommendation
 
-- [ ] Thêm endpoint như `GET /api/v1/jobs/recommendations`.
-- [ ] Chỉ cho candidate lấy recommendation của chính mình.
-- [ ] Response nên có thêm `match_reason` ngắn nếu làm được, ví dụ `Matched: java, spring, backend`.
+- [x] Thêm endpoint như `GET /api/v1/jobs/recommendations`.
+- [x] Chỉ cho candidate lấy recommendation của chính mình.
+- [x] Response nên có thêm `match_reason` ngắn nếu làm được, ví dụ `Matched: java, spring, backend`.
 
 ### Task 3: Gắn vào UI ứng viên
 
-- [ ] Thêm section “Job gợi ý cho bạn” ở home page hoặc profile dashboard.
-- [ ] Có empty state khi user chưa upload CV.
-- [ ] Có loading state và CTA đi upload CV nếu chưa có dữ liệu.
+- [x] Thêm section “Job gợi ý cho bạn” ở home page hoặc profile dashboard.
+- [x] Có empty state khi user chưa upload CV.
+- [x] Có loading state và CTA đi upload CV nếu chưa có dữ liệu.
 
 ### Task 4: Chốt chất lượng
 
-- [ ] Kiểm tra CV thiên về backend thì không đề xuất quá nhiều job không liên quan như designer hoặc mobile iOS.
-- [ ] Kiểm tra recommendation không trả job đã đóng nếu business rule muốn ẩn.
-- [ ] Kiểm tra không đề xuất trùng lặp.
+- [x] Kiểm tra CV thiên về backend thì không đề xuất quá nhiều job không liên quan như designer hoặc mobile iOS.
+- [x] Kiểm tra recommendation không trả job đã đóng nếu business rule muốn ẩn.
+- [x] Kiểm tra không đề xuất trùng lặp.
 
 ## 7. Checkpoint cuối
 
-- [ ] Ứng viên có CV active và text parse thành công sẽ thấy danh sách job gợi ý.
-- [ ] Kết quả nhìn hợp lý với skill chính trong CV.
-- [ ] UI giải thích rõ khi chưa có CV hoặc parse chưa xong.
-- [ ] Feature này được triển khai sau khi các nền tảng trước đó đã ổn định.
+- [x] Ứng viên có CV active và text parse thành công sẽ thấy danh sách job gợi ý.
+- [x] Kết quả nhìn hợp lý với skill chính trong CV.
+- [x] UI giải thích rõ khi chưa có CV hoặc parse chưa xong.
+- [x] Feature này được triển khai sau khi các nền tảng trước đó đã ổn định.
 
 ## 8. Yêu cầu test bắt buộc cho agent sau khi code xong
 
-- [ ] Tạo unit test cho hàm extract keyword và hàm score recommendation.
-- [ ] Tạo API test cho case có CV hợp lệ, chưa có CV, và CV parse fail.
-- [ ] Nếu frontend có logic render `match_reason` hoặc empty state, thêm component test.
-- [ ] Chỉ được coi là xong khi recommendation không phá hiệu năng trang chủ ở quy mô seed data MVP.
+- [x] Tạo unit test cho hàm extract keyword và hàm score recommendation.
+- [x] Tạo API test cho case có CV hợp lệ, chưa có CV, và CV parse fail.
+- [x] Nếu frontend có logic render `match_reason` hoặc empty state, thêm component test.
+- [x] Chỉ được coi là xong khi recommendation không phá hiệu năng trang chủ ở quy mô seed data MVP.

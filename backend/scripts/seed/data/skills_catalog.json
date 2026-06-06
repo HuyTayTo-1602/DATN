@@ -1,0 +1,106 @@
+{
+  "backend": {
+    "primary": ["Python", "Java", "Node.js", "Go", "PHP", "C#"],
+    "frameworks": ["FastAPI", "Django", "Spring Boot", "Express.js", "NestJS", "Laravel", "ASP.NET Core"],
+    "databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch", "Cassandra"],
+    "tools": ["Docker", "Git", "REST API", "GraphQL", "Kafka", "RabbitMQ", "Microservices", "gRPC"]
+  },
+  "frontend": {
+    "primary": ["JavaScript", "TypeScript", "HTML5", "CSS3"],
+    "frameworks": ["React", "Vue.js", "Angular", "Next.js", "Nuxt.js", "Svelte"],
+    "tools": ["Webpack", "Vite", "TailwindCSS", "SASS", "Redux", "Zustand", "Storybook", "Jest", "Cypress"]
+  },
+  "data": {
+    "primary": ["Python", "R", "SQL"],
+    "ml": ["TensorFlow", "PyTorch", "scikit-learn", "Keras", "XGBoost", "LightGBM"],
+    "tools": ["Pandas", "NumPy", "Apache Spark", "Apache Airflow", "dbt", "BigQuery", "Databricks"],
+    "visualization": ["Tableau", "Power BI", "Matplotlib", "Plotly", "Metabase", "Looker"]
+  },
+  "devops": {
+    "primary": ["Linux", "Bash", "Python"],
+    "containers": ["Docker", "Kubernetes", "Helm", "Podman"],
+    "cicd": ["Jenkins", "GitHub Actions", "GitLab CI", "ArgoCD", "CircleCI"],
+    "cloud": ["AWS", "Azure", "GCP"],
+    "iac": ["Terraform", "Ansible", "Pulumi", "CloudFormation"],
+    "monitoring": ["Prometheus", "Grafana", "ELK Stack", "Datadog", "Zabbix"]
+  },
+  "qa": {
+    "automation": ["Selenium", "Cypress", "Playwright", "Appium", "Robot Framework"],
+    "api": ["Postman", "REST Assured", "k6", "SoapUI"],
+    "performance": ["JMeter", "Locust", "Gatling"],
+    "management": ["Jira", "TestRail", "qTest"],
+    "concepts": ["BDD", "TDD", "Agile", "Exploratory Testing", "Regression Testing"]
+  },
+  "mobile": {
+    "cross_platform": ["React Native", "Flutter", "Ionic"],
+    "android": ["Kotlin", "Java", "Android SDK", "Jetpack Compose"],
+    "ios": ["Swift", "SwiftUI", "Objective-C", "UIKit"],
+    "tools": ["Firebase", "Fastlane", "App Center", "Xcode", "Android Studio"]
+  },
+  "ba": {
+    "core": ["Business Analysis", "Requirements Engineering", "Stakeholder Management", "User Story Mapping"],
+    "tools": ["Jira", "Confluence", "Figma", "BPMN", "UML", "Trello", "Miro"],
+    "data": ["SQL", "Excel", "Tableau", "Power BI", "Google Analytics"],
+    "process": ["Agile", "Scrum", "Kanban", "SAFe", "BABOK"]
+  },
+  "healthcare": {
+    "clinical": ["Chẩn đoán lâm sàng", "Nội khoa", "Ngoại khoa", "Hồi sức cấp cứu", "Nhi khoa", "Sản phụ khoa"],
+    "pharmaceutical": ["Dược lý", "Dược lâm sàng", "Kiểm nghiệm thuốc", "GMP", "GDP", "Dược lực học"],
+    "diagnostic": ["Chẩn đoán hình ảnh", "Siêu âm", "Xét nghiệm", "Nội soi", "RIS", "PACS"],
+    "tools": ["HIS", "EMR", "LIS", "Phần mềm Dược", "ISO 15189"]
+  },
+  "finance": {
+    "core": ["Phân tích tài chính", "Kế toán", "Kiểm toán", "Quản lý rủi ro", "Tư vấn đầu tư"],
+    "banking": ["Tín dụng", "Thanh toán quốc tế", "Trade Finance", "Ngân hàng bán lẻ", "AML/KYC"],
+    "investment": ["Phân tích cổ phiếu", "Quản lý danh mục", "Định giá doanh nghiệp", "M&A"],
+    "tools": ["SAP Finance", "Bloomberg Terminal", "Excel nâng cao", "Power BI", "VAS", "IFRS"]
+  },
+  "marketing": {
+    "digital": ["SEO/SEM", "Google Ads", "Facebook Ads", "TikTok Ads", "Email Marketing", "Content Marketing"],
+    "brand": ["Brand Management", "Market Research", "PR", "Event Management", "Copywriting"],
+    "analytics": ["Google Analytics", "Meta Business Suite", "Data Studio", "A/B Testing", "CRM"],
+    "tools": ["HubSpot", "Mailchimp", "Canva", "Photoshop", "Adobe Premiere", "Hootsuite"]
+  },
+  "hr": {
+    "core": ["Tuyển dụng", "Đào tạo & Phát triển", "Compensation & Benefits", "HRBP", "Employee Relations"],
+    "talent": ["Talent Acquisition", "Employer Branding", "Succession Planning", "Talent Management"],
+    "systems": ["SAP HR", "Workday", "SuccessFactors", "HRMS", "Payroll System"],
+    "skills": ["KPI", "OKR", "Job Evaluation", "Hay System", "Phỏng vấn hành vi (STAR)"]
+  },
+  "education": {
+    "teaching": ["Sư phạm", "Thiết kế chương trình học", "Kiểm tra đánh giá", "Giáo dục đặc biệt"],
+    "languages": ["Giảng dạy Tiếng Anh (TEFL/CELTA)", "Tiếng Nhật", "Tiếng Hàn", "Ngôn ngữ học"],
+    "elearning": ["E-learning", "LMS (Moodle, Canvas)", "Instructional Design", "Gamification"],
+    "tools": ["Google Classroom", "Zoom", "PowerPoint", "Canva for Education", "Kahoot"]
+  },
+  "fnb": {
+    "culinary": ["Bếp Âu", "Bếp Á", "Bếp Việt", "Pastry & Bakery", "Barista", "Mixology"],
+    "service": ["F&B Service", "Restaurant Management", "Wine Knowledge", "Customer Experience"],
+    "hotel": ["Front Office", "Housekeeping", "Revenue Management", "GDS", "PMS", "Opera"],
+    "standards": ["HACCP", "ISO 22000", "Vệ sinh an toàn thực phẩm", "5S trong bếp"]
+  },
+  "retail": {
+    "operations": ["Quản lý cửa hàng", "Kiểm soát hàng tồn kho", "Visual Merchandising", "Planogram"],
+    "sales": ["Bán hàng B2C", "Chăm sóc khách hàng", "Upselling & Cross-selling", "KPI doanh số"],
+    "supply_chain": ["Quản lý chuỗi cung ứng bán lẻ", "Category Management", "Buyer"],
+    "tools": ["POS System", "ERP (SAP Retail)", "Power BI", "Excel", "Loyalty Program"]
+  },
+  "construction": {
+    "engineering": ["Kỹ thuật xây dựng", "Kết cấu", "M&E (MEP)", "Hạ tầng", "Địa kỹ thuật"],
+    "management": ["Quản lý dự án xây dựng", "Đấu thầu (QS)", "Giám sát công trình", "An toàn lao động"],
+    "design": ["Kiến trúc", "Thiết kế nội thất", "Urban Planning", "Landscape"],
+    "tools": ["AutoCAD", "Revit", "BIM", "MS Project", "Primavera P6", "PMBOK", "FIDIC"]
+  },
+  "logistics": {
+    "operations": ["Quản lý kho", "Vận tải nội địa", "Giao nhận quốc tế", "Cold Chain"],
+    "trade": ["Xuất nhập khẩu", "Khai báo hải quan", "Incoterms", "LC/BL/AWB", "HS Code"],
+    "supply_chain": ["Chuỗi cung ứng", "S&OP", "Demand Planning", "Vendor Management"],
+    "tools": ["WMS", "TMS", "SAP SCM", "Oracle SCM", "Cargo Wise", "FIATA"]
+  },
+  "manufacturing": {
+    "production": ["Quản lý sản xuất", "Kế hoạch sản xuất", "Line Balancing", "OEE"],
+    "quality": ["QA/QC", "ISO 9001", "IATF 16949", "FMEA", "SPC", "8D Problem Solving"],
+    "improvement": ["Lean Manufacturing", "Six Sigma", "5S", "Kaizen", "TPM", "VSM"],
+    "engineering": ["Kỹ thuật công nghiệp", "Tự động hóa", "PLC/SCADA", "CAD/CAM", "Tooling"]
+  }
+}

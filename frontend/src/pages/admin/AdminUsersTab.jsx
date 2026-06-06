@@ -468,6 +468,32 @@ export default function AdminUsersTab() {
                   disabled={page >= totalPages}
                   onClick={() => setPage(p => p + 1)}
                 >›</button>
+                <span style={{ marginLeft: 4, fontSize: '0.8rem', color: 'var(--text-muted)' }}>Đến trang:</span>
+                <input
+                  type="number"
+                  min={1}
+                  max={totalPages}
+                  placeholder={page}
+                  style={{
+                    width: 46,
+                    padding: '2px 4px',
+                    borderRadius: 6,
+                    border: '1px solid var(--border)',
+                    background: 'var(--input-bg)',
+                    color: 'var(--text)',
+                    fontSize: '0.8rem',
+                    textAlign: 'center',
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      const v = parseInt(e.target.value)
+                      if (v >= 1 && v <= totalPages) {
+                        setPage(v)
+                        e.target.value = ''
+                      }
+                    }
+                  }}
+                />
               </div>
             )}
           </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const levelColor = {
   Junior: 'badge-green',
@@ -8,14 +9,20 @@ const levelColor = {
 }
 
 function CompanyLogo({ company }) {
-  if (company?.logo_url) {
+  const [imgError, setImgError] = useState(false)
+  const letter = (company?.name || '?').charAt(0).toUpperCase()
+
+  if (company?.logo_url && !imgError) {
     return (
       <div className="company-logo">
-        <img src={company.logo_url} alt={company.name} onError={(e) => { e.target.style.display = 'none' }} />
+        <img
+          src={company.logo_url}
+          alt={company.name}
+          onError={() => setImgError(true)}
+        />
       </div>
     )
   }
-  const letter = (company?.name || '?').charAt(0).toUpperCase()
   return <div className="company-logo">{letter}</div>
 }
 

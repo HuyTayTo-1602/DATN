@@ -15,6 +15,7 @@ import ProfilePage from './pages/ProfilePage'
 import AdminPage from './pages/admin/AdminPage'
 import MyCompaniesPage from './pages/MyCompaniesPage'
 import JobApplicantsPage from './pages/JobApplicantsPage'
+import CandidateListPage from './pages/recruiter/CandidateListPage'
 import ChatPage from './pages/ChatPage'
 import NotificationPage from './pages/NotificationPage'
 
@@ -96,6 +97,14 @@ export default function App() {
           element={
             <RequireAuth role="recruiter">
               <PostJobPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/candidates/search"
+          element={
+            <RequireAuth role="recruiter">
+              <CandidateListPage />
             </RequireAuth>
           }
         />

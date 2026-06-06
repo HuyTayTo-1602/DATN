@@ -55,39 +55,39 @@
 
 ### Task 1: Tạo catalog dữ liệu sạch
 
-- [ ] Chuẩn bị danh sách skill thực tế theo nhóm nghề.
-- [ ] Chuẩn bị template job title và requirement theo level: junior, middle, senior.
-- [ ] Chuẩn bị template company profile hợp lý theo domain.
+- [x] Chuẩn bị danh sách skill thực tế theo nhóm nghề.
+- [x] Chuẩn bị template job title và requirement theo level: junior, middle, senior.
+- [x] Chuẩn bị template company profile hợp lý theo domain.
 
 ### Task 2: Viết seed generator có tính nhất quán
 
-- [ ] Tạo company rồi mới tạo jobs thuộc company đó.
-- [ ] Tạo candidate profiles có skill khớp với ít nhất một nhóm job.
-- [ ] Sinh `cv_text` mẫu theo bộ skill của candidate thay vì text ngẫu nhiên vô nghĩa.
-- [ ] Sinh applications theo logic: candidate backend ưu tiên apply backend jobs.
+- [x] Tạo company rồi mới tạo jobs thuộc company đó.
+- [x] Tạo candidate profiles có skill khớp với ít nhất một nhóm job.
+- [x] Sinh `cv_text` mẫu theo bộ skill của candidate thay vì text ngẫu nhiên vô nghĩa.
+- [x] Sinh applications theo logic: candidate backend ưu tiên apply backend jobs.
 
 ### Task 3: Hỗ trợ reset và seed lặp lại an toàn
 
-- [ ] Tạo script chạy full seed có thứ tự rõ ràng.
-- [ ] Có chế độ truncate hoặc upsert tùy chiến lược hiện có của dự án.
-- [ ] Không tạo duplicate vô kiểm soát khi chạy nhiều lần nếu mục tiêu là dữ liệu demo ổn định.
+- [x] Tạo script chạy full seed có thứ tự rõ ràng.
+- [x] Có chế độ truncate hoặc upsert tùy chiến lược hiện có của dự án.
+- [x] Không tạo duplicate vô kiểm soát khi chạy nhiều lần nếu mục tiêu là dữ liệu demo ổn định.
 
 ### Task 4: Kiểm tra chất lượng dữ liệu
 
-- [ ] Lấy mẫu ngẫu nhiên vài company, job, candidate để đọc tay.
-- [ ] Kiểm tra search `java backend` và `python data` cho kết quả hợp lý.
-- [ ] Kiểm tra dashboard có số liệu không lệch hoặc vô lý.
+- [x] Lấy mẫu ngẫu nhiên vài company, job, candidate để đọc tay.
+- [x] Kiểm tra search `java backend` và `python data` cho kết quả hợp lý.
+- [x] Kiểm tra dashboard có số liệu không lệch hoặc vô lý.
 
 ## 6. Checkpoint cuối
 
-- [ ] Toàn hệ thống có dữ liệu đủ nhiều để demo.
-- [ ] Job, candidate và CV text liên quan nhau về mặt nội dung.
-- [ ] Search job và search ứng viên trả kết quả nhìn “đúng nghề”.
-- [ ] Admin dashboard có số liệu đủ đẹp để xem.
+- [x] Toàn hệ thống có dữ liệu đủ nhiều để demo.
+- [x] Job, candidate và CV text liên quan nhau về mặt nội dung.
+- [x] Search job và search ứng viên trả kết quả nhìn “đúng nghề”.
+- [x] Admin dashboard có số liệu đủ đẹp để xem.
 
 ## 7. Yêu cầu test bắt buộc cho agent sau khi code xong
 
-- [ ] Tạo unit test cho các generator chính: company, job, candidate profile, CV text.
-- [ ] Tạo test xác nhận dữ liệu sinh ra không vi phạm khóa ngoại hoặc rule cơ bản.
-- [ ] Tạo smoke test cho script `run_full_seed.py`.
-- [ ] Chỉ được coi là xong khi seed chạy thành công trên database dev sạch và ít nhất một vòng search demo cho kết quả hợp lý.
+- [x] Tạo unit test cho các generator chính: company, job, candidate profile, CV text.
+- [x] Tạo test xác nhận dữ liệu sinh ra không vi phạm khóa ngoại hoặc rule cơ bản.
+- [x] Tạo smoke test cho script `run_full_seed.py`.
+- [x] Chỉ được coi là xong khi seed chạy thành công trên database dev sạch và ít nhất một vòng search demo cho kết quả hợp lý.

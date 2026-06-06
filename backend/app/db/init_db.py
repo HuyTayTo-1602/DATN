@@ -7,6 +7,7 @@
 #   - Seed dữ liệu mặc định: các Role (jobseeker, employer, admin)
 # =============================================================================
 
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.db.database import engine, Base, SessionLocal
@@ -24,6 +25,71 @@ def create_tables() -> None:
     Trong production nên dùng Alembic migrations thay vì hàm này.
     """
     Base.metadata.create_all(bind=engine)
+
+
+def migrate_search_vectors() -> None:
+    """
+    Thêm cột search_vector vào user_profiles và cv_text nếu chưa có,
+    tạo GIN index và trigger tự động cập nhật, rồi backfill dữ liệu cũ.
+    Dùng IF NOT EXISTS nên an toàn khi chạy nhiều lần.
+    """
+    statements = [
+        # user_profiles
+        "ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS search_vector tsvector",
+        "CREATE INDEX IF NOT EXISTS idx_user_profiles_search_vector ON user_profiles USING GIN(search_vector)",
+        """
+        CREATE OR REPLACE FUNCTION update_user_profile_search_vector()
+        RETURNS TRIGGER AS $$
+        BEGIN
+          NEW.search_vector :=
+            setweight(to_tsvector('simple', COALESCE(NEW.full_name, '')), 'A') ||
+            setweight(to_tsvector('simple', COALESCE(NEW.skills,     '')), 'A') ||
+            setweight(to_tsvector('simple', COALESCE(NEW.experience, '')), 'B');
+          RETURN NEW;
+        END;
+        $$ LANGUAGE plpgsql
+        """,
+        "DROP TRIGGER IF EXISTS trg_user_profiles_search_vector ON user_profiles",
+        """
+        CREATE TRIGGER trg_user_profiles_search_vector
+          BEFORE INSERT OR UPDATE ON user_profiles
+          FOR EACH ROW EXECUTE FUNCTION update_user_profile_search_vector()
+        """,
+        """
+        UPDATE user_profiles
+        SET search_vector =
+          setweight(to_tsvector('simple', COALESCE(full_name,  '')), 'A') ||
+          setweight(to_tsvector('simple', COALESCE(skills,     '')), 'A') ||
+          setweight(to_tsvector('simple', COALESCE(experience, '')), 'B')
+        WHERE search_vector IS NULL
+        """,
+        # cv_text
+        "ALTER TABLE cv_text ADD COLUMN IF NOT EXISTS search_vector tsvector",
+        "CREATE INDEX IF NOT EXISTS idx_cv_text_search_vector ON cv_text USING GIN(search_vector)",
+        """
+        CREATE OR REPLACE FUNCTION update_cv_text_search_vector()
+        RETURNS TRIGGER AS $$
+        BEGIN
+          NEW.search_vector := to_tsvector('simple', COALESCE(NEW.extracted_text, ''));
+          RETURN NEW;
+        END;
+        $$ LANGUAGE plpgsql
+        """,
+        "DROP TRIGGER IF EXISTS trg_cv_text_search_vector ON cv_text",
+        """
+        CREATE TRIGGER trg_cv_text_search_vector
+          BEFORE INSERT OR UPDATE ON cv_text
+          FOR EACH ROW EXECUTE FUNCTION update_cv_text_search_vector()
+        """,
+        """
+        UPDATE cv_text
+        SET search_vector = to_tsvector('simple', COALESCE(extracted_text, ''))
+        WHERE search_vector IS NULL
+        """,
+    ]
+    with engine.begin() as conn:
+        for stmt in statements:
+            conn.execute(text(stmt))
 
 
 def seed_roles(db: Session) -> None:
@@ -68,10 +134,11 @@ def seed_admin(db: Session) -> None:
 
 def init_db() -> None:
     """
-    Hàm tổng hợp: tạo bảng và seed dữ liệu ban đầu.
+    Hàm tổng hợp: tạo bảng, chạy migration nhỏ, và seed dữ liệu ban đầu.
     Được gọi một lần duy nhất khi ứng dụng khởi động.
     """
     create_tables()
+    migrate_search_vectors()
     db = SessionLocal()
     try:
         seed_roles(db)

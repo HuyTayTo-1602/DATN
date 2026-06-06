@@ -13,8 +13,23 @@ from app.schemas.admin import (
 from app.schemas.company import CompanyResponse
 from app.schemas.job import JobResponse
 from app.services import admin_service
+from app.services import admin_dashboard_service
+from app.schemas.admin_dashboard import DashboardSummary
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DASHBOARD
+# ═══════════════════════════════════════════════════════════════════════════════
+
+@router.get("/dashboard/summary", response_model=DashboardSummary, summary="[Admin] Dashboard tổng quan")
+def get_dashboard_summary(
+    period: str = Query("30d", description="today | 7d | 30d"),
+    _: User = Depends(require_admin),
+    db: Session = Depends(get_db),
+):
+    return admin_dashboard_service.get_dashboard_summary(db, period)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

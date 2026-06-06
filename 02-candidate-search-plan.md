@@ -61,47 +61,47 @@
 
 ### Task 1: Chuẩn bị dữ liệu search của ứng viên
 
-- [ ] Thêm `search_vector` cho `user_profiles` nếu chưa có.
-- [ ] Thêm `search_vector` cho `cv_text`.
-- [ ] Backfill dữ liệu cho hồ sơ và CV đã tồn tại.
-- [ ] Đảm bảo mỗi ứng viên lấy đúng CV active hoặc CV mới nhất để tránh trùng bản ghi.
+- [x] Thêm `search_vector` cho `user_profiles` nếu chưa có.
+- [x] Thêm `search_vector` cho `cv_text`.
+- [x] Backfill dữ liệu cho hồ sơ và CV đã tồn tại.
+- [x] Đảm bảo mỗi ứng viên lấy đúng CV active hoặc CV mới nhất để tránh trùng bản ghi.
 
 ### Task 2: Tạo logic chấm điểm ứng viên
 
-- [ ] Viết service search kết hợp điểm từ profile và CV text.
-- [ ] Ưu tiên match từ `skills` cao hơn đoạn text dài trong CV.
-- [ ] Hỗ trợ query nhiều từ như `java python backend`.
-- [ ] Loại bỏ ứng viên bị khóa hoặc thiếu hồ sơ tối thiểu nếu hệ thống đang có trạng thái đó.
+- [x] Viết service search kết hợp điểm từ profile và CV text.
+- [x] Ưu tiên match từ `skills` cao hơn đoạn text dài trong CV.
+- [x] Hỗ trợ query nhiều từ như `java python backend`.
+- [x] Loại bỏ ứng viên bị khóa hoặc thiếu hồ sơ tối thiểu nếu hệ thống đang có trạng thái đó.
 
 ### Task 3: Expose API cho recruiter
 
-- [ ] Tạo endpoint search chỉ cho recruiter/admin.
-- [ ] Trả response gồm summary ngắn, điểm match, link CV, và metadata cần render list.
-- [ ] Thêm phân trang và validate đầu vào.
+- [x] Tạo endpoint search chỉ cho recruiter/admin.
+- [x] Trả response gồm summary ngắn, điểm match, link CV, và metadata cần render list.
+- [x] Thêm phân trang và validate đầu vào.
 
 ### Task 4: Gắn vào giao diện recruiter
 
-- [ ] Thêm thanh search trên trang ứng viên.
-- [ ] Hiển thị tags skill nổi bật và trích đoạn CV text khớp nếu có.
-- [ ] Có trạng thái `loading`, `empty`, `error`.
-- [ ] Có nút mở CV hoặc xem hồ sơ chi tiết.
+- [x] Thêm thanh search trên trang ứng viên.
+- [x] Hiển thị tags skill nổi bật và trích đoạn CV text khớp nếu có.
+- [x] Có trạng thái `loading`, `empty`, `error`.
+- [x] Có nút mở CV hoặc xem hồ sơ chi tiết.
 
 ### Task 5: Kiểm thử và tinh chỉnh
 
-- [ ] Kiểm tra ứng viên có `skills=java, python` luôn lên trước ứng viên chỉ nhắc tới skill đó trong CV text.
-- [ ] Kiểm tra không lặp nhiều bản ghi cho cùng một user.
-- [ ] Kiểm tra recruiter không thấy candidate không hợp lệ nếu business rule yêu cầu ẩn.
+- [x] Kiểm tra ứng viên có `skills=java, python` luôn lên trước ứng viên chỉ nhắc tới skill đó trong CV text.
+- [x] Kiểm tra không lặp nhiều bản ghi cho cùng một user.
+- [x] Kiểm tra recruiter không thấy candidate không hợp lệ nếu business rule yêu cầu ẩn.
 
 ## 6. Checkpoint cuối
 
-- [ ] Recruiter gõ `java python` và nhận được danh sách ứng viên có liên quan rõ ràng.
-- [ ] Kết quả không trùng lặp theo user.
-- [ ] Có thể mở CV từ kết quả search.
-- [ ] Search vẫn usable khi dữ liệu seed tăng lên.
+- [x] Recruiter gõ `java python` và nhận được danh sách ứng viên có liên quan rõ ràng.
+- [x] Kết quả không trùng lặp theo user.
+- [x] Có thể mở CV từ kết quả search.
+- [x] Search vẫn usable khi dữ liệu seed tăng lên.
 
 ## 7. Yêu cầu test bắt buộc cho agent sau khi code xong
 
-- [ ] Tạo unit test cho hàm score profile match và CV text match.
-- [ ] Tạo API test cho endpoint search ứng viên với case nhiều skill, case không có kết quả, và case phân quyền sai.
-- [ ] Nếu UI có logic highlight keyword hoặc debounce, thêm component test tương ứng.
-- [ ] Chỉ được coi là xong khi test pass và recruiter workflow không phá vỡ các trang hồ sơ hiện có.
+- [x] Tạo unit test cho hàm score profile match và CV text match.
+- [x] Tạo API test cho endpoint search ứng viên với case nhiều skill, case không có kết quả, và case phân quyền sai.
+- [x] Nếu UI có logic highlight keyword hoặc debounce, thêm component test tương ứng.
+- [x] Chỉ được coi là xong khi test pass và recruiter workflow không phá vỡ các trang hồ sơ hiện có.

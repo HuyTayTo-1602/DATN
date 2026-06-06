@@ -6,7 +6,7 @@
 from datetime import date
 
 from sqlalchemy.orm import Session
-from sqlalchemy import or_, cast, Integer
+from sqlalchemy import or_, cast, Integer, func
 from fastapi import HTTPException, status
 
 from app.models.job import Job
@@ -63,10 +63,36 @@ def get_jobs(filters: JobFilterParams, db: Session) -> dict:
     if filters.level:
         query = query.filter(Job.level == filters.level)
 
-    if filters.salary_min is not None:
-        query = query.filter(cast(Job.salary, Integer) >= filters.salary_min)
-    if filters.salary_max is not None:
-        query = query.filter(cast(Job.salary, Integer) <= filters.salary_max)
+    if filters.salary_min is not None or filters.salary_max is not None:
+        # salary stores mixed formats: "15" (int) or "6-10 triệu" (range string from seed data)
+        # Use regex to extract lower/upper bounds safely without crashing on non-numeric values.
+        salary_col = func.coalesce(Job.salary, '')
+
+        # Lower bound: first number in string ("6-10 triệu" → 6, "15" → 15, "Thỏa thuận" → NULL)
+        salary_lower = cast(
+            func.nullif(
+                func.regexp_replace(salary_col, '[^0-9].*$', ''),
+                ''
+            ),
+            Integer
+        )
+        # Upper bound: last number in string ("6-10 triệu" → 10, "15" → 15, "Thỏa thuận" → NULL)
+        salary_upper = cast(
+            func.nullif(
+                func.regexp_replace(
+                    func.regexp_replace(salary_col, '[^0-9]*$', ''),
+                    '^.*[^0-9]',
+                    ''
+                ),
+                ''
+            ),
+            Integer
+        )
+
+        if filters.salary_min is not None:
+            query = query.filter(salary_upper >= filters.salary_min)
+        if filters.salary_max is not None:
+            query = query.filter(salary_lower <= filters.salary_max)
 
     if filters.company_name:
         query = query.join(Company).filter(Company.name.ilike(f"%{filters.company_name}%"))

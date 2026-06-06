@@ -1,0 +1,1053 @@
+{
+  "backend": {
+    "Junior": [
+      {
+        "title": "Junior Backend Developer",
+        "salary": "8-15 triá»‡u",
+        "description": "Báº¡n sáº½ tham gia phÃ¡t triá»ƒn vÃ  báº£o trÃ¬ cÃ¡c API RESTful phá»¥c vá»¥ há»‡ thá»‘ng web. LÃ m viá»‡c cÃ¹ng team senior Ä‘á»ƒ há»c há»i kiáº¿n trÃºc microservices vÃ  best practices trong phÃ¡t triá»ƒn backend. Tham gia code review vÃ  viáº¿t unit tests.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c chuyÃªn ngÃ nh CNTT hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Náº¯m vá»¯ng Ã­t nháº¥t 1 ngÃ´n ngá»¯: Python, Java, hoáº·c Node.js\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» SQL vÃ  thiáº¿t káº¿ cÆ¡ sá»Ÿ dá»¯ liá»‡u\n- Kiáº¿n thá»©c vá» RESTful API vÃ  HTTP protocol\n- Biáº¿t sá»­ dá»¥ng Git vÃ  lÃ m viá»‡c trong mÃ´i trÆ°á»ng team\n- Tiáº¿ng Anh Ä‘á»c hiá»ƒu tÃ i liá»‡u ká»¹ thuáº­t",
+        "benefits": "- LÆ°Æ¡ng review 6 thÃ¡ng/láº§n\n- Báº£o hiá»ƒm sá»©c khá»e toÃ n diá»‡n\n- Laptop Ä‘Æ°á»£c cáº¥p\n- ÄÃ o táº¡o vÃ  mentoring tá»« senior developer\n- Team outing hÃ ng quÃ½"
+      },
+      {
+        "title": "Software Engineer (Backend)",
+        "salary": "10-18 triá»‡u",
+        "description": "XÃ¢y dá»±ng cÃ¡c tÃ­nh nÄƒng má»›i cho há»‡ thá»‘ng backend quy mÃ´ trung bÃ¬nh. Tham gia thiáº¿t káº¿ database schema vÃ  viáº¿t migration scripts. Debug vÃ  fix bugs trong production environment vá»›i sá»± hÆ°á»›ng dáº«n cá»§a team lead.",
+        "requirements": "- 0-1 nÄƒm kinh nghiá»‡m backend development\n- ThÃ nh tháº¡o Python hoáº·c Java\n- Hiá»ƒu vá» ORM (SQLAlchemy, Hibernate)\n- Quen thuá»™c vá»›i Docker vÃ  container concepts\n- CÃ³ dá»± Ã¡n thá»±c táº¿ trÃªn GitHub lÃ  lá»£i tháº¿\n- Ká»¹ nÄƒng debug vÃ  problem-solving tá»‘t",
+        "benefits": "- ThÆ°á»Ÿng hiá»‡u suáº¥t 13th month salary\n- WFH 2 ngÃ y/tuáº§n sau thá»­ viá»‡c\n- KhÃ³a há»c online Ä‘Æ°á»£c tÃ i trá»£\n- Snack bar vÃ  Ä‘á»“ uá»‘ng miá»…n phÃ­\n- Team building activities"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Backend Developer",
+        "salary": "20-35 triá»‡u",
+        "description": "Thiáº¿t káº¿ vÃ  phÃ¡t triá»ƒn cÃ¡c há»‡ thá»‘ng backend hiá»‡u suáº¥t cao, xá»­ lÃ½ hÃ ng trÄƒm nghÃ¬n request má»—i ngÃ y. LÃ m viá»‡c trong mÃ´i trÆ°á»ng microservices, thiáº¿t káº¿ RESTful vÃ  GraphQL APIs. Tham gia vÃ o cÃ¡c cuá»™c tháº£o luáº­n kiáº¿n trÃºc vÃ  Ä‘Æ°a ra giáº£i phÃ¡p ká»¹ thuáº­t.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m backend development\n- ThÃ nh tháº¡o Python, Java, hoáº·c Node.js\n- Kinh nghiá»‡m vá»›i PostgreSQL, MongoDB\n- Hiá»ƒu biáº¿t tá»‘t vá» caching (Redis), message queues (Kafka/RabbitMQ)\n- Kinh nghiá»‡m vá»›i Docker, CI/CD pipelines\n- Hiá»ƒu vá» design patterns vÃ  SOLID principles\n- Tiáº¿ng Anh giao tiáº¿p Ä‘Æ°á»£c",
+        "benefits": "- Cá»• phiáº¿u Æ°u Ä‘Ã£i (ESOP) sau 1 nÄƒm\n- Báº£o hiá»ƒm sá»©c khá»e cho cáº£ gia Ä‘Ã¬nh\n- Flexible working hours\n- Budget Ä‘Ã o táº¡o 5 triá»‡u/nÄƒm\n- Annual company trip abroad"
+      },
+      {
+        "title": "Backend Engineer",
+        "salary": "25-40 triá»‡u",
+        "description": "PhÃ¡t triá»ƒn vÃ  váº­n hÃ nh cÃ¡c há»‡ thá»‘ng distributed, Ä‘áº£m báº£o high availability vÃ  horizontal scalability. Tham gia on-call rotation vÃ  xá»­ lÃ½ sá»± cá»‘ production. Mentoring junior developers vÃ  viáº¿t technical documentation.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m vá»›i há»‡ thá»‘ng distributed\n- ThÃ nh tháº¡o Ã­t nháº¥t 2 ngÃ´n ngá»¯ backend\n- Kinh nghiá»‡m vá»›i microservices vÃ  event-driven architecture\n- Náº¯m vá»¯ng SQL optimization vÃ  indexing strategies\n- Kinh nghiá»‡m vá»›i cloud services (AWS/GCP/Azure)\n- Ká»¹ nÄƒng Ä‘á»c vÃ  phÃ¢n tÃ­ch code cá»§a ngÆ°á»i khÃ¡c",
+        "benefits": "- LÆ°Æ¡ng thÃ¡ng 13 + thÆ°á»Ÿng project\n- Gym membership Ä‘Æ°á»£c tÃ i trá»£\n- Remote work policy linh hoáº¡t\n- Conference attendance Ä‘Æ°á»£c tÃ i trá»£\n- Career development roadmap rÃµ rÃ ng"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Backend Developer",
+        "salary": "40-65 triá»‡u",
+        "description": "Lead technical design cho cÃ¡c feature phá»©c táº¡p, phá»‘i há»£p vá»›i Product vÃ  Architect Ä‘á»ƒ Ä‘Æ°a ra giáº£i phÃ¡p ká»¹ thuáº­t phÃ¹ há»£p. Äáº£m báº£o cháº¥t lÆ°á»£ng code qua code review vÃ  Ä‘á»‹nh ra coding standards. Mentor cho team members vÃ  giÃºp Ä‘á»¡ giáº£i quyáº¿t technical debt.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m backend development\n- Kinh nghiá»‡m design há»‡ thá»‘ng large-scale (1M+ users)\n- ThÃ nh tháº¡o microservices, event sourcing, CQRS\n- Deep knowledge vá» database internals vÃ  query optimization\n- Kinh nghiá»‡m vá»›i Kubernetes, service mesh\n- Ká»¹ nÄƒng communication vÃ  leadership tá»‘t\n- Tiáº¿ng Anh Ä‘á»§ Ä‘á»ƒ lÃ m viá»‡c vá»›i khÃ¡ch nÆ°á»›c ngoÃ i",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh top 10% thá»‹ trÆ°á»ng\n- ESOP háº¥p dáº«n\n- ToÃ n quyá»n chá»n tech stack cho dá»± Ã¡n\n- NgÃ¢n sÃ¡ch há»c táº­p khÃ´ng giá»›i háº¡n\n- Flexible hours vÃ  remote policy"
+      },
+      {
+        "title": "Senior Software Engineer (Backend)",
+        "salary": "45-70 triá»‡u",
+        "description": "Kiáº¿n trÃºc vÃ  implement cÃ¡c há»‡ thá»‘ng backend mission-critical. ÄÃ³ng vai trÃ² technical owner cho má»™t hoáº·c nhiá»u services, Ä‘áº£m báº£o SLA vÃ  performance targets. Collaborate vá»›i cross-functional teams Ä‘á»ƒ deliver features end-to-end.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m, Æ°u tiÃªn startup environment\n- Kinh nghiá»‡m scale há»‡ thá»‘ng tá»« small Ä‘áº¿n large\n- ThÃ nh tháº¡o cloud-native development\n- Kinh nghiá»‡m vá»›i observability (logging, metrics, tracing)\n- Strong problem-solving vÃ  analytical skills\n- Mentoring experience lÃ  báº¯t buá»™c",
+        "benefits": "- Sign-on bonus cho á»©ng viÃªn xuáº¥t sáº¯c\n- Equity package háº¥p dáº«n\n- MacBook Pro Ä‘Æ°á»£c cáº¥p\n- Unlimited PTO policy\n- Team of A-players"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Engineering Manager (Backend)",
+        "salary": "60-100 triá»‡u",
+        "description": "Quáº£n lÃ½ vÃ  phÃ¡t triá»ƒn team backend 5-10 ngÆ°á»i, Ä‘áº£m báº£o delivery vÃ  cháº¥t lÆ°á»£ng ká»¹ thuáº­t. Phá»‘i há»£p vá»›i Product Management Ä‘á»ƒ láº­p káº¿ hoáº¡ch roadmap ká»¹ thuáº­t. Recruit, retain vÃ  develop engineering talent.",
+        "requirements": "- 7+ nÄƒm kinh nghiá»‡m ká»¹ thuáº­t, 2+ nÄƒm management\n- Kinh nghiá»‡m xÃ¢y dá»±ng vÃ  váº­n hÃ nh team engineering\n- Kháº£ nÄƒng vá»«a code vá»«a manage hiá»‡u quáº£\n- Ká»¹ nÄƒng stakeholder management xuáº¥t sáº¯c\n- Kinh nghiá»‡m vá»›i Agile/Scrum\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- GÃ³i lÆ°Æ¡ng + thÆ°á»Ÿng háº¥p dáº«n\n- ESOP Æ°u tiÃªn cáº¥p quáº£n lÃ½\n- Budget tuyá»ƒn dá»¥ng tá»± chá»§\n- Executive benefits package\n- CÆ¡ há»™i phÃ¡t triá»ƒn thÃ nh Director"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Backend Developer",
+        "salary": "6-10 triệu",
+        "description": "Cơ hội tuyệt vời cho sinh viên mới tốt nghiệp hoặc sắp tốt nghiệp ngành CNTT gia nhập team backend. Bạn sẽ được đào tạo bài bản từ senior developer, tham gia phát triển tính năng thực tế và học cách làm việc trong môi trường Agile chuyên nghiệp.",
+        "requirements": "- Đang học năm cuối hoặc đã tốt nghiệp Đại học CNTT\n- Hiểu biết cơ bản về lập trình (Python, Java, hoặc Node.js)\n- Ham học hỏi, chủ động và không ngại thử sai\n- Không yêu cầu kinh nghiệm làm việc thực tế\n- Có dự án cá nhân trên GitHub là điểm cộng",
+        "benefits": "- Lương học việc + xét tăng sau 2 tháng\n- Mentor 1-1 từ senior developer\n- Môi trường thân thiện, không áp lực\n- Cơ hội convert sang Full-time sau 3 tháng\n- Laptop được cấp khi vào chính thức"
+      }
+    ]
+  },
+  "frontend": {
+    "Junior": [
+      {
+        "title": "Junior Frontend Developer",
+        "salary": "8-14 triá»‡u",
+        "description": "XÃ¢y dá»±ng giao diá»‡n ngÆ°á»i dÃ¹ng theo thiáº¿t káº¿ tá»« team UI/UX, sá»­ dá»¥ng React vÃ  TypeScript. Implement responsive layouts vÃ  Ä‘áº£m báº£o cross-browser compatibility. Tham gia daily standup vÃ  code review trong mÃ´i trÆ°á»ng Agile.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c CNTT hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- ThÃ nh tháº¡o HTML5, CSS3, JavaScript (ES6+)\n- Kinh nghiá»‡m cÆ¡ báº£n vá»›i React hoáº·c Vue.js\n- Hiá»ƒu biáº¿t vá» responsive design vÃ  CSS preprocessors\n- Biáº¿t sá»­ dá»¥ng Git\n- CÃ³ portfolio/dá»± Ã¡n trÃªn GitHub lÃ  Ä‘iá»ƒm cá»™ng",
+        "benefits": "- MÃ´i trÆ°á»ng thÃ¢n thiá»‡n vÃ  há»— trá»£\n- CÆ¡ há»™i há»c há»i tá»« senior developer\n- Laptop Ä‘Æ°á»£c cáº¥p\n- Team lunch hÃ ng tuáº§n\n- ThÆ°á»Ÿng lá»… Táº¿t"
+      },
+      {
+        "title": "UI Developer",
+        "salary": "9-15 triá»‡u",
+        "description": "Chuyá»ƒn Ä‘á»•i mockup Figma thÃ nh giao diá»‡n web Ä‘áº¹p vÃ  hiá»‡u quáº£. Tá»‘i Æ°u performance cá»§a frontend application vÃ  Ä‘áº£m báº£o tráº£i nghiá»‡m ngÆ°á»i dÃ¹ng mÆ°á»£t mÃ . LÃ m viá»‡c cháº·t cháº½ vá»›i designer vÃ  backend developer.",
+        "requirements": "- 0-1 nÄƒm kinh nghiá»‡m frontend\n- ThÃ nh tháº¡o CSS (Flexbox, Grid, Animation)\n- Kinh nghiá»‡m vá»›i TailwindCSS hoáº·c styled-components\n- Biáº¿t lÃ m viá»‡c vá»›i REST API\n- Quan tÃ¢m Ä‘áº¿n UX vÃ  pixel-perfect implementation\n- Ká»¹ nÄƒng design cÆ¡ báº£n lÃ  lá»£i tháº¿",
+        "benefits": "- Flexible working hours\n- CÆ¡ há»™i lÃ m sáº£n pháº©m thá»±c táº¿ ngay tá»« Ä‘áº§u\n- ÄÃ o táº¡o ká»¹ thuáº­t hÃ ng tuáº§n\n- Annual performance review\n- Company events vÃ  team activities"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Frontend Developer",
+        "salary": "18-32 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  tá»‘i Æ°u cÃ¡c á»©ng dá»¥ng web SPA vá»›i React/Next.js. Implement state management phá»©c táº¡p, code splitting, vÃ  lazy loading Ä‘á»ƒ Ä‘áº¡t performance tá»‘t nháº¥t. Tham gia architectural discussions vÃ  Ä‘Æ°a ra technical decisions.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m frontend development\n- ThÃ nh tháº¡o React vá»›i TypeScript\n- Kinh nghiá»‡m vá»›i Redux, Zustand hoáº·c React Query\n- Hiá»ƒu biáº¿t vá» web performance (Core Web Vitals)\n- Kinh nghiá»‡m vá»›i testing (Jest, React Testing Library)\n- Hiá»ƒu vá» accessibility (WCAG) lÃ  lá»£i tháº¿",
+        "benefits": "- WFH 3 ngÃ y/tuáº§n\n- LÆ°Æ¡ng review 2 láº§n/nÄƒm\n- Tech conference tickets\n- Premium health insurance\n- Team trips 2 láº§n/nÄƒm"
+      },
+      {
+        "title": "React Developer",
+        "salary": "22-38 triá»‡u",
+        "description": "PhÃ¡t triá»ƒn vÃ  maintain cÃ¡c React applications phá»¥c vá»¥ hÃ ng triá»‡u ngÆ°á»i dÃ¹ng. Thiáº¿t káº¿ component architecture, xÃ¢y dá»±ng design system vÃ  optimize bundle size. Collaborate vá»›i backend team Ä‘á»ƒ thiáº¿t káº¿ API contracts.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m React\n- Kinh nghiá»‡m vá»›i Next.js vÃ  SSR/SSG\n- ThÃ nh tháº¡o TypeScript\n- Kinh nghiá»‡m build cÃ´ng cá»¥ (Webpack, Vite)\n- Hiá»ƒu biáº¿t vá» SEO ká»¹ thuáº­t\n- Ká»¹ nÄƒng communication tá»‘t vá»›i team Ä‘a chá»©c nÄƒng",
+        "benefits": "- Equity option sau 1 nÄƒm\n- MacBook Pro\n- Budget cho phá»¥ kiá»‡n setup táº¡i nhÃ \n- Unlimited learning resources\n- Flex PTO"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Frontend Engineer",
+        "salary": "38-60 triá»‡u",
+        "description": "Lead frontend architecture cho cÃ¡c sáº£n pháº©m SaaS quy mÃ´ lá»›n. XÃ¢y dá»±ng vÃ  maintain design system, Ä‘áº·t ra coding standards vÃ  review practices. Collaborate vá»›i Product, UX vÃ  Backend Ä‘á»ƒ deliver exceptional user experience.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m frontend, Æ°u tiÃªn product company\n- Expert level React/TypeScript\n- Kinh nghiá»‡m xÃ¢y dá»±ng design system tá»« Ä‘áº§u\n- SÃ¢u vá» web performance vÃ  optimization\n- Kinh nghiá»‡m vá»›i micro-frontend architecture\n- Mentoring vÃ  tech leadership experience",
+        "benefits": "- Top-tier compensation\n- Technical leadership opportunities\n- Significant engineering budget\n- Work from anywhere policy\n- Conference speaker support"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Frontend Team Lead",
+        "salary": "55-85 triá»‡u",
+        "description": "Lead team frontend 4-8 ngÆ°á»i, define technical roadmap vÃ  kiáº¿n trÃºc frontend. Äáº£m báº£o cháº¥t lÆ°á»£ng code, performance vÃ  user experience á»Ÿ má»©c cao nháº¥t. Partner vá»›i Design vÃ  Product teams Ä‘á»ƒ xÃ¢y dá»±ng product strategy.",
+        "requirements": "- 6+ nÄƒm kinh nghiá»‡m frontend, 2+ nÄƒm lead\n- Kinh nghiá»‡m quáº£n lÃ½ team tá»« 3 ngÆ°á»i trá»Ÿ lÃªn\n- Strong technical background trong React ecosystem\n- Ká»¹ nÄƒng project planning vÃ  estimation\n- Passion for user experience\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- Competitive salary + annual bonus\n- ESOP\n- Hiring budget authority\n- Technology choice autonomy\n- Executive perks"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Frontend Developer",
+        "salary": "6-10 triệu",
+        "description": "Tìm kiếm fresher đam mê thiết kế giao diện web đẹp và mượt mà. Bạn sẽ được hướng dẫn trực tiếp từ team, làm việc với React và TailwindCSS trên các dự án thực tế từ ngày đầu tiên.",
+        "requirements": "- Tốt nghiệp hoặc sắp tốt nghiệp Đại học CNTT, Thiết kế hoặc liên quan\n- Biết HTML, CSS, JavaScript cơ bản\n- Có eye for design, quan tâm đến UX/UI\n- Portfolio cá nhân hoặc dự án nhỏ là lợi thế lớn\n- Chịu khó học hỏi và tiếp thu feedback",
+        "benefits": "- Lương fresher cạnh tranh\n- Được làm việc với thiết kế thực tế\n- Học React và công nghệ frontend hiện đại\n- Môi trường trẻ, sáng tạo\n- Full-time sau thử việc thành công"
+      }
+    ]
+  },
+  "data": {
+    "Junior": [
+      {
+        "title": "Junior Data Analyst",
+        "salary": "10-16 triá»‡u",
+        "description": "Thu tháº­p, lÃ m sáº¡ch vÃ  phÃ¢n tÃ­ch dá»¯ liá»‡u Ä‘á»ƒ há»— trá»£ ra quyáº¿t Ä‘á»‹nh kinh doanh. XÃ¢y dá»±ng dashboard vÃ  bÃ¡o cÃ¡o Ä‘á»‹nh ká»³ báº±ng Tableau hoáº·c Power BI. LÃ m viá»‡c vá»›i cÃ¡c business stakeholders Ä‘á»ƒ hiá»ƒu yÃªu cáº§u vÃ  translate thÃ nh insight cÃ³ giÃ¡ trá»‹.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c ngÃ nh Thá»‘ng kÃª, CNTT, ToÃ¡n hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- ThÃ nh tháº¡o SQL (SELECT, JOIN, aggregation)\n- Biáº¿t Python cÆ¡ báº£n (Pandas, NumPy)\n- Kinh nghiá»‡m vá»›i Excel nÃ¢ng cao\n- Ká»¹ nÄƒng visualization cÆ¡ báº£n (Tableau, Power BI)\n- TÆ° duy phÃ¢n tÃ­ch vÃ  attention to detail",
+        "benefits": "- MÃ´i trÆ°á»ng há»c táº­p tá»‘t vá»›i nhiá»u data\n- Mentoring tá»« data scientist senior\n- ÄÃ o táº¡o cÃ´ng cá»¥ BI\n- Flexible working hours\n- Annual salary review"
+      },
+      {
+        "title": "Junior Data Engineer",
+        "salary": "12-18 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  maintain data pipelines Ä‘á»ƒ ingest vÃ  transform dá»¯ liá»‡u tá»« nhiá»u nguá»“n. Thiáº¿t káº¿ data models vÃ  schema cho data warehouse. LÃ m viá»‡c cÃ¹ng team Ä‘á»ƒ Ä‘áº£m báº£o data quality vÃ  reliability.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c CNTT hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- ThÃ nh tháº¡o Python vÃ  SQL\n- Kiáº¿n thá»©c cÆ¡ báº£n vá» ETL processes\n- Hiá»ƒu biáº¿t vá» cloud storage (S3, GCS)\n- Kinh nghiá»‡m vá»›i Airflow hoáº·c dbt lÃ  lá»£i tháº¿\n- Ká»¹ nÄƒng troubleshooting tá»‘t",
+        "benefits": "- LÃ m viá»‡c vá»›i data stack hiá»‡n Ä‘áº¡i\n- CÆ¡ há»™i há»c cloud technologies\n- Laptop Ä‘Æ°á»£c cáº¥p\n- Team learning sessions\n- Competitive entry-level package"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Data Scientist",
+        "salary": "25-45 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  deploy cÃ¡c mÃ´ hÃ¬nh machine learning cho bÃ i toÃ¡n dá»± Ä‘oÃ¡n hÃ nh vi ngÆ°á»i dÃ¹ng, churn prediction vÃ  recommendation system. Phá»‘i há»£p vá»›i product team Ä‘á»ƒ xÃ¡c Ä‘á»‹nh ML use cases vÃ  Ä‘Ã¡nh giÃ¡ business impact.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m data science\n- ThÃ nh tháº¡o Python (scikit-learn, TensorFlow/PyTorch)\n- Kinh nghiá»‡m vá»›i SQL vÃ  xá»­ lÃ½ large datasets\n- Hiá»ƒu biáº¿t vá» statistical modeling vÃ  A/B testing\n- Kinh nghiá»‡m deploy models (MLflow, BentoML)\n- Ká»¹ nÄƒng trÃ¬nh bÃ y insight cho non-technical audience",
+        "benefits": "- Cloud compute budget cho experiments\n- Conference vÃ  training budget\n- Flexible work from home\n- Healthcare premium\n- Research publication support"
+      },
+      {
+        "title": "Data Engineer",
+        "salary": "28-48 triá»‡u",
+        "description": "Thiáº¿t káº¿ vÃ  build data platform cho toÃ n cÃ´ng ty, xá»­ lÃ½ petabyte-scale data. Optimize data pipelines, implement data quality checks vÃ  build observability cho data infrastructure. Collaborate vá»›i analytics vÃ  ML teams.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m data engineering\n- ThÃ nh tháº¡o Python, SQL vÃ  Spark\n- Kinh nghiá»‡m vá»›i Airflow, dbt\n- Kinh nghiá»‡m vá»›i cloud data warehouses (BigQuery, Redshift, Snowflake)\n- Hiá»ƒu vá» data modeling (dimensional, Data Vault)\n- Stream processing experience (Kafka, Flink) lÃ  lá»£i tháº¿",
+        "benefits": "- LÃ m viá»‡c vá»›i data infrastructure quy mÃ´ lá»›n\n- Unlimited cloud budget cho phÃ¡t triá»ƒn\n- ÄÃ o táº¡o chuyÃªn sÃ¢u\n- Hybrid work model\n- Competitive salary"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Data Scientist",
+        "salary": "45-75 triá»‡u",
+        "description": "Lead cÃ¡c ML projects tá»« ideation Ä‘áº¿n production deployment. Define ML strategy vÃ  evaluate emerging techniques. Mentor junior data scientists vÃ  set standards cho experimentation framework. Present results Ä‘áº¿n executive leadership.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m data science/ML\n- SÃ¢u vá» machine learning, deep learning vÃ  statistical methods\n- Track record deploy models vÃ o production\n- Kinh nghiá»‡m vá»›i distributed training\n- Strong communication skills\n- PhD hoáº·c thÃ nh tÃ­ch research lÃ  lá»£i tháº¿",
+        "benefits": "- Research budget Ä‘Ã¡ng ká»ƒ\n- Flexible research time (20% time)\n- Publications encouraged\n- Top hardware (A100 GPU access)\n- Competitive total compensation"
+      },
+      {
+        "title": "Senior Data Engineer",
+        "salary": "48-78 triá»‡u",
+        "description": "Kiáº¿n trÃºc data platform next-generation, Ä‘áº·t ra engineering standards vÃ  best practices cho toÃ n data team. Äáº£m báº£o reliability, scalability vÃ  cost efficiency cá»§a data infrastructure. Drive data democratization trong cÃ´ng ty.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m data engineering\n- Expert vá» distributed systems vÃ  big data technologies\n- Kinh nghiá»‡m xÃ¢y dá»±ng data platform tá»« Ä‘áº§u\n- SÃ¢u vá» cloud infrastructure (AWS/GCP/Azure)\n- Kinh nghiá»‡m vá»›i real-time streaming architectures\n- Strong technical leadership",
+        "benefits": "- Platform leadership ownership\n- Significant infra budget\n- Architecture decision authority\n- Top compensation package\n- Visibility to C-suite"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Data Engineering Manager",
+        "salary": "65-100 triá»‡u",
+        "description": "Quáº£n lÃ½ team Data Engineering 5-12 ngÆ°á»i, Ä‘á»‹nh hÆ°á»›ng chiáº¿n lÆ°á»£c data infrastructure vÃ  platform. Phá»‘i há»£p vá»›i Analytics, ML vÃ  Product teams. Recruit vÃ  develop data engineering talent.",
+        "requirements": "- 7+ nÄƒm kinh nghiá»‡m data, 2+ nÄƒm management\n- Kinh nghiá»‡m quáº£n lÃ½ team ká»¹ thuáº­t\n- Strong data platform background\n- Hiá»ƒu vá» data governance vÃ  compliance\n- Ká»¹ nÄƒng cross-functional collaboration\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- Competitive executive package\n- Team building budget\n- Infrastructure investment authority\n- Company-wide data strategy ownership\n- Career path to VP/CTO"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Data Analyst",
+        "salary": "7-11 triệu",
+        "description": "Cơ hội lý tưởng để bước chân vào lĩnh vực Data Analytics. Bạn sẽ học cách thu thập, làm sạch dữ liệu và xây dựng báo cáo trực quan dưới sự hướng dẫn của team senior data.",
+        "requirements": "- Tốt nghiệp Đại học Thống kê, Toán, CNTT hoặc tương đương\n- Thành thạo Excel, biết SQL cơ bản\n- Có tư duy phân tích và thích làm việc với số liệu\n- Biết Python cơ bản (Pandas) là lợi thế\n- GPA 3.0+ là lợi thế",
+        "benefits": "- Được đào tạo SQL, Python, Power BI\n- Làm việc với dữ liệu thực tế của doanh nghiệp\n- Môi trường data-driven\n- Lộ trình rõ ràng lên Data Analyst chính thức\n- Bảo hiểm đầy đủ từ ngày 1"
+      }
+    ]
+  },
+  "devops": {
+    "Junior": [
+      {
+        "title": "Junior DevOps Engineer",
+        "salary": "10-16 triá»‡u",
+        "description": "Há»— trá»£ xÃ¢y dá»±ng vÃ  maintain CI/CD pipelines cho cÃ¡c á»©ng dá»¥ng web. Monitor há»‡ thá»‘ng vÃ  xá»­ lÃ½ cáº£nh bÃ¡o cÆ¡ báº£n. Tham gia vÃ o quÃ¡ trÃ¬nh deployment vÃ  troubleshoot infrastructure issues dÆ°á»›i sá»± hÆ°á»›ng dáº«n cá»§a senior.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c CNTT hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» Linux, networking vÃ  cloud\n- Kinh nghiá»‡m cÆ¡ báº£n vá»›i Docker vÃ  container\n- Biáº¿t bash scripting\n- Quen thuá»™c vá»›i Git\n- Nhiá»‡t tÃ¬nh há»c há»i lÃ  Ä‘iá»u quan trá»ng nháº¥t",
+        "benefits": "- Há»c cloud platform vá»›i budget Ä‘Æ°á»£c tÃ i trá»£\n- MÃ´i trÆ°á»ng production thá»±c táº¿ ngay tá»« Ä‘áº§u\n- On-call allowance\n- Team knowledge sharing\n- Fast promotion path"
+      },
+      {
+        "title": "System Administrator",
+        "salary": "9-15 triá»‡u",
+        "description": "Quáº£n lÃ½ vÃ  maintain Linux servers, monitoring há»‡ thá»‘ng vÃ  thá»±c hiá»‡n cÃ¡c task automation cÆ¡ báº£n. Há»— trá»£ setup mÃ´i trÆ°á»ng phÃ¡t triá»ƒn cho cÃ¡c team. Tham gia vÃ o backup vÃ  disaster recovery planning.",
+        "requirements": "- 0-2 nÄƒm kinh nghiá»‡m sysadmin\n- ThÃ nh tháº¡o Linux (Ubuntu/CentOS)\n- Biáº¿t Bash scripting vÃ  cron jobs\n- Kinh nghiá»‡m vá»›i monitoring tools (Zabbix, Nagios)\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» networking (TCP/IP, DNS, HTTP)\n- Cáº©n tháº­n vÃ  cÃ³ trÃ¡ch nhiá»‡m cao",
+        "benefits": "- LÃ m viá»‡c vá»›i háº¡ táº§ng thá»±c táº¿ cá»§a cÃ´ng ty\n- Certification support (Linux, AWS)\n- Stable working environment\n- Good work-life balance\n- Annual increment"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "DevOps Engineer",
+        "salary": "22-40 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  váº­n hÃ nh CI/CD pipelines cho nhiá»u teams. Quáº£n lÃ½ Kubernetes clusters vÃ  cloud infrastructure. Implement monitoring, alerting vÃ  incident response. Drive infrastructure-as-code adoption.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m DevOps\n- ThÃ nh tháº¡o Kubernetes vÃ  Docker\n- Kinh nghiá»‡m vá»›i cloud (AWS hoáº·c GCP hoáº·c Azure)\n- Kinh nghiá»‡m vá»›i IaC (Terraform, Ansible)\n- Quen thuá»™c vá»›i CI/CD tools (Jenkins, GitHub Actions)\n- Hiá»ƒu vá» security best practices",
+        "benefits": "- AWS/GCP certification Ä‘Æ°á»£c tÃ i trá»£\n- On-call bonus\n- Flexible working\n- Budget upgrade home office\n- Career development plan"
+      },
+      {
+        "title": "Cloud Engineer",
+        "salary": "28-48 triá»‡u",
+        "description": "Thiáº¿t káº¿ vÃ  implement cloud-native solutions trÃªn AWS/GCP/Azure. Tá»‘i Æ°u chi phÃ­ cloud vÃ  performance. XÃ¢y dá»±ng landing zones vÃ  Ä‘áº£m báº£o security compliance. Support cÃ¡c engineering teams vá» cloud architecture.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m cloud engineering\n- Ãt nháº¥t 1 cloud certification (AWS/GCP/Azure)\n- Kinh nghiá»‡m vá»›i Terraform vÃ  CloudFormation\n- Hiá»ƒu vá» cloud security, IAM, VPC\n- Kinh nghiá»‡m vá»›i serverless vÃ  managed services\n- Ká»¹ nÄƒng cost optimization",
+        "benefits": "- Multi-cloud exposure\n- Certification reimbursement\n- Cutting-edge tech stack\n- Remote-friendly culture\n- Competitive pay"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior DevOps Engineer",
+        "salary": "42-68 triá»‡u",
+        "description": "Lead thiáº¿t káº¿ infrastructure for mission-critical systems. XÃ¢y dá»±ng platform engineering roadmap vÃ  drive SRE practices. Mentor junior DevOps vÃ  set engineering standards. Collaborate vá»›i security team vá» compliance.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m DevOps/SRE\n- Expert vá» Kubernetes, service mesh (Istio/Linkerd)\n- Kinh nghiá»‡m vá»›i FinOps vÃ  cost optimization\n- Strong understanding vá» distributed systems\n- Kinh nghiá»‡m vá»›i chaos engineering\n- Excellent incident management skills",
+        "benefits": "- Significant cloud budget management\n- Tech lead opportunities\n- Conference speaking support\n- Top-tier compensation\n- Engineering culture of excellence"
+      },
+      {
+        "title": "Site Reliability Engineer",
+        "salary": "45-72 triá»‡u",
+        "description": "Äáº£m báº£o reliability vÃ  performance cá»§a há»‡ thá»‘ng phá»¥c vá»¥ hÃ ng triá»‡u ngÆ°á»i dÃ¹ng. Implement SLI/SLO/SLA framework vÃ  error budgets. Automate tofu-lifting Ä‘á»ƒ giáº£i phÃ³ng thá»i gian cho engineering work. Lead post-mortem culture.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m SRE/DevOps\n- Software engineering background máº¡nh\n- Expert vá» observability stack\n- Kinh nghiá»‡m incident management vÃ  blameless culture\n- ThÃ nh tháº¡o coding (Python, Go)\n- Strong operational mindset",
+        "benefits": "- SRE best-practice environment\n- Impactful work at scale\n- On-call compensation\n- Innovation time\n- Top SRE team"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "DevOps Lead / Infrastructure Manager",
+        "salary": "65-100 triá»‡u",
+        "description": "Quáº£n lÃ½ team Platform Engineering/DevOps 4-10 ngÆ°á»i. Äá»‹nh hÆ°á»›ng chiáº¿n lÆ°á»£c háº¡ táº§ng vÃ  cloud migration. Äáº£m báº£o uptime, security vÃ  cost targets. Partner vá»›i engineering leadership.",
+        "requirements": "- 7+ nÄƒm kinh nghiá»‡m, 2+ nÄƒm management\n- Kinh nghiá»‡m quáº£n lÃ½ infrastructure budget lá»›n\n- Cloud architecture expertise\n- Vendor management experience\n- Strong communication vÃ  stakeholder skills",
+        "benefits": "- Infrastructure strategy ownership\n- Significant budget authority\n- Executive visibility\n- Competitive manager package\n- Growth to VP Engineering"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher DevOps / Cloud Engineer",
+        "salary": "7-12 triệu",
+        "description": "Tìm kiếm fresher có đam mê với hệ thống và cloud. Bạn sẽ được học Docker, Linux và CI/CD trong môi trường thực tế, hỗ trợ team trong các tác vụ vận hành hàng ngày.",
+        "requirements": "- Tốt nghiệp Đại học CNTT, Mạng máy tính hoặc liên quan\n- Hiểu biết cơ bản về Linux và networking\n- Hứng thú với cloud, automation và infrastructure\n- Biết bash scripting cơ bản\n- Chứng chỉ AWS/GCP cơ bản là điểm cộng",
+        "benefits": "- Cloud training budget được tài trợ\n- Làm việc với hệ thống thực tế của công ty\n- On-call allowance khi tham gia rotation\n- Cơ hội lấy chứng chỉ AWS được công ty hỗ trợ\n- Môi trường học tập tốc độ cao"
+      }
+    ]
+  },
+  "qa": {
+    "Junior": [
+      {
+        "title": "Junior QA Engineer",
+        "salary": "8-14 triá»‡u",
+        "description": "Thá»±c hiá»‡n test cases cho cÃ¡c tÃ­nh nÄƒng má»›i, bÃ¡o cÃ¡o bugs vÃ  verify fixes. Tham gia vÃ o test planning vÃ  xÃ¢y dá»±ng test scenarios tá»« requirements. Há»c há»i automation testing vá»›i sá»± hÆ°á»›ng dáº«n cá»§a senior.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c CNTT hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Hiá»ƒu biáº¿t vá» software testing fundamentals (SDLC, STLC)\n- Biáº¿t viáº¿t test cases vÃ  bug reports rÃµ rÃ ng\n- Quen thuá»™c vá»›i Jira hoáº·c TestRail\n- Kiáº¿n thá»©c cÆ¡ báº£n vá» API testing (Postman)\n- Cáº©n tháº­n, tá»‰ má»‰ vÃ  kiÃªn nháº«n",
+        "benefits": "- ÄÃ o táº¡o automation testing\n- Certification support (ISTQB)\n- Friendly work environment\n- Stable team\n- Regular salary reviews"
+      },
+      {
+        "title": "Software Tester",
+        "salary": "8-13 triá»‡u",
+        "description": "Kiá»ƒm thá»­ thá»§ cÃ´ng vÃ  viáº¿t test cases cho web vÃ  mobile applications. Tham gia regression testing vÃ  UAT. Coordinate vá»›i developers Ä‘á»ƒ reproduce vÃ  verify bugs nhanh chÃ³ng.",
+        "requirements": "- 0-1 nÄƒm kinh nghiá»‡m testing\n- Hiá»ƒu vá» black-box vÃ  white-box testing\n- Kinh nghiá»‡m vá»›i mobile testing (iOS/Android) lÃ  lá»£i tháº¿\n- Ká»¹ nÄƒng phÃ¢n tÃ­ch yÃªu cáº§u\n- Tiáº¿ng Anh Ä‘á»§ Ä‘á»ƒ Ä‘á»c tÃ i liá»‡u\n- Ká»¹ nÄƒng lÃ m viá»‡c nhÃ³m tá»‘t",
+        "benefits": "- Há»c automation vá»›i team\n- Stable work environment\n- Team lunch\n- Health insurance\n- Annual bonus"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "QA Engineer",
+        "salary": "18-32 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  maintain automation test framework cho API vÃ  web UI. Integrate automation vÃ o CI/CD pipeline. Tham gia performance testing vÃ  security testing cÆ¡ báº£n. Mentor junior QAs.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m QA\n- Kinh nghiá»‡m vá»›i Selenium, Cypress hoáº·c Playwright\n- ThÃ nh tháº¡o Python hoáº·c JavaScript cho automation\n- Kinh nghiá»‡m API testing (Postman, REST Assured)\n- Hiá»ƒu vá» CI/CD vÃ  test integration\n- ISTQB Foundation lÃ  lá»£i tháº¿",
+        "benefits": "- Automation-first culture\n- Advanced training budget\n- Flexible hours\n- Remote work options\n- Career growth path"
+      },
+      {
+        "title": "Automation Engineer",
+        "salary": "22-38 triá»‡u",
+        "description": "Thiáº¿t káº¿ vÃ  implement automation testing strategy toÃ n diá»‡n. XÃ¢y dá»±ng test frameworks tá»« Ä‘áº§u vÃ  Ä‘áº£m báº£o coverage cao. PhÃ¢n tÃ­ch test results vÃ  bÃ¡o cÃ¡o cháº¥t lÆ°á»£ng cho stakeholders. Train team members vá» automation.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m automation testing\n- ThÃ nh tháº¡o Ã­t nháº¥t 1 automation framework (Selenium, Cypress, Appium)\n- Kinh nghiá»‡m vá»›i performance tools (JMeter, k6)\n- Hiá»ƒu vá» Page Object Model vÃ  test design patterns\n- Kinh nghiá»‡m API vÃ  web service testing\n- Ká»¹ nÄƒng problem analysis vÃ  debugging",
+        "benefits": "- Ownership cá»§a automation framework\n- Conference vÃ  training support\n- Hybrid model\n- Premium health package\n- Strong QA team culture"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior QA Engineer",
+        "salary": "35-58 triá»‡u",
+        "description": "Lead QA strategy cho multiple products, thiáº¿t káº¿ test architecture vÃ  Ä‘áº·t ra quality standards. Implement advanced automation solutions (visual testing, chaos testing). Serve nhÆ° quality advocate trong cross-functional teams.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m QA\n- Expert vá» automation frameworks vÃ  test architecture\n- Kinh nghiá»‡m performance, security vÃ  accessibility testing\n- Strong coding skills (Python, Java hoáº·c JavaScript)\n- Experience vá»›i cloud testing (Sauce Labs, BrowserStack)\n- Leadership vÃ  mentoring experience",
+        "benefits": "- QA chapter leadership\n- Tooling budget\n- Conference speaker opportunities\n- Top QA compensation\n- Cross-domain impact"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "QA Manager",
+        "salary": "55-90 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ QA function vá»›i team 5-15 ngÆ°á»i. Äá»‹nh hÆ°á»›ng quality engineering strategy vÃ  Ä‘áº£m báº£o sáº£n pháº©m Ä‘áº¡t cháº¥t lÆ°á»£ng cao nháº¥t. Phá»‘i há»£p vá»›i Product, Engineering vÃ  Delivery teams.",
+        "requirements": "- 7+ nÄƒm kinh nghiá»‡m QA, 3+ nÄƒm management\n- Kinh nghiá»‡m xÃ¢y dá»±ng QA processes tá»« Ä‘áº§u\n- Metrics-driven quality management\n- Budget management experience\n- Excellent communication vÃ  stakeholder management\n- ISTQB Advanced hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng lÃ  lá»£i tháº¿",
+        "benefits": "- QA organization ownership\n- Tooling vÃ  team building budget\n- Executive partner\n- Competitive manager compensation\n- Strategic quality leadership role"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher QA / Software Tester",
+        "salary": "6-10 triệu",
+        "description": "Cơ hội hoàn hảo để bắt đầu sự nghiệp trong lĩnh vực kiểm thử phần mềm. Bạn sẽ được đào tạo từ manual testing đến automation, làm việc trực tiếp trên các sản phẩm thực tế.",
+        "requirements": "- Tốt nghiệp Đại học CNTT hoặc các ngành kỹ thuật liên quan\n- Hiểu biết cơ bản về SDLC và quy trình phát triển phần mềm\n- Tỉ mỉ, cẩn thận và có tư duy phân tích tốt\n- Không cần kinh nghiệm testing thực tế\n- Biết Selenium hoặc Postman cơ bản là điểm cộng",
+        "benefits": "- Đào tạo manual và automation testing bài bản\n- ISTQB Foundation được hỗ trợ thi\n- Môi trường test thực tế\n- Career path rõ ràng\n- Team QA năng động, hỗ trợ nhau"
+      }
+    ]
+  },
+  "mobile": {
+    "Junior": [
+      {
+        "title": "Junior Mobile Developer",
+        "salary": "9-15 triá»‡u",
+        "description": "PhÃ¡t triá»ƒn tÃ­nh nÄƒng má»›i cho á»©ng dá»¥ng mobile trÃªn iOS hoáº·c Android theo thiáº¿t káº¿ tá»« UI/UX team. Fix bugs vÃ  improve app performance. Tham gia code review vÃ  há»c há»i best practices mobile development.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c CNTT hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Kinh nghiá»‡m cÆ¡ báº£n vá»›i React Native hoáº·c Flutter\n- Hoáº·c: Kotlin (Android) / Swift (iOS) cÆ¡ báº£n\n- Hiá»ƒu vá» mobile UI patterns vÃ  human interface guidelines\n- Biáº¿t sá»­ dá»¥ng Git\n- Portfolio app cÃ¡ nhÃ¢n lÃ  lá»£i tháº¿",
+        "benefits": "- iPhone/Android device Ä‘Æ°á»£c cáº¥p cho testing\n- Mentoring tá»« senior mobile dev\n- App store deployment experience\n- Learning budget\n- Fun team activities"
+      },
+      {
+        "title": "Junior iOS Developer",
+        "salary": "10-16 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  maintain iOS applications sá»­ dá»¥ng Swift vÃ  SwiftUI. Implement UI components theo thiáº¿t káº¿ Figma, tÃ­ch há»£p vá»›i backend APIs. Äáº£m báº£o app performance tá»‘t trÃªn nhiá»u loáº¡i device vÃ  iOS versions.",
+        "requirements": "- Kiáº¿n thá»©c cÆ¡ báº£n vá» Swift vÃ  UIKit\n- Hiá»ƒu biáº¿t vá» iOS SDK vÃ  Xcode\n- Kinh nghiá»‡m cÆ¡ báº£n vá»›i SwiftUI lÃ  lá»£i tháº¿\n- Hiá»ƒu vá» MVC/MVVM architecture pattern\n- CÃ³ app Ä‘Ã£ publish trÃªn App Store lÃ  Ä‘iá»ƒm cá»™ng lá»›n\n- Äam mÃª Apple ecosystem",
+        "benefits": "- MacBook Pro Ä‘Æ°á»£c cáº¥p\n- iPhone má»›i nháº¥t cho testing\n- Apple Developer account\n- WWDC session recordings\n- iOS community meetups"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Mobile Developer (React Native)",
+        "salary": "20-35 triá»‡u",
+        "description": "PhÃ¡t triá»ƒn cross-platform mobile applications vá»›i React Native. Optimize app performance, implement native modules khi cáº§n. Release builds lÃªn App Store vÃ  Google Play. Maintain backward compatibility across platforms.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m React Native\n- ThÃ nh tháº¡o JavaScript/TypeScript\n- Kinh nghiá»‡m vá»›i native iOS/Android development lÃ  lá»£i tháº¿\n- Hiá»ƒu vá» Redux/MobX state management\n- Kinh nghiá»‡m vá»›i CI/CD cho mobile (Fastlane, App Center)\n- Kinh nghiá»‡m vá»›i push notifications vÃ  deep links",
+        "benefits": "- PhÃ¡t triá»ƒn app hÃ ng triá»‡u ngÆ°á»i dÃ¹ng\n- Latest devices cho testing\n- Tech conference budget\n- Hybrid work\n- Competitive package"
+      },
+      {
+        "title": "Android Developer",
+        "salary": "22-38 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  maintain Android applications sá»­ dá»¥ng Kotlin vÃ  Jetpack Compose. Implement clean architecture (MVVM, MVI). Tá»‘i Æ°u app startup time, memory usage vÃ  battery consumption. Collaborate vá»›i iOS team Ä‘á»ƒ Ä‘áº£m báº£o feature parity.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m Android\n- ThÃ nh tháº¡o Kotlin\n- Kinh nghiá»‡m vá»›i Jetpack (Compose, ViewModel, Room, Navigation)\n- Hiá»ƒu vá» Android architecture components\n- Kinh nghiá»‡m vá»›i Retrofit vÃ  Coroutines\n- Kinh nghiá»‡m publish app lÃªn Google Play",
+        "benefits": "- Latest Android devices\n- Google I/O access\n- Kotlin/Google certifications\n- Remote work options\n- Strong engineering culture"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Mobile Developer",
+        "salary": "40-65 triá»‡u",
+        "description": "Lead mobile architecture decisions vÃ  xÃ¢y dá»±ng framework ná»™i bá»™. Giáº£i quyáº¿t cÃ¡c váº¥n Ä‘á» performance phá»©c táº¡p vÃ  nÃ¢ng cao UX. Mentor junior/middle mobile developers. Drive adoption cá»§a best practices trong toÃ n mobile team.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m mobile\n- Expert React Native hoáº·c native iOS/Android\n- Kinh nghiá»‡m vá»›i complex animations vÃ  custom UI components\n- Hiá»ƒu sÃ¢u vá» mobile performance profiling\n- Kinh nghiá»‡m vá»›i offline-first architecture\n- Technical leadership experience",
+        "benefits": "- Mobile architecture ownership\n- Latest flagship devices\n- Conference talks support\n- Equity participation\n- Top mobile engineering team"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Mobile Team Lead",
+        "salary": "58-90 triá»‡u",
+        "description": "Quáº£n lÃ½ team mobile 4-8 ngÆ°á»i (iOS + Android + React Native). Äá»‹nh hÆ°á»›ng mobile technology strategy vÃ  roadmap. Äáº£m báº£o cháº¥t lÆ°á»£ng release vÃ  app store ratings. Coordinate vá»›i Product vÃ  Design.",
+        "requirements": "- 6+ nÄƒm kinh nghiá»‡m mobile, 2+ nÄƒm lead\n- Strong background Ã­t nháº¥t 1 platform\n- Kinh nghiá»‡m cross-platform strategy\n- Release management expertise\n- People management skills\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- Mobile strategy ownership\n- App store performance accountability\n- Device lab management\n- Competitive leadership package\n- Path to Head of Mobile"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Mobile Developer",
+        "salary": "7-12 triệu",
+        "description": "Tìm kiếm fresher đam mê phát triển ứng dụng di động. Bạn sẽ được dẫn dắt để xây dựng tính năng thực tế trên iOS/Android hoặc React Native, học cách publish app và làm việc trong team mobile chuyên nghiệp.",
+        "requirements": "- Tốt nghiệp Đại học CNTT hoặc liên quan\n- Biết Swift, Kotlin, hoặc React Native cơ bản\n- Có app cá nhân trên App Store/Google Play là lợi thế lớn\n- Đam mê mobile và trải nghiệm người dùng\n- Chịu khó học hỏi công nghệ mới",
+        "benefits": "- iPhone/Android device cấp để test\n- Học từ senior mobile developer có kinh nghiệm\n- Tham gia publish app thực tế\n- Môi trường sáng tạo\n- Lương review sau 3 tháng"
+      }
+    ]
+  },
+  "ba": {
+    "Junior": [
+      {
+        "title": "Junior Business Analyst",
+        "salary": "10-16 triá»‡u",
+        "description": "Thu tháº­p vÃ  phÃ¢n tÃ­ch yÃªu cáº§u tá»« business stakeholders, chuyá»ƒn Ä‘á»•i thÃ nh functional specifications rÃµ rÃ ng cho development team. Tham gia sprint planning, backlog grooming vÃ  UAT. Há»— trá»£ PM trong viá»‡c manage product backlog.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c ngÃ nh CNTT, Kinh táº¿, Quáº£n trá»‹ kinh doanh hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Hiá»ƒu biáº¿t vá» Agile/Scrum methodologies\n- Ká»¹ nÄƒng giao tiáº¿p vÃ  phÃ¢n tÃ­ch yÃªu cáº§u tá»‘t\n- Biáº¿t váº½ sÆ¡ Ä‘á»“ BPMN hoáº·c UML cÆ¡ báº£n\n- ThÃ nh tháº¡o Jira vÃ  Confluence\n- Tiáº¿ng Anh Ä‘á»c hiá»ƒu tá»‘t",
+        "benefits": "- LÃ m viá»‡c vá»›i product team nÄƒng Ä‘á»™ng\n- Mentoring tá»« senior BA\n- Agile training\n- Chá»©ng chá»‰ BA Ä‘Æ°á»£c tÃ i trá»£\n- Clear career progression"
+      },
+      {
+        "title": "Business Analyst Fresher",
+        "salary": "8-13 triá»‡u",
+        "description": "Há»— trá»£ team BA trong viá»‡c phÃ¢n tÃ­ch yÃªu cáº§u vÃ  tÃ i liá»‡u hÃ³a. Tham gia cÃ¡c cuá»™c há»p stakeholder vÃ  note down requirements. Viáº¿t user stories vÃ  acceptance criteria dÆ°á»›i sá»± hÆ°á»›ng dáº«n cá»§a senior BA.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c báº¥t ká»³ chuyÃªn ngÃ nh nÃ o\n- TÆ° duy logic tá»‘t vÃ  ká»¹ nÄƒng phÃ¢n tÃ­ch\n- Ká»¹ nÄƒng viáº¿t tÃ i liá»‡u rÃµ rÃ ng, máº¡ch láº¡c\n- Quan tÃ¢m Ä‘áº¿n cÃ´ng nghá»‡ vÃ  pháº§n má»m\n- Tiáº¿ng Anh tá»‘t (Reading/Writing)\n- Sáºµn sÃ ng há»c há»i liÃªn tá»¥c",
+        "benefits": "- ÄÃ o táº¡o bÃ i báº£n tá»« Ä‘áº§u\n- MÃ´i trÆ°á»ng tráº» trung\n- Flexible working\n- Regular lunch vá»›i team\n- Fast track career"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Business Analyst",
+        "salary": "22-38 triá»‡u",
+        "description": "PhÃ¢n tÃ­ch vÃ  tÃ i liá»‡u hÃ³a business requirements cho cÃ¡c dá»± Ã¡n pháº§n má»m phá»©c táº¡p. Thiáº¿t káº¿ user flows vÃ  wireframes cÆ¡ báº£n. LÃ m viá»‡c Ä‘á»™c láº­p vá»›i stakeholders vÃ  translate requirements thÃ nh development stories.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m BA trong IT project\n- ThÃ nh tháº¡o Agile vÃ  cÃ³ kinh nghiá»‡m Scrum\n- Ká»¹ nÄƒng viáº¿t BRD, FRD, user stories\n- Kinh nghiá»‡m vá»›i Figma hoáº·c Balsamiq\n- Hiá»ƒu biáº¿t vá» database vÃ  API basics\n- Ká»¹ nÄƒng facilitation vÃ  workshop",
+        "benefits": "- Work with cross-functional teams\n- CBAP certification support\n- Quarterly performance review\n- Hybrid work model\n- Product shaping opportunities"
+      },
+      {
+        "title": "Product Analyst",
+        "salary": "25-42 triá»‡u",
+        "description": "PhÃ¢n tÃ­ch dá»¯ liá»‡u product Ä‘á»ƒ drive decision-making, xÃ¡c Ä‘á»‹nh bottlenecks trong user journey vÃ  Ä‘á» xuáº¥t improvements. XÃ¢y dá»±ng product metrics framework vÃ  dashboard. Collaborate vá»›i PMs Ä‘á»ƒ prioritize product backlog dá»±a trÃªn data.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m product analysis hoáº·c BA\n- ThÃ nh tháº¡o SQL vÃ  data analysis tools\n- Kinh nghiá»‡m vá»›i Mixpanel, Amplitude hoáº·c Google Analytics\n- Ká»¹ nÄƒng storytelling vá»›i data\n- Hiá»ƒu vá» A/B testing vÃ  experimentation\n- Ká»¹ nÄƒng presentation xuáº¥t sáº¯c",
+        "benefits": "- Data-driven product culture\n- Access to full product analytics stack\n- Product strategy involvement\n- Growth to PM path\n- Competitive salary"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Business Analyst",
+        "salary": "38-62 triá»‡u",
+        "description": "Lead BA activities cho multiple simultaneous projects, mentor junior BAs. Thiáº¿t káº¿ end-to-end solutions phá»©c táº¡p vÃ  present recommendations Ä‘áº¿n executive level. Drive process improvement vÃ  best practices.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m BA\n- CBAP hoáº·c PMI-PBA certification lÃ  lá»£i tháº¿\n- Kinh nghiá»‡m vá»›i enterprise systems (ERP, CRM)\n- Strong stakeholder management ká»ƒ cáº£ C-level\n- Kinh nghiá»‡m agile vÃ  waterfall\n- Excellent facilitation vÃ  communication",
+        "benefits": "- Strategic BA role\n- Executive stakeholder access\n- Leadership opportunities\n- Top BA compensation\n- Innovation focus"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "BA Manager / Head of Business Analysis",
+        "salary": "58-95 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o BA practice trong cÃ´ng ty, quáº£n lÃ½ team BA 3-8 ngÆ°á»i. Thiáº¿t láº­p BA processes, tools vÃ  competency framework. Partner vá»›i Product vÃ  Engineering leadership Ä‘á»ƒ align business vÃ  technology.",
+        "requirements": "- 7+ nÄƒm kinh nghiá»‡m BA, 3+ nÄƒm management\n- Kinh nghiá»‡m xÃ¢y dá»±ng BA capability\n- Enterprise analysis vÃ  transformation experience\n- CBAP hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- C-level relationship management\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- BA chapter ownership\n- Strategic business impact\n- Executive team participation\n- Competitive leadership package\n- Path to CPO/CTO"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Business Analyst",
+        "salary": "8-12 triệu",
+        "description": "Cơ hội tốt cho sinh viên mới ra trường muốn bước vào lĩnh vực phân tích nghiệp vụ. Bạn sẽ học cách thu thập yêu cầu, viết tài liệu và làm việc với team phát triển phần mềm theo Agile.",
+        "requirements": "- Tốt nghiệp Đại học CNTT, Kinh tế, Quản trị kinh doanh hoặc liên quan\n- Tư duy logic tốt và kỹ năng diễn đạt rõ ràng\n- Ham học hỏi về quy trình phần mềm và nghiệp vụ\n- Biết sử dụng Jira, Confluence cơ bản là điểm cộng\n- Tiếng Anh đọc hiểu tài liệu",
+        "benefits": "- Đào tạo Agile và kỹ năng BA từ đầu\n- Làm việc với team product thực tế\n- Mentoring từ senior BA\n- Chứng chỉ ECBA được hỗ trợ\n- Lộ trình phát triển rõ ràng"
+      }
+    ]
+  },
+  "healthcare": {
+    "Junior": [
+      {
+        "title": "Äiá»u dÆ°á»¡ng ViÃªn",
+        "salary": "8-14 triá»‡u",
+        "description": "ChÄƒm sÃ³c vÃ  theo dÃµi tÃ¬nh tráº¡ng bá»‡nh nhÃ¢n táº¡i khoa ná»™i trÃº. Thá»±c hiá»‡n y lá»‡nh cá»§a bÃ¡c sÄ©, ghi chÃ©p há»“ sÆ¡ bá»‡nh Ã¡n Ä‘iá»‡n tá»­ vÃ  bÃ¡o cÃ¡o sá»± thay Ä‘á»•i tÃ¬nh tráº¡ng bá»‡nh nhÃ¢n ká»‹p thá»i. Phá»‘i há»£p vá»›i ekip y táº¿ Ä‘á»ƒ Ä‘áº£m báº£o cháº¥t lÆ°á»£ng chÄƒm sÃ³c toÃ n diá»‡n.",
+        "requirements": "- Tá»‘t nghiá»‡p Trung cáº¥p/Cao Ä‘áº³ng/Äáº¡i há»c Äiá»u dÆ°á»¡ng\n- CÃ³ chá»©ng chá»‰ hÃ nh nghá» Ä‘iá»u dÆ°á»¡ng\n- Kiáº¿n thá»©c vá» quy trÃ¬nh chÄƒm sÃ³c bá»‡nh nhÃ¢n, tiÃªm truyá»n, sÆ¡ cá»©u\n- CÃ³ trÃ¡ch nhiá»‡m, cáº©n tháº­n vÃ  táº­n tÃ¢m vá»›i nghá»\n- CÃ³ kháº£ nÄƒng lÃ m viá»‡c theo ca (ngÃ y/Ä‘Ãªm)",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + trá»±c phÃ­ + phá»¥ cáº¥p ca\n- Báº£o hiá»ƒm sá»©c khá»e toÃ n diá»‡n\n- ÄÃ o táº¡o chuyÃªn mÃ´n thÆ°á»ng xuyÃªn\n- MÃ´i trÆ°á»ng lÃ m viá»‡c chuyÃªn nghiá»‡p\n- KÃ½ tÃºc xÃ¡ cho nhÃ¢n viÃªn tá»« tá»‰nh khÃ¡c Ä‘áº¿n"
+      },
+      {
+        "title": "DÆ°á»£c sÄ© LÃ¢m sÃ ng",
+        "salary": "10-16 triá»‡u",
+        "description": "TÆ° váº¥n vÃ  bÃ¡n thuá»‘c cho bá»‡nh nhÃ¢n táº¡i nhÃ  thuá»‘c, Ä‘áº£m báº£o sá»­ dá»¥ng thuá»‘c Ä‘Ãºng vÃ  an toÃ n. Quáº£n lÃ½ kho thuá»‘c, kiá»ƒm tra háº¡n sá»­ dá»¥ng vÃ  Ä‘áº£m báº£o Ä‘iá»u kiá»‡n báº£o quáº£n Ä‘Ãºng quy Ä‘á»‹nh GDP.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c DÆ°á»£c\n- CÃ³ chá»©ng chá»‰ hÃ nh nghá» dÆ°á»£c\n- Hiá»ƒu biáº¿t vá» dÆ°á»£c lÃ½, tÆ°Æ¡ng tÃ¡c thuá»‘c vÃ  pháº£n á»©ng phá»¥\n- Ká»¹ nÄƒng giao tiáº¿p vÃ  tÆ° váº¥n bá»‡nh nhÃ¢n tá»‘t\n- Trung thá»±c, cáº©n tháº­n vÃ  cÃ³ tÃ¢m vá»›i nghá»",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + thÆ°á»Ÿng doanh sá»‘\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§ theo luáº­t\n- ÄÃ o táº¡o sáº£n pháº©m má»›i vÃ  cáº­p nháº­t kiáº¿n thá»©c\n- MÃ´i trÆ°á»ng lÃ m viá»‡c chuyÃªn nghiá»‡p\n- CÆ¡ há»™i thÄƒng tiáº¿n lÃªn quáº£n lÃ½ nhÃ  thuá»‘c"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "BÃ¡c sÄ© Äa khoa",
+        "salary": "25-50 triá»‡u",
+        "description": "KhÃ¡m vÃ  Ä‘iá»u trá»‹ bá»‡nh nhÃ¢n ngoáº¡i trÃº, chá»‰ Ä‘á»‹nh xÃ©t nghiá»‡m vÃ  cháº©n Ä‘oÃ¡n hÃ¬nh áº£nh, láº­p káº¿ hoáº¡ch Ä‘iá»u trá»‹ toÃ n diá»‡n. Phá»‘i há»£p vá»›i chuyÃªn khoa khi cáº§n thiáº¿t vÃ  theo dÃµi tiáº¿n trÃ¬nh há»“i phá»¥c cá»§a bá»‡nh nhÃ¢n.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c Y (6 nÄƒm) trá»Ÿ lÃªn\n- CÃ³ chá»©ng chá»‰ hÃ nh nghá» khÃ¡m chá»¯a bá»‡nh há»£p lá»‡\n- 2+ nÄƒm kinh nghiá»‡m lÃ¢m sÃ ng sau tá»‘t nghiá»‡p\n- Ká»¹ nÄƒng cháº©n Ä‘oÃ¡n vÃ  xá»­ trÃ­ bá»‡nh tá»‘t\n- Kháº£ nÄƒng giao tiáº¿p tá»‘t vá»›i bá»‡nh nhÃ¢n vÃ  ngÆ°á»i nhÃ \n- Tiáº¿ng Anh Ä‘á»c tÃ i liá»‡u y khoa Ä‘Æ°á»£c",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh theo kinh nghiá»‡m\n- Báº£o hiá»ƒm sá»©c khá»e cao cáº¥p\n- Há»— trá»£ há»c chuyÃªn khoa I/II\n- CÆ¡ há»™i tham gia há»™i tháº£o y khoa quá»‘c táº¿\n- PhÃ²ng khÃ¡m riÃªng vÃ  thiáº¿t bá»‹ hiá»‡n Ä‘áº¡i"
+      },
+      {
+        "title": "ChuyÃªn viÃªn DÆ°á»£c lÃ¢m sÃ ng",
+        "salary": "20-38 triá»‡u",
+        "description": "ÄÃ¡nh giÃ¡ phÃ¡c Ä‘á»“ Ä‘iá»u trá»‹, tÆ° váº¥n bÃ¡c sÄ© vá» lá»±a chá»n thuá»‘c vÃ  liá»u dÃ¹ng phÃ¹ há»£p cho tá»«ng bá»‡nh nhÃ¢n. Theo dÃµi pháº£n á»©ng cÃ³ háº¡i cá»§a thuá»‘c (ADR), tham gia há»™i cháº©n Ä‘a khoa Ä‘á»ƒ Ä‘áº£m báº£o an toÃ n dÃ¹ng thuá»‘c.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c/Tháº¡c sÄ© DÆ°á»£c\n- 2+ nÄƒm kinh nghiá»‡m dÆ°á»£c lÃ¢m sÃ ng táº¡i bá»‡nh viá»‡n\n- Hiá»ƒu biáº¿t sÃ¢u vá» dÆ°á»£c lá»±c há»c, tÆ°Æ¡ng tÃ¡c thuá»‘c\n- Ká»¹ nÄƒng phÃ¢n tÃ­ch vÃ  tÆ° váº¥n cho ekip y bÃ¡c sÄ©\n- Tiáº¿ng Anh Ä‘á»c tÃ i liá»‡u chuyÃªn ngÃ nh tá»‘t",
+        "benefits": "- Má»©c lÆ°Æ¡ng theo trÃ¬nh Ä‘á»™ vÃ  kinh nghiá»‡m\n- Tham gia Ä‘á» tÃ i nghiÃªn cá»©u khoa há»c\n- ÄÃ o táº¡o chuyÃªn sÃ¢u vÃ  há»™i nghá»‹ quá»‘c táº¿\n- MÃ´i trÆ°á»ng há»c thuáº­t cao\n- PhÃºc lá»£i toÃ n diá»‡n"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "BÃ¡c sÄ© ChuyÃªn khoa",
+        "salary": "50-100 triá»‡u",
+        "description": "KhÃ¡m vÃ  Ä‘iá»u trá»‹ cÃ¡c ca bá»‡nh phá»©c táº¡p trong chuyÃªn khoa, thá»±c hiá»‡n can thiá»‡p/pháº«u thuáº­t ká»¹ thuáº­t cao. ÄÃ o táº¡o vÃ  hÆ°á»›ng dáº«n bÃ¡c sÄ© tráº», tham gia nghiÃªn cá»©u khoa há»c vÃ  cáº­p nháº­t phÃ¡c Ä‘á»“ Ä‘iá»u trá»‹ theo hÆ°á»›ng dáº«n quá»‘c táº¿.",
+        "requirements": "- Tá»‘t nghiá»‡p BÃ¡c sÄ© CKI hoáº·c CKII hoáº·c Tiáº¿n sÄ© Y khoa\n- 7+ nÄƒm kinh nghiá»‡m lÃ¢m sÃ ng chuyÃªn khoa\n- ThÃ nh tháº¡o cÃ¡c ká»¹ thuáº­t can thiá»‡p chuyÃªn sÃ¢u\n- CÃ³ cÃ´ng bá»‘ nghiÃªn cá»©u khoa há»c lÃ  lá»£i tháº¿\n- Ká»¹ nÄƒng teaching vÃ  mentoring cho bÃ¡c sÄ© tráº»",
+        "benefits": "- GÃ³i lÆ°Æ¡ng cao cáº¥p + thÆ°á»Ÿng hiá»‡u suáº¥t\n- Báº£o hiá»ƒm y táº¿ VIP cho cáº£ gia Ä‘Ã¬nh\n- Há»— trá»£ Ä‘Ã o táº¡o nÆ°á»›c ngoÃ i vÃ  fellowship\n- PhÃ²ng lÃ m viá»‡c riÃªng\n- Xe Ä‘Æ°a Ä‘Ã³n hoáº·c phá»¥ cáº¥p Ä‘i láº¡i"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "TrÆ°á»Ÿng khoa / GiÃ¡m Ä‘á»‘c Y khoa",
+        "salary": "80-160 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o khoa y táº¿, chá»‹u trÃ¡ch nhiá»‡m vá» cháº¥t lÆ°á»£ng Ä‘iá»u trá»‹ vÃ  phÃ¡t triá»ƒn chuyÃªn mÃ´n cho toÃ n Ä‘á»™i ngÅ©. XÃ¢y dá»±ng chiáº¿n lÆ°á»£c phÃ¡t triá»ƒn chuyÃªn khoa, quáº£n lÃ½ nhÃ¢n sá»± vÃ  ngÃ¢n sÃ¡ch, Ä‘áº£m báº£o tuÃ¢n thá»§ tiÃªu chuáº©n y táº¿ quá»‘c táº¿ (JCI, ISO).",
+        "requirements": "- BÃ¡c sÄ© CKII hoáº·c Tiáº¿n sÄ© Y khoa\n- 10+ nÄƒm kinh nghiá»‡m, 3+ nÄƒm quáº£n lÃ½ khoa/phÃ²ng\n- Ká»¹ nÄƒng lÃ£nh Ä‘áº¡o vÃ  phÃ¡t triá»ƒn Ä‘á»™i ngÅ© y táº¿\n- Kinh nghiá»‡m quáº£n lÃ½ ngÃ¢n sÃ¡ch vÃ  chiáº¿n lÆ°á»£c\n- Tiáº¿ng Anh thÃ nh tháº¡o cho há»£p tÃ¡c quá»‘c táº¿",
+        "benefits": "- GÃ³i lÃ£nh Ä‘áº¡o cao cáº¥p\n- Xe cÃ´ng vá»¥ hoáº·c phá»¥ cáº¥p\n- Báº£o hiá»ƒm VIP toÃ n gia Ä‘Ã¬nh\n- Cá»• pháº§n/quyá»n chá»n mua cá»• phiáº¿u\n- CÆ¡ há»™i tham gia há»™i Ä‘á»“ng y khoa quá»‘c táº¿"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Sinh viên Thực tập Y / Điều dưỡng",
+        "salary": "5-8 triệu",
+        "description": "Chương trình thực tập có thù lao cho sinh viên ngành Y, Dược, Điều dưỡng. Bạn sẽ làm việc cùng đội ngũ y tế chuyên nghiệp, được hướng dẫn trực tiếp tại các khoa lâm sàng và học cách vận hành môi trường y tế thực tế.",
+        "requirements": "- Đang học năm 5-6 Đại học Y/Dược hoặc năm cuối Cao đẳng Điều dưỡng\n- Nghiêm túc, có trách nhiệm và đạo đức nghề nghiệp cao\n- Sức khỏe tốt để làm việc theo ca\n- Thái độ học hỏi và phục vụ bệnh nhân tận tâm",
+        "benefits": "- Phụ cấp thực tập + bữa ăn ca\n- Môi trường bệnh viện chuyên nghiệp\n- Học từ bác sĩ và điều dưỡng giàu kinh nghiệm\n- Ưu tiên tuyển dụng chính thức sau tốt nghiệp\n- Chứng chỉ thực tập được cấp"
+      }
+    ]
+  },
+  "finance": {
+    "Junior": [
+      {
+        "title": "ChuyÃªn viÃªn Káº¿ toÃ¡n",
+        "salary": "10-16 triá»‡u",
+        "description": "Xá»­ lÃ½ cÃ¡c nghiá»‡p vá»¥ káº¿ toÃ¡n hÃ ng ngÃ y bao gá»“m ghi chÃ©p sá»• sÃ¡ch, láº­p chá»©ng tá»« thu chi, Ä‘á»‘i soÃ¡t ngÃ¢n hÃ ng vÃ  há»— trá»£ láº­p bÃ¡o cÃ¡o tÃ i chÃ­nh Ä‘á»‹nh ká»³. Äáº£m báº£o tuÃ¢n thá»§ chuáº©n má»±c káº¿ toÃ¡n Viá»‡t Nam (VAS).",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c chuyÃªn ngÃ nh Káº¿ toÃ¡n, TÃ i chÃ­nh hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Hiá»ƒu biáº¿t vá» chuáº©n má»±c káº¿ toÃ¡n VAS vÃ  thuáº¿\n- ThÃ nh tháº¡o Excel, pháº§n má»m káº¿ toÃ¡n (MISA, Fast)\n- Cáº©n tháº­n, tá»‰ má»‰ vÃ  trung thá»±c\n- CÃ³ chá»©ng chá»‰ nghá» nghiá»‡p káº¿ toÃ¡n lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + thÆ°á»Ÿng theo hiá»‡u suáº¥t\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§\n- ÄÃ o táº¡o vÃ  há»— trá»£ thi chá»©ng chá»‰ CPA\n- MÃ´i trÆ°á»ng chuyÃªn nghiá»‡p\n- Review lÆ°Æ¡ng hÃ ng nÄƒm"
+      },
+      {
+        "title": "ChuyÃªn viÃªn TÃ­n dá»¥ng CÃ¡ nhÃ¢n",
+        "salary": "12-20 triá»‡u",
+        "description": "TÆ° váº¥n vÃ  há»— trá»£ khÃ¡ch hÃ ng cÃ¡ nhÃ¢n vá» cÃ¡c sáº£n pháº©m tÃ­n dá»¥ng nhÆ° vay mua nhÃ , vay tiÃªu dÃ¹ng vÃ  tháº» tÃ­n dá»¥ng. Tháº©m Ä‘á»‹nh há»“ sÆ¡ vay, Ä‘Ã¡nh giÃ¡ kháº£ nÄƒng tráº£ ná»£ vÃ  quáº£n lÃ½ danh má»¥c khÃ¡ch hÃ ng.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c TÃ i chÃ­nh, NgÃ¢n hÃ ng hoáº·c liÃªn quan\n- Ká»¹ nÄƒng bÃ¡n hÃ ng vÃ  thuyáº¿t phá»¥c tá»‘t\n- Hiá»ƒu biáº¿t vá» sáº£n pháº©m tÃ­n dá»¥ng ngÃ¢n hÃ ng\n- CÃ³ KPI doanh sá»‘ vÃ  Ã¡p lá»±c má»¥c tiÃªu\n- Kinh nghiá»‡m bÃ¡n hÃ ng tÃ i chÃ­nh lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + hoa há»“ng + thÆ°á»Ÿng doanh sá»‘\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§ theo luáº­t\n- ÄÃ o táº¡o sáº£n pháº©m vÃ  ká»¹ nÄƒng bÃ¡n hÃ ng\n- CÆ¡ há»™i thÄƒng tiáº¿n nhanh\n- Phá»¥ cáº¥p Ä‘iá»‡n thoáº¡i vÃ  Ä‘i láº¡i"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "ChuyÃªn viÃªn PhÃ¢n tÃ­ch TÃ i chÃ­nh",
+        "salary": "22-40 triá»‡u",
+        "description": "PhÃ¢n tÃ­ch bÃ¡o cÃ¡o tÃ i chÃ­nh, xÃ¢y dá»±ng mÃ´ hÃ¬nh Ä‘á»‹nh giÃ¡ doanh nghiá»‡p vÃ  Ä‘Ã¡nh giÃ¡ rá»§i ro Ä‘áº§u tÆ°. Láº­p bÃ¡o cÃ¡o phÃ¢n tÃ­ch cho ban lÃ£nh Ä‘áº¡o vÃ  há»— trá»£ ra quyáº¿t Ä‘á»‹nh Ä‘áº§u tÆ°/tÃ i chÃ­nh chiáº¿n lÆ°á»£c.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m phÃ¢n tÃ­ch tÃ i chÃ­nh/Ä‘áº§u tÆ°\n- ThÃ nh tháº¡o mÃ´ hÃ¬nh tÃ i chÃ­nh trong Excel\n- Hiá»ƒu biáº¿t vá» IFRS, VAS vÃ  phÃ¢n tÃ­ch doanh nghiá»‡p\n- Ká»¹ nÄƒng Ä‘á»c vÃ  diá»…n giáº£i bÃ¡o cÃ¡o tÃ i chÃ­nh\n- CFA Level 1 hoáº·c Ä‘ang há»c lÃ  lá»£i tháº¿\n- Tiáº¿ng Anh tá»‘t Ä‘á»ƒ Ä‘á»c tÃ i liá»‡u quá»‘c táº¿",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh + bonus theo hiá»‡u suáº¥t\n- Há»— trá»£ há»c CFA, ACCA\n- LÃ m viá»‡c vá»›i dá»¯ liá»‡u tÃ i chÃ­nh thá»±c táº¿\n- CÆ¡ há»™i contact vá»›i investment banking\n- Hybrid work policy"
+      },
+      {
+        "title": "Kiá»ƒm toÃ¡n viÃªn Ná»™i bá»™",
+        "salary": "20-38 triá»‡u",
+        "description": "Thá»±c hiá»‡n kiá»ƒm toÃ¡n ná»™i bá»™, Ä‘Ã¡nh giÃ¡ há»‡ thá»‘ng kiá»ƒm soÃ¡t ná»™i bá»™ vÃ  tuÃ¢n thá»§ quy Ä‘á»‹nh cá»§a doanh nghiá»‡p. Láº­p bÃ¡o cÃ¡o kiá»ƒm toÃ¡n vÃ  Ä‘Æ°a ra khuyáº¿n nghá»‹ cáº£i thiá»‡n quy trÃ¬nh, giáº£m thiá»ƒu rá»§i ro.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m kiá»ƒm toÃ¡n ná»™i bá»™ hoáº·c kiá»ƒm toÃ¡n Ä‘á»™c láº­p\n- Chá»©ng chá»‰ CIA, CPA hoáº·c ACCA lÃ  lá»£i tháº¿\n- Hiá»ƒu biáº¿t vá» khung kiá»ƒm soÃ¡t ná»™i bá»™ (COSO, SOX)\n- Ká»¹ nÄƒng phÃ¢n tÃ­ch, viáº¿t bÃ¡o cÃ¡o vÃ  trÃ¬nh bÃ y\n- Trung thá»±c, báº£o máº­t thÃ´ng tin tá»‘t",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh\n- Há»— trá»£ thi CIA/CPA\n- Tiáº¿p xÃºc nhiá»u phÃ²ng ban trong tá»• chá»©c\n- CÆ¡ há»™i phÃ¡t triá»ƒn lÃªn CFO\n- Flexible working"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Financial Analyst / ChuyÃªn viÃªn TÃ i chÃ­nh Cao cáº¥p",
+        "salary": "40-70 triá»‡u",
+        "description": "Dáº«n dáº¯t cÃ¡c phÃ¢n tÃ­ch tÃ i chÃ­nh phá»©c táº¡p, Ä‘á»‹nh giÃ¡ M&A vÃ  Ä‘Ã¡nh giÃ¡ chiáº¿n lÆ°á»£c Ä‘áº§u tÆ° cho ban lÃ£nh Ä‘áº¡o. XÃ¢y dá»±ng framework phÃ¢n tÃ­ch, Ä‘Ã o táº¡o junior analysts vÃ  Ä‘áº¡i diá»‡n bá»™ pháº­n tÃ i chÃ­nh trong cÃ¡c cuá»™c há»p cáº¥p cao.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m tÃ i chÃ­nh doanh nghiá»‡p hoáº·c ngÃ¢n hÃ ng Ä‘áº§u tÆ°\n- CFA hoáº·c ACCA lÃ  báº¯t buá»™c\n- Expert vá» mÃ´ hÃ¬nh DCF, LBO, M&A valuation\n- Kinh nghiá»‡m lÃ m viá»‡c vá»›i C-level\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- GÃ³i lÆ°Æ¡ng top market\n- Bonus theo lá»£i nhuáº­n\n- Tiáº¿p xÃºc giao dá»‹ch M&A thá»±c táº¿\n- Career path to CFO\n- Flexible + hybrid work"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "GiÃ¡m Ä‘á»‘c TÃ i chÃ­nh (CFO) / TrÆ°á»Ÿng phÃ²ng TÃ i chÃ­nh",
+        "salary": "70-130 triá»‡u",
+        "description": "Phá»¥ trÃ¡ch toÃ n bá»™ hoáº¡t Ä‘á»™ng tÃ i chÃ­nh cá»§a doanh nghiá»‡p bao gá»“m láº­p káº¿ hoáº¡ch tÃ i chÃ­nh, quáº£n lÃ½ rá»§i ro, bÃ¡o cÃ¡o vÃ  tuÃ¢n thá»§ phÃ¡p lÃ½. TÆ° váº¥n chiáº¿n lÆ°á»£c tÃ i chÃ­nh cho CEO vÃ  Há»™i Ä‘á»“ng quáº£n trá»‹.",
+        "requirements": "- 8+ nÄƒm kinh nghiá»‡m tÃ i chÃ­nh, 3+ nÄƒm quáº£n lÃ½\n- CPA/CFA/ACCA lÃ  báº¯t buá»™c\n- Kinh nghiá»‡m IPO, huy Ä‘á»™ng vá»‘n hoáº·c M&A\n- Kiáº¿n thá»©c sÃ¢u vá» thuáº¿, IFRS vÃ  quy Ä‘á»‹nh tÃ i chÃ­nh\n- Tiáº¿ng Anh thÃ nh tháº¡o, cÃ³ thá»ƒ lÃ m viá»‡c vá»›i investor nÆ°á»›c ngoÃ i",
+        "benefits": "- GÃ³i thÃ¹ lao lÃ£nh Ä‘áº¡o cáº¥p cao\n- Cá»• pháº§n/ESOP\n- Xe cÃ´ng vá»¥\n- Báº£o hiá»ƒm VIP\n- Board-level visibility"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Kế toán / Tài chính",
+        "salary": "7-11 triệu",
+        "description": "Cơ hội cho sinh viên mới tốt nghiệp ngành Kế toán, Tài chính muốn bắt đầu sự nghiệp trong môi trường doanh nghiệp chuyên nghiệp. Bạn sẽ được đào tạo nghiệp vụ thực tế và cơ hội học thêm chứng chỉ nghề nghiệp.",
+        "requirements": "- Tốt nghiệp Đại học Kế toán, Tài chính, Kiểm toán\n- Thành thạo Excel, hiểu biết cơ bản về kế toán\n- Cẩn thận, trung thực và có tư duy số học tốt\n- GPA 3.0+ là lợi thế\n- Chứng chỉ kế toán hoặc đang học ACCA là điểm cộng",
+        "benefits": "- Lương fresher + thưởng cuối năm\n- Môi trường tài chính chuyên nghiệp\n- Hỗ trợ học CPA/ACCA\n- Được tiếp xúc nghiệp vụ tài chính thực tế\n- Ổn định và phát triển bền vững"
+      }
+    ]
+  },
+  "marketing": {
+    "Junior": [
+      {
+        "title": "ChuyÃªn viÃªn Digital Marketing",
+        "salary": "9-15 triá»‡u",
+        "description": "Triá»ƒn khai cÃ¡c chiáº¿n dá»‹ch quáº£ng cÃ¡o trÃªn Google Ads, Facebook Ads vÃ  TikTok Ads. Táº¡o ná»™i dung cho máº¡ng xÃ£ há»™i, theo dÃµi vÃ  phÃ¢n tÃ­ch hiá»‡u quáº£ cÃ¡c chiáº¿n dá»‹ch, bÃ¡o cÃ¡o KPIs hÃ ng tuáº§n.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c Marketing, Truyá»n thÃ´ng hoáº·c liÃªn quan\n- Kiáº¿n thá»©c cÆ¡ báº£n vá» Google Ads, Facebook Ads\n- Ká»¹ nÄƒng viáº¿t content tiáº¿ng Viá»‡t tá»‘t, sÃ¡ng táº¡o\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» Google Analytics\n- Äam mÃª marketing sá»‘ vÃ  xu hÆ°á»›ng social media",
+        "benefits": "- MÃ´i trÆ°á»ng sÃ¡ng táº¡o, tráº» trung\n- Budget thá»±c hÃ nh cháº¡y quáº£ng cÃ¡o\n- Google/Meta certification Ä‘Æ°á»£c tÃ i trá»£\n- Team outing hÃ ng quÃ½\n- Review lÆ°Æ¡ng 2 láº§n/nÄƒm"
+      },
+      {
+        "title": "NhÃ¢n viÃªn Content Creator",
+        "salary": "8-14 triá»‡u",
+        "description": "Sáº£n xuáº¥t ná»™i dung Ä‘a dáº¡ng bao gá»“m bÃ i viáº¿t blog, caption máº¡ng xÃ£ há»™i, script video ngáº¯n vÃ  email marketing. NghiÃªn cá»©u tá»« khÃ³a SEO vÃ  tá»‘i Æ°u ná»™i dung Ä‘á»ƒ tÄƒng traffic há»¯u cÆ¡.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c BÃ¡o chÃ­, Truyá»n thÃ´ng, VÄƒn há»c hoáº·c liÃªn quan\n- Ká»¹ nÄƒng viáº¿t lÃ¡ch tá»‘t, sÃ¡ng táº¡o vÃ  ká»ƒ chuyá»‡n háº¥p dáº«n\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» SEO on-page\n- Biáº¿t sá»­ dá»¥ng Canva, CapCut hoáº·c cÃ´ng cá»¥ thiáº¿t káº¿ cÆ¡ báº£n\n- CÃ³ portfolio ná»™i dung cÃ¡ nhÃ¢n lÃ  Ä‘iá»ƒm cá»™ng",
+        "benefits": "- Há»c tá»« team senior giÃ u kinh nghiá»‡m\n- MÃ´i trÆ°á»ng sÃ¡ng táº¡o tá»± do\n- Team nhá», nhiá»u cÆ¡ há»™i phÃ¡t triá»ƒn ká»¹ nÄƒng Ä‘a dáº¡ng\n- Work from home 2 ngÃ y/tuáº§n\n- Annual review"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Marketing Specialist",
+        "salary": "18-35 triá»‡u",
+        "description": "Láº­p káº¿ hoáº¡ch vÃ  thá»±c thi cÃ¡c chiáº¿n dá»‹ch marketing tÃ­ch há»£p tá»« digital Ä‘áº¿n offline. Quáº£n lÃ½ ngÃ¢n sÃ¡ch chiáº¿n dá»‹ch, phá»‘i há»£p vá»›i agency, phÃ¢n tÃ­ch dá»¯ liá»‡u vÃ  tá»‘i Æ°u ROI. Theo dÃµi xu hÆ°á»›ng thá»‹ trÆ°á»ng vÃ  cáº¡nh tranh.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m marketing (digital hoáº·c brand)\n- ThÃ nh tháº¡o Google Analytics, Meta Ads Manager\n- Ká»¹ nÄƒng phÃ¢n tÃ­ch dá»¯ liá»‡u vÃ  Ä‘Æ°a ra insight\n- Kinh nghiá»‡m quáº£n lÃ½ agency vÃ  vendor\n- Tiáº¿ng Anh giao tiáº¿p Ä‘Æ°á»£c",
+        "benefits": "- Campaign budget tá»± quáº£n lÃ½\n- Tiáº¿p xÃºc nhiá»u ngÃ nh vÃ  thÆ°Æ¡ng hiá»‡u\n- Bonus theo KPI marketing\n- Hybrid work 3 ngÃ y/tuáº§n\n- ÄÃ o táº¡o táº¡i cÃ¡c há»™i tháº£o marketing"
+      },
+      {
+        "title": "Brand Executive",
+        "salary": "20-38 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  báº£o vá»‡ nháº­n diá»‡n thÆ°Æ¡ng hiá»‡u nháº¥t quÃ¡n trÃªn táº¥t cáº£ kÃªnh tiáº¿p thá»‹. Phá»‘i há»£p vá»›i agency sÃ¡ng táº¡o, quáº£n lÃ½ brand guidelines vÃ  Ä‘áº£m báº£o tráº£i nghiá»‡m thÆ°Æ¡ng hiá»‡u xuáº¥t sáº¯c cho khÃ¡ch hÃ ng.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m brand management\n- Hiá»ƒu biáº¿t sÃ¢u vá» consumer insight vÃ  market research\n- Ká»¹ nÄƒng sÃ¡ng táº¡o vÃ  tháº©m má»¹ tá»‘t\n- Kinh nghiá»‡m lÃ m viá»‡c vá»›i creative agency\n- Tiáº¿ng Anh tá»‘t Ä‘á»ƒ lÃ m viá»‡c vá»›i regional team",
+        "benefits": "- ThÆ°Æ¡ng hiá»‡u lá»›n, impact cao\n- Creative budget tá»± quyáº¿t\n- Conference vÃ  workshop quá»‘c táº¿\n- Career path to Brand Manager\n- Competitive package"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Marketing Manager",
+        "salary": "40-70 triá»‡u",
+        "description": "Dáº«n dáº¯t chiáº¿n lÆ°á»£c marketing tá»•ng thá»ƒ vÃ  quáº£n lÃ½ team 5-10 ngÆ°á»i. XÃ¢y dá»±ng go-to-market plans cho sáº£n pháº©m má»›i, quáº£n lÃ½ ngÃ¢n sÃ¡ch marketing lá»›n vÃ  Ä‘o lÆ°á»ng hiá»‡u quáº£ qua cÃ¡c chá»‰ sá»‘ kinh doanh thá»±c táº¿.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m marketing, 2+ nÄƒm quáº£n lÃ½\n- Kinh nghiá»‡m brand launch hoáº·c product marketing\n- Strong analytical vÃ  data-driven mindset\n- Kháº£ nÄƒng trÃ¬nh bÃ y vÃ  thuyáº¿t phá»¥c C-level\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- Top marketing compensation\n- Significant marketing budget ownership\n- Cross-functional leadership\n- ESOP sau 1 nÄƒm\n- International exposure"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "GiÃ¡m Ä‘á»‘c Marketing (CMO)",
+        "salary": "70-120 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o toÃ n bá»™ bá»™ pháº­n Marketing, xÃ¢y dá»±ng chiáº¿n lÆ°á»£c thÆ°Æ¡ng hiá»‡u vÃ  tÄƒng trÆ°á»Ÿng dÃ i háº¡n. Chá»‹u trÃ¡ch nhiá»‡m vá» brand equity, customer acquisition vÃ  retention metrics. Phá»‘i há»£p cháº·t cháº½ vá»›i CEO vÃ  cÃ¡c C-level khÃ¡c.",
+        "requirements": "- 8+ nÄƒm kinh nghiá»‡m marketing, 3+ nÄƒm quáº£n lÃ½ cáº¥p cao\n- Track record tÄƒng trÆ°á»Ÿng thÆ°Æ¡ng hiá»‡u vÃ  doanh thu\n- Kinh nghiá»‡m quáº£n lÃ½ ngÃ¢n sÃ¡ch marketing lá»›n (5B+/nÄƒm)\n- Máº¡ng lÆ°á»›i agency vÃ  media rá»™ng\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- GÃ³i lÆ°Æ¡ng C-level\n- ESOP háº¥p dáº«n\n- Autonomy hoÃ n toÃ n vá» marketing strategy\n- Board-level participation\n- Xe cÃ´ng vá»¥ + báº£o hiá»ƒm VIP"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Marketing / Content",
+        "salary": "6-10 triệu",
+        "description": "Tìm kiếm fresher sáng tạo, yêu thích marketing và mạng xã hội. Bạn sẽ hỗ trợ team lên ý tưởng content, thực hiện chiến dịch digital và học cách phân tích hiệu quả quảng cáo.",
+        "requirements": "- Tốt nghiệp Đại học Marketing, Truyền thông, Báo chí hoặc liên quan\n- Kỹ năng viết lách sáng tạo, am hiểu mạng xã hội\n- Biết Canva, CapCut hoặc công cụ thiết kế cơ bản\n- Năng động, có nhiều ý tưởng mới\n- Portfolio bài viết hoặc dự án cá nhân là điểm cộng",
+        "benefits": "- Môi trường sáng tạo, trẻ trung\n- Thực hành chạy campaign thực tế\n- Google/Meta certificate được tài trợ\n- Team nhỏ, học được nhiều thứ\n- Convert full-time sau 3 tháng thử việc"
+      }
+    ]
+  },
+  "hr": {
+    "Junior": [
+      {
+        "title": "ChuyÃªn viÃªn Tuyá»ƒn dá»¥ng",
+        "salary": "10-16 triá»‡u",
+        "description": "ÄÄƒng tin tuyá»ƒn dá»¥ng, sÃ ng lá»c há»“ sÆ¡ vÃ  phá»ng váº¥n á»©ng viÃªn cho cÃ¡c vá»‹ trÃ­ cá»§a cÃ´ng ty. Quáº£n lÃ½ ATS, phá»‘i há»£p vá»›i hiring manager Ä‘á»ƒ hiá»ƒu yÃªu cáº§u vá»‹ trÃ­ vÃ  Ä‘áº£m báº£o tráº£i nghiá»‡m á»©ng viÃªn tá»‘t.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c Quáº£n trá»‹ NhÃ¢n lá»±c, Kinh táº¿ hoáº·c liÃªn quan\n- Ká»¹ nÄƒng giao tiáº¿p vÃ  phá»ng váº¥n tá»‘t\n- CÃ³ kinh nghiá»‡m sá»­ dá»¥ng LinkedIn Recruiter, VietnamWorks\n- NÄƒng Ä‘á»™ng, chá»§ Ä‘á»™ng vÃ  chá»‹u Ã¡p lá»±c KPI tuyá»ƒn dá»¥ng\n- Tiáº¿ng Anh giao tiáº¿p Ä‘Æ°á»£c",
+        "benefits": "- Há»c há»i nghá» tuyá»ƒn dá»¥ng chuyÃªn nghiá»‡p\n- Network rá»™ng trong thá»‹ trÆ°á»ng lao Ä‘á»™ng\n- ThÆ°á»Ÿng theo káº¿t quáº£ tuyá»ƒn dá»¥ng\n- ÄÃ o táº¡o ká»¹ nÄƒng phá»ng váº¥n hÃ nh vi\n- Career path to HRBP"
+      },
+      {
+        "title": "HR Executive (C&B)",
+        "salary": "10-17 triá»‡u",
+        "description": "Xá»­ lÃ½ báº£ng lÆ°Æ¡ng, tÃ­nh thuáº¿ TNCN vÃ  cÃ¡c cháº¿ Ä‘á»™ báº£o hiá»ƒm cho nhÃ¢n viÃªn. Duy trÃ¬ há»“ sÆ¡ nhÃ¢n sá»±, há»— trá»£ cÃ¡c thá»§ tá»¥c hÃ nh chÃ­nh nhÃ¢n sá»± vÃ  tráº£ lá»i tháº¯c máº¯c cá»§a nhÃ¢n viÃªn vá» chÃ­nh sÃ¡ch.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c Káº¿ toÃ¡n hoáº·c Quáº£n trá»‹ NhÃ¢n lá»±c\n- Hiá»ƒu biáº¿t vá» Luáº­t Lao Ä‘á»™ng, BHXH, thuáº¿ TNCN Viá»‡t Nam\n- ThÃ nh tháº¡o Excel vÃ  pháº§n má»m HR\n- Cáº©n tháº­n, báº£o máº­t thÃ´ng tin tá»‘t\n- CÃ³ kinh nghiá»‡m C&B lÃ  lá»£i tháº¿",
+        "benefits": "- á»”n Ä‘á»‹nh, Ã­t Ã¡p lá»±c doanh sá»‘\n- ÄÃ o táº¡o phÃ¡p luáº­t lao Ä‘á»™ng thÆ°á»ng xuyÃªn\n- LÃ m viá»‡c giá» hÃ nh chÃ­nh\n- MÃ´i trÆ°á»ng chuyÃªn nghiá»‡p\n- Annual increment"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "HR Business Partner (HRBP)",
+        "salary": "20-38 triá»‡u",
+        "description": "Äá»‘i tÃ¡c nhÃ¢n sá»± chiáº¿n lÆ°á»£c cho 1-2 business unit, tÆ° váº¥n ban lÃ£nh Ä‘áº¡o vá» quáº£n lÃ½ nhÃ¢n sá»±, phÃ¡t triá»ƒn tá»• chá»©c vÃ  vÄƒn hÃ³a doanh nghiá»‡p. XÃ¢y dá»±ng káº¿ hoáº¡ch nhÃ¢n lá»±c vÃ  giáº£i quyáº¿t cÃ¡c váº¥n Ä‘á» nhÃ¢n sá»± phá»©c táº¡p.",
+        "requirements": "- 3-5 nÄƒm kinh nghiá»‡m HR tá»•ng há»£p\n- Hiá»ƒu biáº¿t tá»‘t vá» táº¥t cáº£ chá»©c nÄƒng HR\n- Ká»¹ nÄƒng tÆ° váº¥n vÃ  influencing khÃ´ng cÃ³ quyá»n lá»±c trá»±c tiáº¿p\n- Kinh nghiá»‡m organizational development lÃ  lá»£i tháº¿\n- Tiáº¿ng Anh giao tiáº¿p tá»‘t",
+        "benefits": "- Vai trÃ² chiáº¿n lÆ°á»£c, tÃ¡c Ä‘á»™ng trá»±c tiáº¿p Ä‘áº¿n business\n- Exposure Ä‘áº¿n C-level\n- Career path rÃµ rÃ ng\n- Hybrid work\n- Learning & development budget"
+      },
+      {
+        "title": "ChuyÃªn viÃªn ÄÃ o táº¡o & PhÃ¡t triá»ƒn",
+        "salary": "18-32 triá»‡u",
+        "description": "Thiáº¿t káº¿ vÃ  triá»ƒn khai chÆ°Æ¡ng trÃ¬nh Ä‘Ã o táº¡o cho nhÃ¢n viÃªn, tá»« onboarding Ä‘áº¿n phÃ¡t triá»ƒn ká»¹ nÄƒng lÃ£nh Ä‘áº¡o. ÄÃ¡nh giÃ¡ hiá»‡u quáº£ Ä‘Ã o táº¡o, xÃ¢y dá»±ng learning path vÃ  quáº£n lÃ½ LMS cá»§a cÃ´ng ty.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m L&D hoáº·c Ä‘Ã o táº¡o doanh nghiá»‡p\n- Ká»¹ nÄƒng thiáº¿t káº¿ chÆ°Æ¡ng trÃ¬nh Ä‘Ã o táº¡o (ADDIE, Bloom's Taxonomy)\n- Kinh nghiá»‡m vá»›i e-learning platforms\n- Ká»¹ nÄƒng trÃ¬nh bÃ y vÃ  facilitation tá»‘t\n- SÃ¡ng táº¡o vÃ  Ä‘am mÃª phÃ¡t triá»ƒn con ngÆ°á»i",
+        "benefits": "- Meaningful work phÃ¡t triá»ƒn con ngÆ°á»i\n- Exposure Ä‘áº¿n toÃ n bá»™ tá»• chá»©c\n- L&D budget cho báº£n thÃ¢n\n- Flexible schedule\n- Positive working culture"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior HR Manager",
+        "salary": "38-62 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng HR cho má»™t region hoáº·c business unit lá»›n. XÃ¢y dá»±ng HR strategy phÃ¹ há»£p business goals, dáº«n dáº¯t team HR vÃ  Ä‘áº£m báº£o employer brand máº¡nh Ä‘á»ƒ thu hÃºt vÃ  giá»¯ chÃ¢n nhÃ¢n tÃ i.",
+        "requirements": "- 6+ nÄƒm kinh nghiá»‡m HR, 2+ nÄƒm quáº£n lÃ½\n- Strong generalist background (TA, L&D, C&B, ER)\n- Kinh nghiá»‡m change management\n- Ká»¹ nÄƒng stakeholder management cáº¥p senior\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- HR leadership role\n- Strategic business partnership\n- Competitive manager compensation\n- ESOP\n- International HR community"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "GiÃ¡m Ä‘á»‘c NhÃ¢n sá»± (HRD / CHRO)",
+        "salary": "65-110 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o toÃ n bá»™ chiáº¿n lÆ°á»£c nhÃ¢n sá»± cá»§a tá»• chá»©c, xÃ¢y dá»±ng vÄƒn hÃ³a doanh nghiá»‡p vÃ  há»‡ thá»‘ng quáº£n trá»‹ nhÃ¢n tÃ i. TÆ° váº¥n CEO vÃ  board vá» workforce planning, organizational design vÃ  change management.",
+        "requirements": "- 10+ nÄƒm kinh nghiá»‡m HR, 4+ nÄƒm cáº¥p quáº£n lÃ½ senior\n- Kinh nghiá»‡m xÃ¢y dá»±ng HR function tá»« Ä‘áº§u hoáº·c transformation\n- Strong business acumen vÃ  data-driven HR\n- Tiáº¿ng Anh thÃ nh tháº¡o\n- Chá»©ng chá»‰ SHRM-SCP hoáº·c tÆ°Æ¡ng Ä‘Æ°Æ¡ng lÃ  lá»£i tháº¿",
+        "benefits": "- C-suite compensation\n- Board participation\n- ESOP senior tier\n- Xe cÃ´ng vá»¥\n- Táº§m áº£nh hÆ°á»Ÿng toÃ n tá»• chá»©c"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher HR / Tuyển dụng",
+        "salary": "7-10 triệu",
+        "description": "Cơ hội bắt đầu sự nghiệp HR trong môi trường doanh nghiệp chuyên nghiệp. Bạn sẽ học cách đăng tuyển, lọc hồ sơ, phối hợp phỏng vấn và các nghiệp vụ hành chính nhân sự cơ bản.",
+        "requirements": "- Tốt nghiệp Đại học Quản trị Nhân lực, Kinh tế hoặc liên quan\n- Kỹ năng giao tiếp tốt, thân thiện và chuyên nghiệp\n- Cẩn thận, bảo mật thông tin tốt\n- Biết sử dụng LinkedIn, VietnamWorks là điểm cộng\n- Tiếng Anh giao tiếp được",
+        "benefits": "- Học nghề tuyển dụng từ HR senior\n- Môi trường làm việc thân thiện\n- Lộ trình phát triển lên HRBP\n- Giờ làm hành chính, ổn định\n- Bảo hiểm đầy đủ từ ngày 1"
+      }
+    ]
+  },
+  "education": {
+    "Junior": [
+      {
+        "title": "GiÃ¡o viÃªn Tiáº¿ng Anh",
+        "salary": "12-22 triá»‡u",
+        "description": "Giáº£ng dáº¡y tiáº¿ng Anh cho há»c viÃªn á»Ÿ nhiá»u trÃ¬nh Ä‘á»™ (thiáº¿u nhi, thiáº¿u niÃªn, ngÆ°á»i lá»›n) theo giÃ¡o trÃ¬nh chuáº©n quá»‘c táº¿. Tá»• chá»©c lá»›p há»c sÃ´i ná»•i, theo dÃµi tiáº¿n bá»™ há»c viÃªn vÃ  trao Ä‘á»•i phá»¥ huynh Ä‘á»‹nh ká»³.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c SÆ° pháº¡m Tiáº¿ng Anh hoáº·c cÃ¡c ngÃ nh tiáº¿ng Anh\n- IELTS 7.0+ hoáº·c CELTA/TEFL/TESOL lÃ  báº¯t buá»™c\n- Nhiá»‡t tÃ¬nh, yÃªu tráº» em vÃ  cÃ³ khiáº¿u giáº£ng dáº¡y\n- Kinh nghiá»‡m dáº¡y há»c lÃ  lá»£i tháº¿\n- CÃ³ thá»ƒ lÃ m viá»‡c buá»•i tá»‘i vÃ  cuá»‘i tuáº§n",
+        "benefits": "- LÆ°Æ¡ng dáº¡y theo giá» + phá»¥ cáº¥p cá»‘ Ä‘á»‹nh\n- ÄÃ o táº¡o phÆ°Æ¡ng phÃ¡p giáº£ng dáº¡y\n- CÆ¡ há»™i phÃ¡t triá»ƒn lÃªn vá»‹ trÃ­ quáº£n lÃ½\n- MÃ´i trÆ°á»ng quá»‘c táº¿\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§"
+      },
+      {
+        "title": "TÆ° váº¥n Tuyá»ƒn sinh",
+        "salary": "10-18 triá»‡u",
+        "description": "TÆ° váº¥n phá»¥ huynh vÃ  há»c viÃªn vá» cÃ¡c chÆ°Æ¡ng trÃ¬nh há»c phÃ¹ há»£p, giá»›i thiá»‡u lá»£i Ã­ch cá»§a khÃ³a há»c vÃ  chuyá»ƒn Ä‘á»•i leads thÃ nh há»c viÃªn. ChÄƒm sÃ³c há»c viÃªn trong suá»‘t quÃ¡ trÃ¬nh há»c, Ä‘áº£m báº£o tá»· lá»‡ tÃ¡i Ä‘Äƒng kÃ½ cao.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c báº¥t ká»³\n- Ká»¹ nÄƒng giao tiáº¿p vÃ  bÃ¡n hÃ ng xuáº¥t sáº¯c\n- Tiáº¿ng Anh giao tiáº¿p tá»‘t\n- YÃªu thÃ­ch ngÃ nh giÃ¡o dá»¥c\n- Chá»‹u Ä‘Æ°á»£c Ã¡p lá»±c KPI tuyá»ƒn sinh",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + thÆ°á»Ÿng tuyá»ƒn sinh\n- MÃ´i trÆ°á»ng tráº» trung, nÄƒng Ä‘á»™ng\n- ÄÆ°á»£c há»c tiáº¿ng Anh miá»…n phÃ­\n- Nhiá»u cÆ¡ há»™i thÄƒng tiáº¿n\n- Team building thÆ°á»ng xuyÃªn"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "GiÃ¡o viÃªn Chá»§ nhiá»‡m / Academic Coordinator",
+        "salary": "18-30 triá»‡u",
+        "description": "Quáº£n lÃ½ tiáº¿n Ä‘á»™ há»c táº­p cá»§a má»™t nhÃ³m há»c viÃªn, phá»‘i há»£p vá»›i giÃ¡o viÃªn giáº£ng dáº¡y Ä‘á»ƒ theo dÃµi vÃ  cáº£i thiá»‡n káº¿t quáº£ há»c táº­p. Thiáº¿t káº¿ há»c liá»‡u bá»• trá»£ vÃ  tá»• chá»©c cÃ¡c hoáº¡t Ä‘á»™ng há»c thuáº­t ngoáº¡i khÃ³a.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m giáº£ng dáº¡y hoáº·c Ä‘iá»u phá»‘i giÃ¡o dá»¥c\n- IELTS 7.5+ hoáº·c DELTA/CELTA nÃ¢ng cao\n- Ká»¹ nÄƒng quáº£n lÃ½ vÃ  tá»• chá»©c tá»‘t\n- Kháº£ nÄƒng thiáº¿t káº¿ chÆ°Æ¡ng trÃ¬nh há»c\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- á»”n Ä‘á»‹nh, mÃ´i trÆ°á»ng chuyÃªn nghiá»‡p\n- PhÃ¡t triá»ƒn chuyÃªn mÃ´n Ä‘Æ°á»£c Ä‘áº§u tÆ°\n- Giá» lÃ m viá»‡c cÃ¢n Ä‘á»‘i\n- ÄÆ°á»£c há»c thÃªm cÃ¡c khÃ³a chuyÃªn sÃ¢u\n- Career path to Academic Director"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Academic Manager / GiÃ¡m Ä‘á»‘c Há»c thuáº­t",
+        "salary": "35-60 triá»‡u",
+        "description": "Phá»¥ trÃ¡ch toÃ n bá»™ cháº¥t lÆ°á»£ng giáº£ng dáº¡y vÃ  há»c thuáº­t táº¡i trung tÃ¢m, dáº«n dáº¯t Ä‘á»™i ngÅ© giÃ¡o viÃªn vÃ  xÃ¢y dá»±ng há»‡ thá»‘ng Ä‘áº£m báº£o cháº¥t lÆ°á»£ng. PhÃ¡t triá»ƒn chÆ°Æ¡ng trÃ¬nh há»c má»›i vÃ  Ä‘áº¡i diá»‡n trung tÃ¢m trong cÃ¡c hoáº¡t Ä‘á»™ng giÃ¡o dá»¥c.",
+        "requirements": "- 6+ nÄƒm kinh nghiá»‡m giÃ¡o dá»¥c, 2+ nÄƒm quáº£n lÃ½\n- Báº±ng Tháº¡c sÄ© GiÃ¡o dá»¥c hoáº·c liÃªn quan\n- DELTA hoáº·c chá»©ng chá»‰ quáº£n lÃ½ giÃ¡o dá»¥c\n- Kinh nghiá»‡m teacher training vÃ  curriculum design\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- Academic leadership role\n- Thiáº¿t káº¿ curriculum quyá»n lá»±c\n- LÆ°Æ¡ng cao cáº¥p\n- International training opportunities\n- Stable long-term career"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "GiÃ¡m Ä‘á»‘c Trung tÃ¢m / Hiá»‡u trÆ°á»Ÿng",
+        "salary": "50-90 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng cá»§a trung tÃ¢m giÃ¡o dá»¥c bao gá»“m kinh doanh, há»c thuáº­t, váº­n hÃ nh vÃ  nhÃ¢n sá»±. Chá»‹u trÃ¡ch nhiá»‡m vá» P&L, tÄƒng trÆ°á»Ÿng há»c viÃªn vÃ  xÃ¢y dá»±ng uy tÃ­n thÆ°Æ¡ng hiá»‡u cá»§a trung tÃ¢m.",
+        "requirements": "- 8+ nÄƒm kinh nghiá»‡m giÃ¡o dá»¥c, 3+ nÄƒm quáº£n lÃ½ tá»•ng thá»ƒ\n- Ká»¹ nÄƒng business management vÃ  P&L ownership\n- Kinh nghiá»‡m xÃ¢y dá»±ng vÃ  phÃ¡t triá»ƒn team\n- Tiáº¿ng Anh thÃ nh tháº¡o\n- Äam mÃª giÃ¡o dá»¥c vÃ  phÃ¡t triá»ƒn con ngÆ°á»i",
+        "benefits": "- GÃ³i quáº£n lÃ½ cao cáº¥p\n- P&L ownership vá»›i bonus theo lá»£i nhuáº­n\n- CÆ¡ há»™i má»Ÿ rá»™ng máº¡ng lÆ°á»›i trung tÃ¢m\n- Xe cÃ´ng vá»¥ hoáº·c phá»¥ cáº¥p\n- National/regional career path"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Trợ giảng / Gia sư Tại trung tâm",
+        "salary": "6-10 triệu",
+        "description": "Cơ hội cho sinh viên năng động yêu thích việc dạy học và truyền đạt kiến thức. Bạn sẽ hỗ trợ giáo viên chính trong các buổi học, chấm bài và theo dõi tiến bộ của học viên.",
+        "requirements": "- Đang học đại học hoặc mới tốt nghiệp bất kỳ ngành nào\n- IELTS 6.5+ hoặc tiếng Anh giao tiếp tốt (đối với trung tâm tiếng Anh)\n- Nhiệt tình, kiên nhẫn và thích giao tiếp với học sinh\n- Có kinh nghiệm dạy kèm/gia sư là lợi thế\n- Có thể làm buổi tối và cuối tuần",
+        "benefits": "- Lương dạy theo giờ hấp dẫn\n- Được học các khóa nâng cao miễn phí\n- Môi trường năng động, trẻ trung\n- Cơ hội trở thành giáo viên chính thức\n- Linh hoạt giờ làm phù hợp sinh viên"
+      }
+    ]
+  },
+  "fnb": {
+    "Junior": [
+      {
+        "title": "NhÃ¢n viÃªn Phá»¥c vá»¥ NhÃ  hÃ ng",
+        "salary": "7-12 triá»‡u",
+        "description": "ChÃ o Ä‘Ã³n vÃ  phá»¥c vá»¥ khÃ¡ch hÃ ng chuyÃªn nghiá»‡p theo tiÃªu chuáº©n dá»‹ch vá»¥ cá»§a nhÃ  hÃ ng. Giá»›i thiá»‡u menu, nháº­n order, phá»‘i há»£p vá»›i bá»™ pháº­n báº¿p Ä‘á»ƒ Ä‘áº£m báº£o tráº£i nghiá»‡m áº©m thá»±c hoÃ n háº£o cho thá»±c khÃ¡ch.",
+        "requirements": "- Tá»‘t nghiá»‡p THPT trá»Ÿ lÃªn\n- Ngoáº¡i hÃ¬nh tÆ°Æ¡m táº¥t, ná»¥ cÆ°á»i thÃ¢n thiá»‡n\n- Ká»¹ nÄƒng giao tiáº¿p vÃ  phá»¥c vá»¥ khÃ¡ch hÃ ng tá»‘t\n- Chá»‹u khÃ³, chá»‹u Ã¡p lá»±c giá» cao Ä‘iá»ƒm\n- Tiáº¿ng Anh cÆ¡ báº£n (Æ°u tiÃªn)\n- CÃ³ thá»ƒ lÃ m ca tá»‘i vÃ  cuá»‘i tuáº§n",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + tips\n- Báº£o hiá»ƒm theo luáº­t\n- Bá»¯a Äƒn trong ca\n- Äá»“ng phá»¥c Ä‘Æ°á»£c cáº¥p\n- CÆ¡ há»™i thÄƒng tiáº¿n nhanh lÃªn TrÆ°á»Ÿng ca"
+      },
+      {
+        "title": "NhÃ¢n viÃªn Báº¿p (Cook)",
+        "salary": "8-14 triá»‡u",
+        "description": "Chuáº©n bá»‹ nguyÃªn liá»‡u vÃ  cháº¿ biáº¿n cÃ¡c mÃ³n Äƒn theo cÃ´ng thá»©c vÃ  tiÃªu chuáº©n cháº¥t lÆ°á»£ng cá»§a nhÃ  báº¿p. Duy trÃ¬ vá»‡ sinh sáº¡ch sáº½ táº¡i khu vá»±c lÃ m viá»‡c vÃ  tuÃ¢n thá»§ HACCP. Há»— trá»£ báº¿p trÆ°á»Ÿng trong cÃ¡c cÃ´ng viá»‡c Ä‘Æ°á»£c giao.",
+        "requirements": "- Tá»‘t nghiá»‡p Trung cáº¥p/Cao Ä‘áº³ng Náº¥u Äƒn hoáº·c cÃ³ kinh nghiá»‡m tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- Ká»¹ nÄƒng cháº¿ biáº¿n vÃ  trang trÃ­ mÃ³n Äƒn\n- Hiá»ƒu biáº¿t vá» vá»‡ sinh an toÃ n thá»±c pháº©m\n- Cáº©n tháº­n, nhanh nháº¹n vÃ  chá»‹u nhiá»‡t tá»‘t\n- Sáºµn sÃ ng lÃ m viá»‡c theo ca (sÃ¡ng/chiá»u/tá»‘i)",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + thÆ°á»Ÿng cháº¥t lÆ°á»£ng\n- Bá»¯a Äƒn miá»…n phÃ­ trong ca\n- ÄÃ o táº¡o ká»¹ thuáº­t báº¿p\n- MÃ´i trÆ°á»ng báº¿p chuyÃªn nghiá»‡p\n- CÆ¡ há»™i há»c há»i tá»« Head Chef"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Báº¿p trÆ°á»Ÿng (Sous Chef)",
+        "salary": "18-35 triá»‡u",
+        "description": "Há»— trá»£ Head Chef quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng báº¿p, Ä‘áº£m báº£o cháº¥t lÆ°á»£ng vÃ  tÃ­nh nháº¥t quÃ¡n cá»§a mÃ³n Äƒn theo menu. ÄÃ o táº¡o Ä‘á»™i ngÅ© báº¿p, kiá»ƒm soÃ¡t food cost vÃ  quáº£n lÃ½ kho nguyÃªn liá»‡u hiá»‡u quáº£.",
+        "requirements": "- Tá»‘t nghiá»‡p Cao Ä‘áº³ng/Äáº¡i há»c áº¨m thá»±c hoáº·c kinh nghiá»‡m tÆ°Æ¡ng Ä‘Æ°Æ¡ng\n- 3+ nÄƒm kinh nghiá»‡m báº¿p trong nhÃ  hÃ ng/khÃ¡ch sáº¡n 4-5 sao\n- ThÃ nh tháº¡o áº©m thá»±c Ã‚u hoáº·c Ã\n- Ká»¹ nÄƒng quáº£n lÃ½ team vÃ  training nhÃ¢n viÃªn\n- Hiá»ƒu biáº¿t vá» HACCP vÃ  an toÃ n thá»±c pháº©m",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh + phá»¥ cáº¥p ca\n- CÆ¡ há»™i há»c há»i ká»¹ thuáº­t cao cáº¥p\n- MÃ´i trÆ°á»ng báº¿p chuyÃªn nghiá»‡p\n- Thá»±c hÃ nh vá»›i nguyÃªn liá»‡u cao cáº¥p\n- Career path to Executive Chef"
+      },
+      {
+        "title": "F&B Supervisor / TrÆ°á»Ÿng ca NhÃ  hÃ ng",
+        "salary": "16-28 triá»‡u",
+        "description": "GiÃ¡m sÃ¡t hoáº¡t Ä‘á»™ng phá»¥c vá»¥ trong ca, Ä‘áº£m báº£o tiÃªu chuáº©n dá»‹ch vá»¥ vÃ  giáº£i quyáº¿t khiáº¿u náº¡i khÃ¡ch hÃ ng. Quáº£n lÃ½ team phá»¥c vá»¥, phÃ¢n cÃ´ng cÃ´ng viá»‡c vÃ  bÃ¡o cÃ¡o hoáº¡t Ä‘á»™ng cuá»‘i ca.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m F&B, 1+ nÄƒm giÃ¡m sÃ¡t\n- Ká»¹ nÄƒng lÃ£nh Ä‘áº¡o vÃ  quáº£n lÃ½ team phá»¥c vá»¥\n- Hiá»ƒu biáº¿t vá» rÆ°á»£u, cocktail cÆ¡ báº£n\n- Tiáº¿ng Anh giao tiáº¿p tá»‘t (phá»¥c vá»¥ khÃ¡ch nÆ°á»›c ngoÃ i)\n- Chá»‹u Ä‘Æ°á»£c Ã¡p lá»±c vÃ  giá»¯ bÃ¬nh tÄ©nh trong giá» cao Ä‘iá»ƒm",
+        "benefits": "- LÆ°Æ¡ng + tips trung bÃ¬nh cao\n- MÃ´i trÆ°á»ng quá»‘c táº¿\n- Há»c wine vÃ  cocktail\n- Service charge thÃ¡ng\n- Career path to F&B Manager"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Restaurant Manager / F&B Manager",
+        "salary": "30-55 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng nhÃ  hÃ ng Ä‘áº¡t doanh thu vÃ  cháº¥t lÆ°á»£ng dá»‹ch vá»¥ má»¥c tiÃªu. XÃ¢y dá»±ng vÃ  duy trÃ¬ team phá»¥c vá»¥ chuyÃªn nghiá»‡p, kiá»ƒm soÃ¡t chi phÃ­ váº­n hÃ nh vÃ  phÃ¡t triá»ƒn tráº£i nghiá»‡m khÃ¡ch hÃ ng.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m F&B, 2+ nÄƒm quáº£n lÃ½ nhÃ  hÃ ng\n- Kinh nghiá»‡m P&L management cho nhÃ  hÃ ng\n- Ká»¹ nÄƒng Ä‘Ã o táº¡o vÃ  phÃ¡t triá»ƒn nhÃ¢n viÃªn\n- Hiá»ƒu biáº¿t vá» wine, spirits vÃ  food pairing\n- Tiáº¿ng Anh thÃ nh tháº¡o",
+        "benefits": "- LÆ°Æ¡ng cao cáº¥p + bonus doanh sá»‘\n- Quáº£n lÃ½ nhÃ  hÃ ng cÃ³ tiáº¿ng\n- ThÆ°á»Ÿng Táº¿t vÃ  cÃ¡c dá»‹p lá»…\n- MÃ´i trÆ°á»ng quá»‘c táº¿\n- Career path to F&B Director"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "F&B Director / General Manager KhÃ¡ch sáº¡n",
+        "salary": "55-100 triá»‡u",
+        "description": "Phá»¥ trÃ¡ch chiáº¿n lÆ°á»£c F&B toÃ n bá»™ property/chuá»—i nhÃ  hÃ ng, bao gá»“m menu engineering, revenue management vÃ  tráº£i nghiá»‡m khÃ¡ch hÃ ng. Äáº£m báº£o P&L Ä‘áº¡t má»¥c tiÃªu vÃ  xÃ¢y dá»±ng thÆ°Æ¡ng hiá»‡u F&B máº¡nh trÃªn thá»‹ trÆ°á»ng.",
+        "requirements": "- 10+ nÄƒm kinh nghiá»‡m F&B, 4+ nÄƒm quáº£n lÃ½ cáº¥p cao\n- Kinh nghiá»‡m khÃ¡ch sáº¡n 5 sao hoáº·c chuá»—i F&B lá»›n\n- MBA hoáº·c chá»©ng chá»‰ quáº£n lÃ½ khÃ¡ch sáº¡n quá»‘c táº¿\n- Tiáº¿ng Anh thÃ nh tháº¡o\n- Máº¡ng lÆ°á»›i ngÃ nh F&B rá»™ng",
+        "benefits": "- Executive compensation\n- Housing allowance\n- Báº£o hiá»ƒm VIP + gia Ä‘Ã¬nh\n- International hotel brand exposure\n- Career advancement globally"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Nhân viên Part-time F&B / Phục vụ",
+        "salary": "5-9 triệu",
+        "description": "Tuyển nhân viên phục vụ bán thời gian cho nhà hàng/quán cafe. Không cần kinh nghiệm, được đào tạo bài bản ngay từ đầu. Phù hợp cho sinh viên muốn có thêm thu nhập và kinh nghiệm thực tế trong ngành F&B.",
+        "requirements": "- Từ 18 tuổi trở lên\n- Ngoại hình ưa nhìn, nụ cười thân thiện\n- Chịu khó, có trách nhiệm và đúng giờ\n- Có thể làm ca tối (từ 17h-22h) và cuối tuần\n- Không yêu cầu kinh nghiệm, được đào tạo ngay",
+        "benefits": "- Lương theo giờ + tips\n- Bữa ăn ca miễn phí\n- Đồng phục được cấp\n- Giờ linh hoạt phù hợp sinh viên\n- Cơ hội trở thành nhân viên toàn thời gian"
+      }
+    ]
+  },
+  "retail": {
+    "Junior": [
+      {
+        "title": "NhÃ¢n viÃªn BÃ¡n hÃ ng",
+        "salary": "7-13 triá»‡u",
+        "description": "Trá»±c tiáº¿p phá»¥c vá»¥ vÃ  tÆ° váº¥n khÃ¡ch hÃ ng táº¡i cá»­a hÃ ng, giá»›i thiá»‡u sáº£n pháº©m phÃ¹ há»£p vá»›i nhu cáº§u. Thá»±c hiá»‡n giao dá»‹ch táº¡i POS, xá»­ lÃ½ Ä‘á»•i tráº£ vÃ  Ä‘áº£m báº£o tráº£i nghiá»‡m mua sáº¯m tá»‘t nháº¥t cho khÃ¡ch hÃ ng.",
+        "requirements": "- Tá»‘t nghiá»‡p THPT trá»Ÿ lÃªn\n- Ngoáº¡i hÃ¬nh dá»… nhÃ¬n, giao tiáº¿p thÃ¢n thiá»‡n\n- Ká»¹ nÄƒng bÃ¡n hÃ ng vÃ  thuyáº¿t phá»¥c khÃ¡ch\n- Cáº©n tháº­n khi xá»­ lÃ½ tiá»n máº·t vÃ  POS\n- Chá»‹u Ä‘Æ°á»£c Ã¡p lá»±c trong giá» cao Ä‘iá»ƒm\n- CÃ³ thá»ƒ lÃ m ca xoay vÃ  cuá»‘i tuáº§n",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + hoa há»“ng bÃ¡n hÃ ng\n- Äá»“ng phá»¥c Ä‘Æ°á»£c cáº¥p\n- Ä‚n trÆ°a táº¡i canteen\n- NhÃ¢n viÃªn mua sáº£n pháº©m vá»›i giÃ¡ Æ°u Ä‘Ã£i\n- ThÆ°á»Ÿng KPI theo thÃ¡ng"
+      },
+      {
+        "title": "NhÃ¢n viÃªn Kiá»ƒm soÃ¡t HÃ ng hÃ³a (VM Assistant)",
+        "salary": "8-13 triá»‡u",
+        "description": "Há»— trá»£ trÆ°ng bÃ y hÃ ng hÃ³a theo planogram vÃ  tiÃªu chuáº©n tháº©m má»¹ cá»§a thÆ°Æ¡ng hiá»‡u. Kiá»ƒm soÃ¡t hÃ ng tá»“n kho, nháº­n hÃ ng má»›i vÃ  Ä‘áº£m báº£o cá»­a hÃ ng luÃ´n gá»n gÃ ng, sáº¡ch sáº½ vÃ  thu hÃºt khÃ¡ch hÃ ng.",
+        "requirements": "- Tá»‘t nghiá»‡p THPT, cÃ³ khiáº¿u tháº©m má»¹ vÃ  sÃ¡ng táº¡o\n- Cáº©n tháº­n vÃ  ngÄƒn náº¯p\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» trÆ°ng bÃ y hÃ ng hÃ³a\n- CÃ³ thá»ƒ lÃ m ca vÃ  lÃ m viá»‡c vá»›i Ä‘á»“ng Ä‘á»™i\n- Kinh nghiá»‡m bÃ¡n láº» lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng á»•n Ä‘á»‹nh\n- Giáº£m giÃ¡ mua sáº£n pháº©m cá»§a hÃ£ng\n- ÄÃ o táº¡o ká»¹ nÄƒng VM\n- MÃ´i trÆ°á»ng tráº» trung\n- CÆ¡ há»™i trá»Ÿ thÃ nh VM chÃ­nh thá»©c"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Quáº£n lÃ½ Cá»­a hÃ ng (Store Manager)",
+        "salary": "18-35 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng cá»­a hÃ ng Ä‘á»ƒ Ä‘áº¡t má»¥c tiÃªu doanh thu, kiá»ƒm soÃ¡t chi phÃ­ vÃ  Ä‘áº£m báº£o tráº£i nghiá»‡m khÃ¡ch hÃ ng xuáº¥t sáº¯c. LÃ£nh Ä‘áº¡o vÃ  phÃ¡t triá»ƒn team nhÃ¢n viÃªn, quáº£n lÃ½ hÃ ng tá»“n kho vÃ  thá»±c thi chiáº¿n dá»‹ch khuyáº¿n mÃ£i.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m bÃ¡n láº», 1+ nÄƒm quáº£n lÃ½ cá»­a hÃ ng\n- Ká»¹ nÄƒng lÃ£nh Ä‘áº¡o team 5-15 ngÆ°á»i\n- Hiá»ƒu biáº¿t vá» quáº£n lÃ½ hÃ ng tá»“n kho vÃ  POS\n- KPI-driven mindset vá»›i focus vÃ o doanh sá»‘\n- Chá»‹u Ä‘Æ°á»£c Ã¡p lá»±c vÃ  linh hoáº¡t vá»›i giá» lÃ m",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + thÆ°á»Ÿng doanh sá»‘\n- Giáº£m giÃ¡ nhÃ¢n viÃªn\n- ÄÃ o táº¡o quáº£n lÃ½ liÃªn tá»¥c\n- CÆ¡ há»™i thÄƒng tiáº¿n lÃªn Area Manager\n- Stable work environment"
+      },
+      {
+        "title": "Visual Merchandiser",
+        "salary": "16-28 triá»‡u",
+        "description": "Thiáº¿t káº¿ vÃ  thá»±c hiá»‡n trÆ°ng bÃ y hÃ ng hÃ³a sÃ¡ng táº¡o táº¡i cá»­a hÃ ng Ä‘á»ƒ tÄƒng conversion rate vÃ  tráº£i nghiá»‡m mua sáº¯m. PhÃ¡t triá»ƒn planogram, theo dÃµi hiá»‡u quáº£ trÆ°ng bÃ y vÃ  Ä‘Ã o táº¡o nhÃ¢n viÃªn vá» VM standards.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m VM trong ngÃ nh bÃ¡n láº»/fashion\n- Khiáº¿u tháº©m má»¹ tá»‘t vÃ  hiá»ƒu consumer psychology\n- Ká»¹ nÄƒng thiáº¿t káº¿ cÆ¡ báº£n (Photoshop, Illustrator)\n- Kinh nghiá»‡m window display vÃ  in-store fixtures\n- Tiáº¿ng Anh Ä‘á»c hiá»ƒu brand guidelines",
+        "benefits": "- SÃ¡ng táº¡o khÃ´ng giá»›i háº¡n\n- Tiáº¿p xÃºc vá»›i brand quá»‘c táº¿\n- Portfolio phong phÃº\n- CÆ¡ há»™i Ä‘i thá»±c Ä‘á»‹a cÃ¡c thá»‹ trÆ°á»ng\n- Career path to VM Manager"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Area Manager / TrÆ°á»Ÿng Khu vá»±c",
+        "salary": "35-60 triá»‡u",
+        "description": "Quáº£n lÃ½ P&L vÃ  hoáº¡t Ä‘á»™ng cá»§a 5-15 cá»­a hÃ ng trong khu vá»±c, Ä‘áº£m báº£o táº¥t cáº£ cá»­a hÃ ng Ä‘áº¡t KPI vá» doanh sá»‘, dá»‹ch vá»¥ khÃ¡ch hÃ ng vÃ  váº­n hÃ nh. PhÃ¡t triá»ƒn Store Managers vÃ  xÃ¢y dá»±ng nÄƒng lá»±c team trong khu vá»±c.",
+        "requirements": "- 5+ nÄƒm kinh nghiá»‡m bÃ¡n láº», 2+ nÄƒm quáº£n lÃ½ nhiá»u cá»­a hÃ ng\n- Kinh nghiá»‡m P&L multi-store management\n- Strong leadership vÃ  coaching skills\n- Kháº£ nÄƒng phÃ¢n tÃ­ch dá»¯ liá»‡u bÃ¡n hÃ ng\n- CÃ³ xe mÃ¡y hoáº·c Ã´ tÃ´ Ä‘á»ƒ di chuyá»ƒn giá»¯a cÃ¡c cá»­a hÃ ng",
+        "benefits": "- Competitive area manager package\n- Xe cÃ´ng vá»¥ hoáº·c phá»¥ cáº¥p di chuyá»ƒn\n- ThÆ°á»Ÿng káº¿t quáº£ kinh doanh khu vá»±c\n- Leadership development program\n- Path to Retail Director"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Retail Director / Head of Retail",
+        "salary": "60-100 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o chiáº¿n lÆ°á»£c bÃ¡n láº» trÃªn toÃ n quá»‘c, quáº£n lÃ½ máº¡ng lÆ°á»›i chuá»—i cá»­a hÃ ng vÃ  Ä‘áº£m báº£o tÄƒng trÆ°á»Ÿng bá»n vá»¯ng. XÃ¢y dá»±ng retail strategy, má»Ÿ rá»™ng Ä‘iá»ƒm bÃ¡n, phÃ¡t triá»ƒn omnichannel vÃ  Ä‘áº£m báº£o customer experience nháº¥t quÃ¡n.",
+        "requirements": "- 10+ nÄƒm kinh nghiá»‡m retail, 4+ nÄƒm senior management\n- Kinh nghiá»‡m quáº£n lÃ½ chuá»—i 50+ cá»­a hÃ ng\n- Strong business acumen vÃ  financial literacy\n- Kinh nghiá»‡m omnichannel retail\n- Tiáº¿ng Anh thÃ nh tháº¡o Ä‘á»ƒ lÃ m viá»‡c vá»›i brand quá»‘c táº¿",
+        "benefits": "- C-suite level compensation\n- Ownership cá»§a retail strategy\n- ESOP\n- Xe cÃ´ng vá»¥\n- Board-level visibility"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Nhân viên Bán hàng Part-time",
+        "salary": "5-9 triệu",
+        "description": "Tuyển nhân viên bán hàng bán thời gian tại chuỗi cửa hàng bán lẻ. Phù hợp cho sinh viên muốn tích lũy kinh nghiệm trong ngành bán lẻ và có thêm thu nhập trong khi học.",
+        "requirements": "- Từ 18 tuổi trở lên, ngoại hình dễ nhìn\n- Giao tiếp tốt và thân thiện với khách hàng\n- Trung thực và cẩn thận khi xử lý tiền\n- Có thể làm ca xoay và làm cuối tuần\n- Không yêu cầu kinh nghiệm bán lẻ",
+        "benefits": "- Lương cơ bản + hoa hồng\n- Đào tạo kỹ năng bán hàng\n- Giảm giá nhân viên 20%\n- Ca linh hoạt\n- Cơ hội full-time sau thử việc"
+      }
+    ]
+  },
+  "construction": {
+    "Junior": [
+      {
+        "title": "Ká»¹ sÆ° XÃ¢y dá»±ng (Junior)",
+        "salary": "10-18 triá»‡u",
+        "description": "Há»— trá»£ giÃ¡m sÃ¡t thi cÃ´ng cÃ¡c háº¡ng má»¥c xÃ¢y dá»±ng táº¡i cÃ´ng trÃ¬nh, Ä‘áº£m báº£o tuÃ¢n thá»§ báº£n váº½ ká»¹ thuáº­t vÃ  tiÃªu chuáº©n cháº¥t lÆ°á»£ng. Láº­p bÃ¡o cÃ¡o nháº­t kÃ½ cÃ´ng trÃ¬nh, theo dÃµi tiáº¿n Ä‘á»™ vÃ  phá»‘i há»£p vá»›i nhÃ  tháº§u phá»¥.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c XÃ¢y dá»±ng, Ká»¹ thuáº­t CÃ´ng trÃ¬nh hoáº·c liÃªn quan\n- ThÃ nh tháº¡o AutoCAD, MS Office\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» ká»¹ thuáº­t xÃ¢y dá»±ng vÃ  váº­t liá»‡u\n- Chá»‹u Ä‘Æ°á»£c mÃ´i trÆ°á»ng cÃ´ng trÆ°á»ng (náº¯ng, bá»¥i)\n- Sáºµn sÃ ng lÃ m viá»‡c xa nhÃ  khi cáº§n",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + phá»¥ cáº¥p cÃ´ng trÆ°á»ng\n- Kinh nghiá»‡m thá»±c táº¿ phong phÃº\n- ÄÆ°á»£c Ä‘Ã o táº¡o tá»« ká»¹ sÆ° senior\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§\n- CÆ¡ há»™i tham gia cÃ¡c dá»± Ã¡n lá»›n"
+      },
+      {
+        "title": "Ká»¹ thuáº­t viÃªn Kháº£o sÃ¡t / Äá»‹nh vá»‹",
+        "salary": "9-15 triá»‡u",
+        "description": "Thá»±c hiá»‡n cÃ´ng tÃ¡c kháº£o sÃ¡t Ä‘á»‹a hÃ¬nh, Ä‘á»‹nh vá»‹ cÃ´ng trÃ¬nh vÃ  Ä‘o Ä‘áº¡c kiá»ƒm tra trong quÃ¡ trÃ¬nh thi cÃ´ng. Sá»­ dá»¥ng mÃ¡y toÃ n Ä‘áº¡c, GPS vÃ  pháº§n má»m kháº£o sÃ¡t Ä‘á»ƒ Ä‘áº£m báº£o Ä‘á»™ chÃ­nh xÃ¡c ká»¹ thuáº­t.",
+        "requirements": "- Tá»‘t nghiá»‡p Cao Ä‘áº³ng/Äáº¡i há»c Tráº¯c Ä‘á»‹a hoáº·c XÃ¢y dá»±ng\n- Biáº¿t sá»­ dá»¥ng mÃ¡y toÃ n Ä‘áº¡c, GPS, AutoCAD\n- Chá»‹u khÃ³, cáº©n tháº­n vÃ  chÃ­nh xÃ¡c\n- Sáºµn sÃ ng lÃ m viá»‡c ngoÃ i trá»i\n- CÃ³ báº±ng lÃ¡i xe lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng á»•n Ä‘á»‹nh + phá»¥ cáº¥p hiá»‡n trÆ°á»ng\n- CÃ´ng viá»‡c á»•n Ä‘á»‹nh, dÃ i háº¡n\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§\n- Xe cÃ´ng ty Ä‘Æ°a Ä‘i cÃ´ng trÃ¬nh\n- Annual increment"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Ká»¹ sÆ° Quáº£n lÃ½ Dá»± Ã¡n XÃ¢y dá»±ng",
+        "salary": "20-40 triá»‡u",
+        "description": "Quáº£n lÃ½ tiáº¿n Ä‘á»™, cháº¥t lÆ°á»£ng vÃ  an toÃ n cá»§a cÃ¡c dá»± Ã¡n xÃ¢y dá»±ng dÃ¢n dá»¥ng hoáº·c cÃ´ng nghiá»‡p. Äiá»u phá»‘i nhÃ  tháº§u phá»¥, giáº£i quyáº¿t váº¥n Ä‘á» ká»¹ thuáº­t phÃ¡t sinh vÃ  bÃ¡o cÃ¡o tiáº¿n Ä‘á»™ cho chá»§ Ä‘áº§u tÆ°.",
+        "requirements": "- 3-5 nÄƒm kinh nghiá»‡m quáº£n lÃ½ cÃ´ng trÃ¬nh xÃ¢y dá»±ng\n- Chá»©ng chá»‰ hÃ nh nghá» ká»¹ sÆ° xÃ¢y dá»±ng\n- ThÃ nh tháº¡o MS Project, AutoCAD, Revit\n- Ká»¹ nÄƒng quáº£n lÃ½ nhÃ  tháº§u vÃ  giáº£i quyáº¿t tranh cháº¥p\n- Tiáº¿ng Anh Ä‘á»c hiá»ƒu báº£n váº½ vÃ  tÃ i liá»‡u ká»¹ thuáº­t",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh + phá»¥ cáº¥p cÃ´ng trÆ°á»ng\n- Tham gia cÃ¡c dá»± Ã¡n quy mÃ´ lá»›n\n- Há»— trá»£ thi PMP hoáº·c chá»©ng chá»‰ hÃ nh nghá»\n- CÆ¡ há»™i lÃ m dá»± Ã¡n quá»‘c táº¿\n- Báº£o hiá»ƒm vÃ  phÃºc lá»£i tá»‘t"
+      },
+      {
+        "title": "Ká»¹ sÆ° Æ¯á»›c tÃ­nh Chi phÃ­ (QS)",
+        "salary": "18-35 triá»‡u",
+        "description": "Láº­p dá»± toÃ¡n chi phÃ­ xÃ¢y dá»±ng, thá»±c hiá»‡n Ä‘áº¥u tháº§u vÃ  quáº£n lÃ½ há»£p Ä‘á»“ng xÃ¢y dá»±ng. Theo dÃµi chi phÃ­ thá»±c táº¿ so vá»›i dá»± toÃ¡n, quáº£n lÃ½ biáº¿n Ä‘á»™ng giÃ¡ vÃ  há»— trá»£ quyáº¿t toÃ¡n cÃ´ng trÃ¬nh.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m QS hoáº·c dá»± toÃ¡n xÃ¢y dá»±ng\n- ThÃ nh tháº¡o pháº§n má»m dá»± toÃ¡n vÃ  Excel\n- Hiá»ƒu biáº¿t vá» Ä‘á»‹nh má»©c xÃ¢y dá»±ng vÃ  Ä‘Æ¡n giÃ¡\n- Ká»¹ nÄƒng Ä‘á»c báº£n váº½ ká»¹ thuáº­t\n- Chá»©ng chá»‰ QS hoáº·c Ä‘ang há»c lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng tá»‘t theo ká»¹ nÄƒng\n- LÃ m viá»‡c vÄƒn phÃ²ng chÃ­nh lÃ  chÃ­nh\n- Tiáº¿p xÃºc nhiá»u loáº¡i dá»± Ã¡n\n- Há»— trá»£ chá»©ng chá»‰ RICS\n- Stable career path"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Senior Project Manager / GiÃ¡m Ä‘á»‘c Dá»± Ã¡n",
+        "salary": "45-80 triá»‡u",
+        "description": "Phá»¥ trÃ¡ch tá»•ng thá»ƒ má»™t hoáº·c nhiá»u dá»± Ã¡n xÃ¢y dá»±ng lá»›n, Ä‘áº£m báº£o hoÃ n thÃ nh Ä‘Ãºng tiáº¿n Ä‘á»™, ngÃ¢n sÃ¡ch vÃ  cháº¥t lÆ°á»£ng. Quáº£n lÃ½ quan há»‡ chá»§ Ä‘áº§u tÆ°, thiáº¿t káº¿ delivery strategy vÃ  giáº£i quyáº¿t cÃ¡c váº¥n Ä‘á» phá»©c táº¡p.",
+        "requirements": "- 7+ nÄƒm kinh nghiá»‡m xÃ¢y dá»±ng, 3+ nÄƒm PM\n- PMP hoáº·c PRINCE2 certification\n- Kinh nghiá»‡m dá»± Ã¡n > 100 tá»· VNÄ\n- Ká»¹ nÄƒng negotiation vÃ  stakeholder management\n- Tiáº¿ng Anh thÃ nh tháº¡o cho dá»± Ã¡n quá»‘c táº¿",
+        "benefits": "- Senior PM compensation\n- Quáº£n lÃ½ dá»± Ã¡n Ä‘Ã¬nh Ä‘Ã¡m\n- Xe cÃ´ng vá»¥\n- ThÆ°á»Ÿng hoÃ n thÃ nh dá»± Ã¡n\n- Path to Construction Director"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "GiÃ¡m Ä‘á»‘c XÃ¢y dá»±ng / Construction Director",
+        "salary": "70-130 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o toÃ n bá»™ hoáº¡t Ä‘á»™ng xÃ¢y dá»±ng cá»§a cÃ´ng ty, thiáº¿t láº­p chiáº¿n lÆ°á»£c tÄƒng trÆ°á»Ÿng vÃ  quáº£n lÃ½ danh má»¥c dá»± Ã¡n. XÃ¢y dá»±ng nÄƒng lá»±c ká»¹ thuáº­t, quáº£n lÃ½ rá»§i ro tá»•ng thá»ƒ vÃ  Ä‘áº¡i diá»‡n cÃ´ng ty vá»›i chá»§ Ä‘áº§u tÆ° lá»›n.",
+        "requirements": "- 12+ nÄƒm kinh nghiá»‡m xÃ¢y dá»±ng, 5+ nÄƒm quáº£n lÃ½ cáº¥p cao\n- Kinh nghiá»‡m quáº£n lÃ½ danh má»¥c dá»± Ã¡n 500B+\n- Máº¡ng lÆ°á»›i quan há»‡ rá»™ng vá»›i chá»§ Ä‘áº§u tÆ° vÃ  Ä‘á»‘i tÃ¡c\n- Tiáº¿ng Anh thÃ nh tháº¡o\n- Báº±ng ká»¹ sÆ° chÃ­nh phá»§ lÃ  lá»£i tháº¿",
+        "benefits": "- Executive compensation + P&L bonus\n- Xe cÃ´ng vá»¥ cao cáº¥p\n- ESOP\n- Báº£o hiá»ƒm VIP\n- Board participation"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Kỹ sư Thực tập Xây dựng",
+        "salary": "6-10 triệu",
+        "description": "Chương trình thực tập có thù lao cho sinh viên ngành Xây dựng, Kiến trúc. Bạn sẽ tham gia công trường thực tế, học đọc bản vẽ, giám sát thi công và hỗ trợ kỹ sư senior trong các tác vụ hàng ngày.",
+        "requirements": "- Đang học năm 3-4 hoặc mới tốt nghiệp Đại học Xây dựng/Kiến trúc\n- Biết AutoCAD cơ bản\n- Không ngại làm việc ngoài trời\n- Chịu khó, kỷ luật và ham học hỏi\n- Có thể đi thực địa tại công trường",
+        "benefits": "- Phụ cấp thực tập + phụ cấp công trường\n- Kinh nghiệm công trường thực tế\n- Học từ kỹ sư senior\n- Ưu tiên tuyển dụng sau tốt nghiệp\n- Chứng chỉ thực tập được cấp"
+      }
+    ]
+  },
+  "logistics": {
+    "Junior": [
+      {
+        "title": "ChuyÃªn viÃªn Xuáº¥t nháº­p kháº©u",
+        "salary": "10-16 triá»‡u",
+        "description": "Chuáº©n bá»‹ vÃ  kiá»ƒm tra bá»™ chá»©ng tá»« xuáº¥t nháº­p kháº©u (Invoice, Packing List, B/L, C/O), phá»‘i há»£p vá»›i háº£i quan vÃ  forwarder Ä‘á»ƒ thÃ´ng quan hÃ ng hÃ³a. Theo dÃµi lá»‹ch tÃ u vÃ  cáº­p nháº­t tiáº¿n Ä‘á»™ shipment cho khÃ¡ch hÃ ng.",
+        "requirements": "- Tá»‘t nghiá»‡p Äáº¡i há»c Ngoáº¡i thÆ°Æ¡ng, Logistics hoáº·c liÃªn quan\n- Hiá»ƒu biáº¿t vá» Incoterms, L/C, chá»©ng tá»« thÆ°Æ¡ng máº¡i quá»‘c táº¿\n- Tiáº¿ng Anh tá»‘t (Ä‘á»c viáº¿t chá»©ng tá»« vÃ  email)\n- Cáº©n tháº­n, tá»‰ má»‰ vá»›i chá»©ng tá»«\n- Chá»©ng chá»‰ logistics FIATA hoáº·c xuáº¥t nháº­p kháº©u lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + phá»¥ cáº¥p\n- Kinh nghiá»‡m thá»±c táº¿ logistics quá»‘c táº¿\n- MÃ´i trÆ°á»ng nÄƒng Ä‘á»™ng\n- ÄÃ o táº¡o chuyÃªn sÃ¢u vá» customs vÃ  freight\n- Career path rÃµ rÃ ng"
+      },
+      {
+        "title": "NhÃ¢n viÃªn Quáº£n lÃ½ Kho",
+        "salary": "9-14 triá»‡u",
+        "description": "Tiáº¿p nháº­n, kiá»ƒm Ä‘áº¿m vÃ  lÆ°u trá»¯ hÃ ng hÃ³a trong kho theo quy trÃ¬nh. Thá»±c hiá»‡n inventory control, kiá»ƒm kÃª Ä‘á»‹nh ká»³ vÃ  xuáº¥t hÃ ng theo lá»‡nh. Sá»­ dá»¥ng WMS Ä‘á»ƒ cáº­p nháº­t tá»“n kho chÃ­nh xÃ¡c.",
+        "requirements": "- Tá»‘t nghiá»‡p Cao Ä‘áº³ng/Äáº¡i há»c ngÃ nh logistics, quáº£n trá»‹ hoáº·c liÃªn quan\n- Biáº¿t sá»­ dá»¥ng WMS vÃ  Excel\n- Cáº©n tháº­n, cáº©n tháº­n vÃ  trung thá»±c\n- CÃ³ thá»ƒ lÃ m ca xoay\n- Kinh nghiá»‡m kho bÃ£i lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng á»•n Ä‘á»‹nh\n- LÃ m viá»‡c trong kho cÃ³ Ä‘iá»u hÃ²a\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§\n- Ä‚n ca miá»…n phÃ­\n- MÃ´i trÆ°á»ng á»•n Ä‘á»‹nh, lÃ¢u dÃ i"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Logistics Coordinator / Äiá»u phá»‘i Váº­n táº£i",
+        "salary": "18-32 triá»‡u",
+        "description": "Láº­p káº¿ hoáº¡ch vÃ  tá»‘i Æ°u tuyáº¿n váº­n chuyá»ƒn, Ä‘iá»u phá»‘i Ä‘á»™i xe vÃ  Ä‘á»‘i tÃ¡c váº­n táº£i Ä‘á»ƒ Ä‘áº£m báº£o giao hÃ ng Ä‘Ãºng háº¡n vÃ  chi phÃ­ tá»‘i Æ°u. Xá»­ lÃ½ sá»± cá»‘ váº­n chuyá»ƒn vÃ  bÃ¡o cÃ¡o KPI logistics.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m logistics/váº­n táº£i ná»™i Ä‘á»‹a\n- Hiá»ƒu biáº¿t vá» máº¡ng lÆ°á»›i váº­n táº£i Viá»‡t Nam\n- Ká»¹ nÄƒng Ä‘Ã m phÃ¡n vá»›i nhÃ  cung cáº¥p váº­n táº£i\n- ThÃ nh tháº¡o Excel vÃ  TMS\n- Ãp lá»±c cao nhÆ°ng cÃ³ kháº£ nÄƒng xá»­ lÃ½ Ä‘a nhiá»‡m",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh\n- MÃ´i trÆ°á»ng nÄƒng Ä‘á»™ng\n- Bonus tiáº¿t kiá»‡m chi phÃ­ logistics\n- Há»c há»i supply chain toÃ n diá»‡n\n- Career path to Supply Chain Manager"
+      },
+      {
+        "title": "ChuyÃªn viÃªn Chuá»—i Cung á»©ng",
+        "salary": "20-38 triá»‡u",
+        "description": "PhÃ¢n tÃ­ch vÃ  tá»‘i Æ°u chuá»—i cung á»©ng tá»« mua hÃ ng, lÆ°u kho Ä‘áº¿n phÃ¢n phá»‘i. Thá»±c hiá»‡n S&OP, quáº£n lÃ½ nhÃ  cung cáº¥p vÃ  triá»ƒn khai cÃ¡c cáº£i tiáº¿n hiá»‡u quáº£ váº­n hÃ nh. BÃ¡o cÃ¡o supply chain metrics cho ban lÃ£nh Ä‘áº¡o.",
+        "requirements": "- 3-5 nÄƒm kinh nghiá»‡m supply chain hoáº·c logistics\n- ThÃ nh tháº¡o Excel, SAP SCM hoáº·c Oracle\n- Kinh nghiá»‡m S&OP vÃ  demand planning\n- Chá»©ng chá»‰ CSCP hoáº·c CLTD lÃ  lá»£i tháº¿\n- Tiáº¿ng Anh giao tiáº¿p Ä‘Æ°á»£c vá»›i nhÃ  cung cáº¥p quá»‘c táº¿",
+        "benefits": "- LÃ m viá»‡c vá»›i chuá»—i cung á»©ng quy mÃ´ lá»›n\n- Data-driven environment\n- Certification support\n- Hybrid work\n- Competitive salary"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Logistics Manager / Supply Chain Manager",
+        "salary": "40-70 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng logistics vÃ  chuá»—i cung á»©ng, Ä‘áº£m báº£o tá»‘i Æ°u chi phÃ­, tá»‘c Ä‘á»™ vÃ  Ä‘á»™ tin cáº­y. XÃ¢y dá»±ng vÃ  phÃ¡t triá»ƒn team, quáº£n lÃ½ quan há»‡ vá»›i 3PL vÃ  nhÃ  cung cáº¥p chiáº¿n lÆ°á»£c.",
+        "requirements": "- 6+ nÄƒm kinh nghiá»‡m logistics/supply chain, 2+ nÄƒm quáº£n lÃ½\n- Kinh nghiá»‡m quáº£n lÃ½ team vÃ  ngÃ¢n sÃ¡ch logistics\n- Strong analytical skills vÃ  cost optimization\n- Kinh nghiá»‡m vá»›i ERP vÃ  WMS\n- Tiáº¿ng Anh thÃ nh tháº¡o cho giao dá»‹ch quá»‘c táº¿",
+        "benefits": "- Senior manager package\n- P&L ownership cho logistics\n- ESOP sau 1 nÄƒm\n- Bonus tiáº¿t kiá»‡m chi phÃ­\n- International supply chain exposure"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Director of Logistics / Head of Supply Chain",
+        "salary": "65-110 triá»‡u",
+        "description": "LÃ£nh Ä‘áº¡o chiáº¿n lÆ°á»£c chuá»—i cung á»©ng vÃ  logistics cho toÃ n quá»‘c hoáº·c khu vá»±c, tá»‘i Æ°u máº¡ng lÆ°á»›i phÃ¢n phá»‘i vÃ  quáº£n lÃ½ ngÃ¢n sÃ¡ch logistics lá»›n. XÃ¢y dá»±ng nÄƒng lá»±c logistics lÃ m lá»£i tháº¿ cáº¡nh tranh cho cÃ´ng ty.",
+        "requirements": "- 10+ nÄƒm kinh nghiá»‡m supply chain, 4+ nÄƒm senior management\n- Kinh nghiá»‡m quáº£n lÃ½ ngÃ¢n sÃ¡ch logistics 50B+/nÄƒm\n- Kinh nghiá»‡m digital transformation trong logistics\n- Tiáº¿ng Anh thÃ nh tháº¡o\n- MBA lÃ  lá»£i tháº¿",
+        "benefits": "- Executive compensation\n- P&L bonus\n- ESOP\n- Xe cÃ´ng vá»¥\n- Board-level supply chain strategy"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Fresher Logistics / Xuất nhập khẩu",
+        "salary": "7-11 triệu",
+        "description": "Cơ hội bắt đầu sự nghiệp trong lĩnh vực logistics và xuất nhập khẩu. Bạn sẽ được hướng dẫn về chứng từ thương mại, quy trình thông quan và nghiệp vụ vận tải quốc tế.",
+        "requirements": "- Tốt nghiệp Đại học Ngoại thương, Logistics hoặc liên quan\n- Tiếng Anh đọc viết tốt (đọc chứng từ tiếng Anh)\n- Cẩn thận và tỉ mỉ với chứng từ\n- Chịu áp lực deadline shipment\n- Biết Excel cơ bản",
+        "benefits": "- Đào tạo chứng từ xuất nhập khẩu từ A-Z\n- Học Incoterms, L/C, B/L thực tế\n- Môi trường logistics quốc tế\n- Lộ trình phát triển rõ ràng\n- FIATA certificate được hỗ trợ"
+      }
+    ]
+  },
+  "manufacturing": {
+    "Junior": [
+      {
+        "title": "Ká»¹ thuáº­t viÃªn Sáº£n xuáº¥t",
+        "salary": "9-16 triá»‡u",
+        "description": "Váº­n hÃ nh mÃ¡y mÃ³c thiáº¿t bá»‹ sáº£n xuáº¥t theo quy trÃ¬nh vÃ  tiÃªu chuáº©n ká»¹ thuáº­t. PhÃ¡t hiá»‡n vÃ  bÃ¡o cÃ¡o lá»—i ká»¹ thuáº­t, thá»±c hiá»‡n báº£o dÆ°á»¡ng cÆ¡ báº£n vÃ  tham gia cÃ¡c hoáº¡t Ä‘á»™ng cáº£i tiáº¿n 5S, Kaizen táº¡i xÆ°á»Ÿng.",
+        "requirements": "- Tá»‘t nghiá»‡p Cao Ä‘áº³ng/Äáº¡i há»c Ká»¹ thuáº­t CÃ´ng nghiá»‡p, CÆ¡ Ä‘iá»‡n tá»­ hoáº·c liÃªn quan\n- Hiá»ƒu biáº¿t cÆ¡ báº£n vá» váº­n hÃ nh thiáº¿t bá»‹ sáº£n xuáº¥t\n- Cáº©n tháº­n, ká»· luáº­t vÃ  tuÃ¢n thá»§ an toÃ n lao Ä‘á»™ng\n- Sáºµn sÃ ng lÃ m ca (2 hoáº·c 3 ca)\n- Tiáº¿ng Anh/Tiáº¿ng Nháº­t cÆ¡ báº£n lÃ  lá»£i tháº¿",
+        "benefits": "- LÆ°Æ¡ng cÆ¡ báº£n + phá»¥ cáº¥p ca + nÄƒng suáº¥t\n- Báº£o hiá»ƒm Ä‘áº§y Ä‘á»§\n- Ä‚n ca miá»…n phÃ­\n- MÃ´i trÆ°á»ng sáº£n xuáº¥t tiÃªn tiáº¿n\n- CÆ¡ há»™i há»c ká»¹ thuáº­t tá»« chuyÃªn gia Nháº­t/HÃ n"
+      },
+      {
+        "title": "QC Inspector",
+        "salary": "9-15 triá»‡u",
+        "description": "Kiá»ƒm tra cháº¥t lÆ°á»£ng sáº£n pháº©m theo cÃ¡c tiÃªu chuáº©n ká»¹ thuáº­t vÃ  quy trÃ¬nh QC. Sá»­ dá»¥ng dá»¥ng cá»¥ Ä‘o lÆ°á»ng, ghi nháº­n káº¿t quáº£ kiá»ƒm tra vÃ  bÃ¡o cÃ¡o lá»—i cho bá»™ pháº­n sáº£n xuáº¥t Ä‘á»ƒ xá»­ lÃ½ ká»‹p thá»i.",
+        "requirements": "- Tá»‘t nghiá»‡p Cao Ä‘áº³ng/Äáº¡i há»c CÆ¡ khÃ­, Ká»¹ thuáº­t CÃ´ng nghiá»‡p\n- Kiáº¿n thá»©c cÆ¡ báº£n vá» QC, tiÃªu chuáº©n ISO\n- Biáº¿t sá»­ dá»¥ng dá»¥ng cá»¥ Ä‘o lÆ°á»ng (Vernier, Micrometer)\n- Tá»‰ má»‰, cáº©n tháº­n vÃ  trung thá»±c\n- CÃ³ thá»ƒ lÃ m ca",
+        "benefits": "- LÆ°Æ¡ng á»•n Ä‘á»‹nh\n- ÄÃ o táº¡o ká»¹ thuáº­t kiá»ƒm tra cháº¥t lÆ°á»£ng\n- CÆ¡ há»™i há»c IATF, ISO\n- Báº£o hiá»ƒm vÃ  phÃºc lá»£i tá»‘t\n- MÃ´i trÆ°á»ng sáº£n xuáº¥t quá»‘c táº¿"
+      }
+    ],
+    "Mid": [
+      {
+        "title": "Ká»¹ sÆ° Sáº£n xuáº¥t / Process Engineer",
+        "salary": "18-38 triá»‡u",
+        "description": "PhÃ¢n tÃ­ch vÃ  cáº£i tiáº¿n quy trÃ¬nh sáº£n xuáº¥t Ä‘á»ƒ tÄƒng nÄƒng suáº¥t, giáº£m lÃ£ng phÃ­ vÃ  nÃ¢ng cao cháº¥t lÆ°á»£ng. Ãp dá»¥ng cÃ¡c cÃ´ng cá»¥ Lean Manufacturing, Six Sigma vÃ  tham gia dá»± Ã¡n tá»± Ä‘á»™ng hÃ³a dÃ¢y chuyá»n.",
+        "requirements": "- 2-4 nÄƒm kinh nghiá»‡m ká»¹ thuáº­t sáº£n xuáº¥t\n- Kiáº¿n thá»©c vá» Lean, Six Sigma (Green Belt lÃ  lá»£i tháº¿)\n- ThÃ nh tháº¡o AutoCAD, CAD/CAM vÃ  pháº§n má»m ká»¹ thuáº­t\n- Ká»¹ nÄƒng phÃ¢n tÃ­ch root cause (8D, Fishbone)\n- Tiáº¿ng Anh/Nháº­t/HÃ n Ä‘á»c hiá»ƒu tÃ i liá»‡u ká»¹ thuáº­t",
+        "benefits": "- LÆ°Æ¡ng cáº¡nh tranh + phá»¥ cáº¥p chuyÃªn mÃ´n\n- MÃ´i trÆ°á»ng sáº£n xuáº¥t hiá»‡n Ä‘áº¡i (Nháº­t/HÃ n/Äá»©c)\n- Há»— trá»£ thi chá»©ng chá»‰ Six Sigma\n- CÆ¡ há»™i Ä‘Ã o táº¡o táº¡i nhÃ  mÃ¡y nÆ°á»›c ngoÃ i\n- Career path to Production Manager"
+      },
+      {
+        "title": "ChuyÃªn viÃªn Cháº¥t lÆ°á»£ng (Quality Engineer)",
+        "salary": "16-32 triá»‡u",
+        "description": "XÃ¢y dá»±ng vÃ  duy trÃ¬ há»‡ thá»‘ng quáº£n lÃ½ cháº¥t lÆ°á»£ng theo ISO 9001/IATF 16949. Thá»±c hiá»‡n kiá»ƒm soÃ¡t cháº¥t lÆ°á»£ng Ä‘áº§u vÃ o, trong quÃ¡ trÃ¬nh vÃ  Ä‘áº§u ra. PhÃ¢n tÃ­ch dá»¯ liá»‡u cháº¥t lÆ°á»£ng vÃ  triá»ƒn khai FMEA, SPC.",
+        "requirements": "- 2-5 nÄƒm kinh nghiá»‡m quality engineering\n- Chá»©ng chá»‰ ISO 9001 internal auditor\n- ThÃ nh tháº¡o FMEA, SPC, MSA, 8D\n- Kinh nghiá»‡m vá»›i automotive (IATF) lÃ  lá»£i tháº¿\n- Tiáº¿ng Anh Ä‘á»c hiá»ƒu tÃ i liá»‡u ká»¹ thuáº­t quá»‘c táº¿",
+        "benefits": "- LÆ°Æ¡ng theo nÄƒng lá»±c\n- ISO/IATF auditor training\n- Exposure Ä‘áº¿n quality systems quá»‘c táº¿\n- Stable manufacturing environment\n- Career path to QA Manager"
+      }
+    ],
+    "Senior": [
+      {
+        "title": "Production Manager / Quáº£n Ä‘á»‘c PhÃ¢n xÆ°á»Ÿng",
+        "salary": "38-68 triá»‡u",
+        "description": "Quáº£n lÃ½ toÃ n bá»™ hoáº¡t Ä‘á»™ng sáº£n xuáº¥t cá»§a phÃ¢n xÆ°á»Ÿng, Ä‘áº£m báº£o KPI vá» sáº£n lÆ°á»£ng, cháº¥t lÆ°á»£ng, OEE vÃ  an toÃ n lao Ä‘á»™ng. LÃ£nh Ä‘áº¡o team ká»¹ sÆ° vÃ  cÃ´ng nhÃ¢n, triá»ƒn khai cáº£i tiáº¿n liÃªn tá»¥c vÃ  quáº£n lÃ½ ngÃ¢n sÃ¡ch sáº£n xuáº¥t.",
+        "requirements": "- 6+ nÄƒm kinh nghiá»‡m sáº£n xuáº¥t, 2+ nÄƒm quáº£n lÃ½\n- Kinh nghiá»‡m Lean Manufacturing, TPM\n- Ká»¹ nÄƒng lÃ£nh Ä‘áº¡o team Ä‘a vÄƒn hÃ³a\n- Strong problem-solving vÃ  data analysis\n- Tiáº¿ng Anh/Nháº­t/HÃ n Ä‘á»ƒ bÃ¡o cÃ¡o vá»›i HQ nÆ°á»›c ngoÃ i",
+        "benefits": "- Senior production manager package\n- Bonus theo KPI sáº£n xuáº¥t\n- Quáº£n lÃ½ nhÃ  mÃ¡y hiá»‡n Ä‘áº¡i\n- CÆ¡ há»™i Ä‘Ã o táº¡o HQ nÆ°á»›c ngoÃ i\n- Career path to Plant Manager"
+      }
+    ],
+    "Manager": [
+      {
+        "title": "Plant Manager / GiÃ¡m Ä‘á»‘c NhÃ  mÃ¡y",
+        "salary": "65-120 triá»‡u",
+        "description": "Phá»¥ trÃ¡ch toÃ n bá»™ váº­n hÃ nh nhÃ  mÃ¡y sáº£n xuáº¥t, chá»‹u trÃ¡ch nhiá»‡m vá» P&L, nÄƒng suáº¥t, cháº¥t lÆ°á»£ng vÃ  an toÃ n. XÃ¢y dá»±ng chiáº¿n lÆ°á»£c sáº£n xuáº¥t, Ä‘áº§u tÆ° cÃ´ng nghá»‡ má»›i vÃ  phÃ¡t triá»ƒn Ä‘á»™i ngÅ© quáº£n lÃ½ nhÃ  mÃ¡y.",
+        "requirements": "- 10+ nÄƒm kinh nghiá»‡m sáº£n xuáº¥t, 5+ nÄƒm senior management\n- Kinh nghiá»‡m quáº£n lÃ½ nhÃ  mÃ¡y 500+ cÃ´ng nhÃ¢n\n- ThÃ nh tháº¡o Lean, Six Sigma (Black Belt lÃ  lá»£i tháº¿)\n- Tiáº¿ng Anh/Nháº­t/HÃ n thÃ nh tháº¡o Ä‘á»ƒ bÃ¡o cÃ¡o cho HQ\n- MBA hoáº·c Engineering Master degree lÃ  lá»£i tháº¿",
+        "benefits": "- Executive manufacturing compensation\n- P&L bonus\n- Xe cÃ´ng vá»¥\n- Báº£o hiá»ƒm VIP\n- International manufacturing network"
+      }
+    ],
+    "Fresher": [
+      {
+        "title": "Kỹ thuật viên Thực tập Sản xuất",
+        "salary": "6-10 triệu",
+        "description": "Chương trình thực tập sản xuất dành cho sinh viên kỹ thuật. Bạn sẽ làm việc trực tiếp tại dây chuyền sản xuất, học cách vận hành thiết bị và áp dụng các công cụ cải tiến như 5S, Kaizen vào thực tế.",
+        "requirements": "- Đang học năm 3-4 hoặc mới tốt nghiệp Đại học Kỹ thuật Công nghiệp\n- Ham học hỏi và chịu khó làm việc trong môi trường nhà máy\n- Sẵn sàng làm ca theo yêu cầu\n- Không yêu cầu kinh nghiệm sản xuất\n- Có thể làm thực tập toàn thời gian",
+        "benefits": "- Phụ cấp thực tập + phụ cấp ca\n- Ăn ca miễn phí\n- Học kỹ thuật sản xuất từ chuyên gia\n- Ưu tiên tuyển chính thức sau tốt nghiệp\n- Môi trường nhà máy quốc tế tiên tiến"
+      }
+    ]
+  }
+}
