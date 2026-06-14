@@ -71,12 +71,11 @@ class TestGetJobsByStatus:
         db.query.return_value.group_by.return_value.all.return_value = [
             ("active", 5),
             ("closed", 3),
-            ("draft", 1),
         ]
 
         result = admin_dashboard_service.get_jobs_by_status(db)
 
-        assert result == {"active": 5, "closed": 3, "draft": 1}
+        assert result == {"active": 5, "closed": 3}
 
     def test_unknown_status_ignored(self):
         db = _make_db()
@@ -96,7 +95,7 @@ class TestGetJobsByStatus:
 
         result = admin_dashboard_service.get_jobs_by_status(db)
 
-        assert result == {"active": 0, "closed": 0, "draft": 0}
+        assert result == {"active": 0, "closed": 0}
 
 
 # ---------------------------------------------------------------------------
@@ -108,14 +107,13 @@ class TestGetApplicationsByStatus:
         db = _make_db()
         db.query.return_value.group_by.return_value.all.return_value = [
             ("pending", 10),
-            ("reviewed", 4),
             ("accepted", 2),
             ("rejected", 3),
         ]
 
         result = admin_dashboard_service.get_applications_by_status(db)
 
-        assert result == {"pending": 10, "reviewed": 4, "accepted": 2, "rejected": 3}
+        assert result == {"pending": 10, "accepted": 2, "rejected": 3}
 
     def test_returns_zeros_when_empty(self):
         db = _make_db()
@@ -123,7 +121,7 @@ class TestGetApplicationsByStatus:
 
         result = admin_dashboard_service.get_applications_by_status(db)
 
-        assert result == {"pending": 0, "reviewed": 0, "accepted": 0, "rejected": 0}
+        assert result == {"pending": 0, "accepted": 0, "rejected": 0}
 
 
 # ---------------------------------------------------------------------------
@@ -209,12 +207,12 @@ class TestGetDashboardSummary:
         with (
             patch.object(admin_dashboard_service, "get_totals", return_value={"users": 1, "candidates": 0, "recruiters": 0, "companies": 0, "jobs": 0, "applications": 0}),
             patch.object(admin_dashboard_service, "get_period_stats", return_value=_period),
-            patch.object(admin_dashboard_service, "get_jobs_by_status", return_value={"active": 0, "closed": 0, "draft": 0}),
-            patch.object(admin_dashboard_service, "get_applications_by_status", return_value={"pending": 0, "reviewed": 0, "accepted": 0, "rejected": 0}),
+            patch.object(admin_dashboard_service, "get_jobs_by_status", return_value={"active": 0, "closed": 0}),
+            patch.object(admin_dashboard_service, "get_applications_by_status", return_value={"pending": 0, "accepted": 0, "rejected": 0}),
             patch.object(admin_dashboard_service, "get_top_companies", return_value=[]),
             patch.object(admin_dashboard_service, "get_cv_parse_stats", return_value={"total": 0, "success": 0, "failed": 0, "pending": 0}),
             patch.object(admin_dashboard_service, "get_weekly_trend", return_value=[]),
-            patch.object(admin_dashboard_service, "get_attention_metrics", return_value={"draft_jobs": 0, "overdue_applications": 0, "inactive_users": 0}),
+            patch.object(admin_dashboard_service, "get_attention_metrics", return_value={"overdue_applications": 0, "inactive_users": 0}),
         ):
             result = admin_dashboard_service.get_dashboard_summary(db)
 

@@ -9,7 +9,53 @@ function getToken() {
   return localStorage.getItem('access_token')
 }
 
-async function request(method, path, body = null, auth = false) {
+function getRefreshToken() {
+  return localStorage.getItem('refresh_token')
+}
+
+function setTokens({ access_token, refresh_token }) {
+  if (access_token) localStorage.setItem('access_token', access_token)
+  if (refresh_token) localStorage.setItem('refresh_token', refresh_token)
+}
+
+export function clearTokens() {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('refresh_token')
+}
+
+let refreshPromise = null
+
+async function tryRefreshToken() {
+  const refreshToken = getRefreshToken()
+  if (!refreshToken) return false
+  if (!refreshPromise) {
+    refreshPromise = fetch(`${BASE}/auth/refresh`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ refresh_token: refreshToken }),
+    })
+      .then(async (res) => {
+        if (!res.ok) return false
+        const data = await res.json().catch(() => null)
+        if (!data?.access_token) return false
+        setTokens({ access_token: data.access_token })
+        return true
+      })
+      .catch(() => false)
+      .finally(() => {
+        refreshPromise = null
+      })
+  }
+  return refreshPromise
+}
+
+function buildErrorMessage(data) {
+  if (typeof data?.detail === 'string') return data.detail
+  if (Array.isArray(data?.detail)) return data.detail.map((e) => e.msg).join(', ')
+  return 'Đã có lỗi xảy ra'
+}
+
+async function request(method, path, body = null, auth = false, _retried = false) {
   const headers = {}
 
   if (body) headers['Content-Type'] = 'application/json'
@@ -26,41 +72,44 @@ async function request(method, path, body = null, auth = false) {
 
   if (res.status === 204) return null
 
+  if (res.status === 401 && auth && !_retried) {
+    const refreshed = await tryRefreshToken()
+    if (refreshed) return request(method, path, body, auth, true)
+    clearTokens()
+  }
+
   const data = await res.json().catch(() => ({}))
 
-  if (!res.ok) {
-    const msg =
-      typeof data.detail === 'string'
-        ? data.detail
-        : Array.isArray(data.detail)
-        ? data.detail.map((e) => e.msg).join(', ')
-        : 'Đã có lỗi xảy ra'
-    throw new Error(msg)
-  }
+  if (!res.ok) throw new Error(buildErrorMessage(data))
 
   return data
 }
 
 // ── AUTH ────────────────────────────────────────────────────
 export const authApi = {
-  login: (email, password) =>
-    request('POST', '/auth/login', { email, password }),
+  login: (email, password) => request('POST', '/auth/login', { email, password }),
 
   register: (email, password, role) =>
     request('POST', '/auth/register', { email, password, role }),
 
   me: () => request('GET', '/auth/me', null, true),
+
+  refresh: (refreshToken) => request('POST', '/auth/refresh', { refresh_token: refreshToken }),
+
+  saveSession: (data) => setTokens(data),
 }
 
 // ── JOBS ────────────────────────────────────────────────────
 export const jobsApi = {
-  list: ({ keyword, location, level, salary_min, salary_max, company_name, only_active_deadline, page = 1, page_size = 9 } = {}) => {
+  list: ({ keyword, location, province, district, level, salary_min, salary_max, company_name, only_active_deadline, page = 1, page_size = 9 } = {}) => {
     const params = new URLSearchParams()
     if (keyword) params.append('keyword', keyword)
     if (location) params.append('location', location)
+    if (province) params.append('province', province)
+    if (district) params.append('district', district)
     if (level) params.append('level', level)
-    if (salary_min != null) params.append('salary_min', salary_min)
-    if (salary_max != null) params.append('salary_max', salary_max)
+    if (salary_min != null && salary_min !== '') params.append('salary_min', salary_min)
+    if (salary_max != null && salary_max !== '') params.append('salary_max', salary_max)
     if (company_name) params.append('company_name', company_name)
     if (only_active_deadline) params.append('only_active_deadline', 'true')
     params.append('page', page)
@@ -85,7 +134,7 @@ export const jobsApi = {
 // ── COMPANIES ───────────────────────────────────────────────
 export const companiesApi = {
   get: (id) => request('GET', `/companies/${id}`),
-  myCompanies: () => request('GET', '/companies/my', null, true),
+  myCompany: () => request('GET', '/companies/my', null, true),
   create: (data) => request('POST', '/companies', data, true),
   update: (id, data) => request('PUT', `/companies/${id}`, data, true),
 }
@@ -120,10 +169,6 @@ export const adminApi = {
   updateCompany: (id, data) => request('PUT', `/admin/companies/${id}`, data, true),
   deleteCompany: (id) => request('DELETE', `/admin/companies/${id}`, null, true),
 
-  // Dashboard
-  getDashboardSummary: (period = '30d') =>
-    request('GET', `/admin/dashboard/summary?period=${encodeURIComponent(period)}`, null, true),
-
   // Jobs
   listJobs: ({ page = 1, page_size = 10, status, search } = {}) => {
     const p = new URLSearchParams({ page, page_size })
@@ -134,34 +179,30 @@ export const adminApi = {
   createJob: (data) => request('POST', '/admin/jobs', data, true),
   updateJob: (id, data) => request('PUT', `/admin/jobs/${id}`, data, true),
   deleteJob: (id) => request('DELETE', `/admin/jobs/${id}`, null, true),
+
+  // Dashboard
+  getDashboardSummary: (period = '30d') =>
+    request('GET', `/admin/dashboard/summary?period=${encodeURIComponent(period)}`, null, true),
 }
 
 // ── CV ───────────────────────────────────────────────────────
+async function uploadFile(path, file) {
+  const token = getToken()
+  const form = new FormData()
+  form.append('file', file)
+  const res = await fetch(`${BASE}${path}`, {
+    method: 'POST',
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    body: form,
+  })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok) throw new Error(buildErrorMessage(data))
+  return data
+}
+
 export const cvApi = {
-  upload: async (file) => {
-    const token = getToken()
-    const form = new FormData()
-    form.append('file', file)
-    const res = await fetch(`${BASE}/cvs/upload`, {
-      method: 'POST',
-      headers: token ? { Authorization: `Bearer ${token}` } : {},
-      body: form,
-    })
-    const data = await res.json().catch(() => ({}))
-    if (!res.ok) {
-      const msg =
-        typeof data.detail === 'string'
-          ? data.detail
-          : Array.isArray(data.detail)
-          ? data.detail.map((e) => e.msg).join(', ')
-          : 'Đã có lỗi xảy ra'
-      throw new Error(msg)
-    }
-    return data
-  },
-
+  upload: (file) => uploadFile('/cvs/upload', file),
   mine: () => request('GET', '/cvs/me', null, true),
-
   activate: (cvId) => request('POST', `/cvs/${cvId}/activate`, null, true),
 }
 
@@ -193,6 +234,18 @@ export const notificationsApi = {
 }
 
 // ── CANDIDATE SEARCH (recruiter / admin) ─────────────────────
+async function streamFile(path) {
+  const token = getToken()
+  const res = await fetch(`${BASE}${path}`, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+  })
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}))
+    throw new Error(typeof data.detail === 'string' ? data.detail : 'Không thể tải CV')
+  }
+  return res.blob()
+}
+
 export const candidateApi = {
   search: ({ q = '', page = 1, page_size = 10 } = {}) => {
     const params = new URLSearchParams({ page, page_size })
@@ -200,26 +253,19 @@ export const candidateApi = {
     return request('GET', `/recruiter/candidates/search?${params}`, null, true)
   },
 
-  streamCv: async (userId) => {
-    const token = getToken()
-    const res = await fetch(`${BASE}/recruiter/candidates/${userId}/cv`, {
-      headers: token ? { Authorization: `Bearer ${token}` } : {},
-    })
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}))
-      const msg = typeof data.detail === 'string' ? data.detail : 'Không thể tải CV'
-      throw new Error(msg)
-    }
-    return res.blob()
-  },
+  matchForJob: (jobId, topN = 5) =>
+    request('GET', `/recruiter/candidates/match/${jobId}?top_n=${topN}`, null, true),
+
+  invite: (userId, { jobId, message }) =>
+    request('POST', `/recruiter/candidates/${userId}/invite`, { job_id: jobId, message: message || '' }, true),
+
+  streamCv: (userId) => streamFile(`/recruiter/candidates/${userId}/cv`),
 }
 
 // ── APPLICATIONS ─────────────────────────────────────────────
 export const applicationsApi = {
-  apply: (jobId, coverLetter) =>
-    request('POST', `/applications/${jobId}`, {
-      cover_letter: coverLetter || null,
-    }, true),
+  apply: (jobId, coverLetter, cvId) =>
+    request('POST', `/applications/${jobId}`, { cover_letter: coverLetter || null, cv_id: cvId || null }, true),
 
   mine: () => request('GET', '/applications/mine', null, true),
 
@@ -228,16 +274,5 @@ export const applicationsApi = {
   updateStatus: (appId, status) =>
     request('PUT', `/applications/${appId}/status`, { status }, true),
 
-  streamCv: async (appId) => {
-    const token = getToken()
-    const res = await fetch(`${BASE}/applications/${appId}/cv`, {
-      headers: token ? { Authorization: `Bearer ${token}` } : {},
-    })
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}))
-      const msg = typeof data.detail === 'string' ? data.detail : 'Không thể tải CV'
-      throw new Error(msg)
-    }
-    return res.blob()
-  },
+  streamCv: (appId) => streamFile(`/applications/${appId}/cv`),
 }

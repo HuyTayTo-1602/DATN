@@ -14,7 +14,10 @@ class ProfileUpdateRequest(BaseModel):
     """Dữ liệu gửi lên khi ứng viên cập nhật hồ sơ cá nhân (UC03)."""
     full_name: Optional[str] = None
     phone: Optional[str] = None
-    address: Optional[str] = None
+    address: Optional[str] = None         # Địa chỉ đầy đủ (backend tự ghép từ 3 cột dưới)
+    province: Optional[str] = None        # Tỉnh/Thành phố
+    district: Optional[str] = None        # Quận/Huyện
+    address_detail: Optional[str] = None  # Số nhà + tên đường
     dob: Optional[date] = None       # Ngày sinh, định dạng YYYY-MM-DD
     avatar_url: Optional[str] = None
     cv_url: Optional[str] = None
@@ -31,6 +34,9 @@ class ProfileResponse(BaseModel):
     full_name: Optional[str] = None
     phone: Optional[str] = None
     address: Optional[str] = None
+    province: Optional[str] = None        # Tỉnh/Thành phố
+    district: Optional[str] = None        # Quận/Huyện
+    address_detail: Optional[str] = None  # Số nhà + tên đường
     dob: Optional[date] = None
     avatar_url: Optional[str] = None
     cv_url: Optional[str] = None

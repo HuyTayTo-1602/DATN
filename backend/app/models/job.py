@@ -25,9 +25,14 @@ class Job(Base):
     title = Column(String(255), nullable=False)   # Chức danh tuyển dụng
     level = Column(String(50))                    # Cấp bậc: Junior, Senior, Manager,...
     salary = Column(String(100))                  # Mức lương: "15-25 triệu", "Thỏa thuận"
-    location = Column(String(255))                # Địa điểm làm việc
+    # Hình thức làm việc: onsite | hybrid | remote (thay cho cột `location` cũ)
+    work_mode = Column(String(20), default="onsite")
+    # Địa chỉ văn phòng tách cột
+    province = Column(String(100))                # Tỉnh/Thành phố
+    district = Column(String(100))                # Quận/Huyện
+    address_detail = Column(String(255))          # Số nhà + tên đường
     deadline = Column(Date)                       # Hạn nộp hồ sơ
-    status = Column(String(20), default="active") # Trạng thái: active | closed | draft
+    status = Column(String(20), default="active") # Trạng thái: active | closed
 
     description = Column(Text)                    # Mô tả công việc chi tiết
     requirements = Column(Text)                   # Yêu cầu ứng viên

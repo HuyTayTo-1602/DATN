@@ -8,7 +8,7 @@ MAX_MESSAGE_LENGTH = 2000
 _INJECTION_PATTERNS: list[re.Pattern] = [
     re.compile(p, re.IGNORECASE)
     for p in [
-        # ── Jailbreak / persona override ──────────────────────────────────
+        # ── Jailbreak / persona override — English ─────────────────────────
         r"ignore\s+(all\s+)?previous\s+instructions?",
         r"disregard\s+(all\s+)?previous",
         r"forget\s+(all\s+)?(your\s+)?instructions?",
@@ -20,10 +20,19 @@ _INJECTION_PATTERNS: list[re.Pattern] = [
         r"new\s+persona\b",
         r"jailbreak\b",
         r"DAN\s+mode",
+        # ── Jailbreak / persona override — Vietnamese ──────────────────────
+        r"quên\s+(hết\s+)?(những\s+)?hướng\s+dẫn",
+        r"bỏ\s+qua\s+(tất\s+cả\s+)?(hướng\s+dẫn|quy\s+tắc)",
+        r"giờ\s+(bạn\s+là|hãy\s+là|trở\s+thành)\b",
+        r"đóng\s+vai\s+",
+        r"giả\s+vờ\s+(bạn\s+là|là)\b",
+        r"không\s+có\s+(giới\s+hạn|hạn\s+chế|quy\s+tắc)",
+        r"chế\s+độ\s+DAN\b",
+        r"bạn\s+là\s+DAN\b",
         # ── SQL / data-exfiltration ────────────────────────────────────────
-        r"SELECT\s+.{0,80}\s+FROM\s+\w",          # SQL SELECT … FROM
-        r"UNION\s+SELECT\b",                        # UNION injection
-        r"DROP\s+TABLE\b",                          # DDL injection
+        r"SELECT\s+.{0,80}\s+FROM\s+\w",
+        r"UNION\s+SELECT\b",
+        r"DROP\s+TABLE\b",
         r"list\s+all\s+\w+\s+(in|from)\s+(the\s+)?(db|database|system)\b",
     ]
 ]

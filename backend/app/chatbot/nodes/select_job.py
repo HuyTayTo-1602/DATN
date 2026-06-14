@@ -19,6 +19,7 @@ from langchain_core.runnables import RunnableConfig
 
 from app.chatbot.schemas import ChatState
 from app.chatbot.services.applicant_service import verify_job_ownership
+from app.utils.location import format_job_location
 
 _NO_JOB_MSG = (
     "Vui lòng chỉ định job_id để tôi có thể phân tích ứng viên của bạn."
@@ -48,7 +49,9 @@ async def select_job_node(state: ChatState, config: RunnableConfig) -> dict:
             "title": job.title or "",
             "level": job.level or "",
             "salary": job.salary or "",
-            "location": job.location or "",
+            "location": format_job_location(
+                job.work_mode, job.province, job.district, job.address_detail
+            ),
             "description": job.description or "",
             "requirements": job.requirements or "",
             "benefits": job.benefits or "",

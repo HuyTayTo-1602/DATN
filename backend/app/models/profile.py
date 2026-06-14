@@ -26,7 +26,11 @@ class UserProfile(Base):
 
     full_name = Column(String(255))
     phone = Column(String(20))
-    address = Column(String(500))
+    address = Column(String(500))         # Địa chỉ đầy đủ (tự ghép từ 3 cột dưới)
+    # Địa chỉ tách cột để lọc/search theo tỉnh, quận
+    province = Column(String(100))        # Tỉnh/Thành phố (vd: "Hà Nội")
+    district = Column(String(100))        # Quận/Huyện (vd: "Thanh Xuân")
+    address_detail = Column(String(255))  # Số nhà + tên đường (vd: "47 Nguyễn Tuân")
     dob = Column(Date)                    # Ngày sinh
     avatar_url = Column(String(500))      # Đường dẫn ảnh đại diện
     cv_url = Column(String(500))          # Đường dẫn file CV upload lên server

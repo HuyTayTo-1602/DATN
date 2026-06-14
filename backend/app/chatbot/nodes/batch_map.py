@@ -27,7 +27,7 @@ from typing import Any
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from app.chatbot.schemas import ChatState
-from app.chatbot.nodes.single_shot_llm import truncate_cv
+from app.chatbot.nodes.single_shot_llm import truncate_cv, strip_html
 
 BATCH_SIZE: int = 10
 # Smaller per-CV limit than single_shot (4 000 chars) because a batch has up to 10 CVs.
@@ -60,9 +60,11 @@ def build_batch_prompt(
     lines.append("=== VỊ TRÍ TUYỂN DỤNG ===")
     lines.append(f"Chức danh: {job_info.get('title') or 'N/A'}")
     if job_info.get("requirements"):
-        lines.append(f"Yêu cầu  : {job_info['requirements']}")
+        lines.append(f"Yêu cầu  :\n{strip_html(job_info['requirements'])}")
     if job_info.get("level"):
         lines.append(f"Cấp bậc  : {job_info['level']}")
+    if job_info.get("salary"):
+        lines.append(f"Mức lương: {job_info['salary']} triệu đồng")
 
     lines.append(f"\n=== CÂU HỎI ===\n{question}\n")
 

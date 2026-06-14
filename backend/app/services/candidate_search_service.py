@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from typing import Optional
 
-from sqlalchemy import func, cast, Float
+from sqlalchemy import func, cast, Float, or_
 from sqlalchemy.orm import Session
 from sqlalchemy.dialects.postgresql import TSVECTOR
 
@@ -103,6 +103,18 @@ def search_candidates(
 
     tsquery_expr = func.to_tsquery("simple", tsquery_str)
 
+    # ILIKE conditions: mỗi token match substring trong skills/full_name/experience/bio
+    tokens = [t.strip() for t in q.split() if t.strip()]
+    ilike_filters = []
+    for token in tokens:
+        pattern = f"%{token}%"
+        ilike_filters.extend([
+            UserProfile.skills.ilike(pattern),
+            UserProfile.full_name.ilike(pattern),
+            UserProfile.experience.ilike(pattern),
+            UserProfile.bio.ilike(pattern),
+        ])
+
     # Subquery: lấy CV active hoặc mới nhất cho mỗi user
     latest_cv_sq = (
         db.query(
@@ -158,9 +170,10 @@ def search_candidates(
         .outerjoin(CVText, CVText.cv_id == CandidateCV.id)
         .filter(User.status == "active")
         .filter(
-            # Match ít nhất từ profile HOẶC từ CV text
+            # Full-text search HOẶC partial match (ILIKE) trên các field profile
             (UserProfile.search_vector.op("@@")(tsquery_expr))
             | (CVText.search_vector.op("@@")(tsquery_expr))
+            | or_(*ilike_filters)
         )
         .order_by(final_score.desc())
     )

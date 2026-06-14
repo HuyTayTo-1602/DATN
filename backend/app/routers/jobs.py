@@ -32,7 +32,9 @@ router = APIRouter(prefix="/jobs", tags=["Tin tuyển dụng"])
 @router.get("", response_model=JobListResponse)
 def get_jobs(
     keyword: Optional[str] = Query(None, description="Tìm theo tên job, kỹ năng"),
-    location: Optional[str] = Query(None, description="Lọc theo địa điểm"),
+    location: Optional[str] = Query(None, description="Lọc theo địa điểm (gộp)"),
+    province: Optional[str] = Query(None, description="Lọc theo tỉnh/thành phố"),
+    district: Optional[str] = Query(None, description="Lọc theo quận/huyện"),
     level: Optional[str] = Query(None, description="Lọc theo cấp bậc (Junior/Senior...)"),
     salary_min: Optional[int] = Query(None, description="Lương tối thiểu (triệu đồng)"),
     salary_max: Optional[int] = Query(None, description="Lương tối đa (triệu đồng)"),
@@ -47,8 +49,8 @@ def get_jobs(
     Không yêu cầu đăng nhập - public endpoint.
     """
     filters = JobFilterParams(
-        keyword=keyword, location=location, level=level,
-        salary_min=salary_min, salary_max=salary_max,
+        keyword=keyword, location=location, province=province, district=district,
+        level=level, salary_min=salary_min, salary_max=salary_max,
         company_name=company_name, only_active_deadline=only_active_deadline,
         page=page, page_size=page_size,
     )

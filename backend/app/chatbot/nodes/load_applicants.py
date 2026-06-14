@@ -21,12 +21,11 @@ from app.chatbot.services.pdf_service import extract_text_from_url
 
 
 async def _enrich_with_cv(applicant: dict) -> dict:
-    """Download and extract CV text for one applicant. Returns empty string on failure."""
+    """Use DB-stored CV text when available; fall back to live PDF download."""
+    if applicant.get("cv_text") is not None:
+        return applicant
     cv_url = applicant.get("cv_url")
-    if cv_url:
-        cv_text = await extract_text_from_url(cv_url)
-    else:
-        cv_text = ""
+    cv_text = await extract_text_from_url(cv_url) if cv_url else ""
     return {**applicant, "cv_text": cv_text}
 
 

@@ -1,7 +1,7 @@
 # =============================================================================
 # models/user.py
 # Sửa: đổi tên role (job_seeker, recruiter, admin), thêm status vào users,
-#       đổi quan hệ companies sang 1:N (uselist=True).
+#       đổi quan hệ company sang 1:1 (uselist=False).
 # =============================================================================
 
 from sqlalchemy import Column, Integer, String, ForeignKey, TIMESTAMP
@@ -42,8 +42,8 @@ class User(Base):
     # Quan hệ 1:1 đến UserProfile (chỉ dành cho job_seeker)
     profile = relationship("UserProfile", back_populates="user", uselist=False)
 
-    # Quan hệ 1:N đến Company (recruiter có thể sở hữu nhiều công ty)
-    companies = relationship("Company", back_populates="user")
+    # Quan hệ 1:1 đến Company (mỗi recruiter chỉ sở hữu một công ty)
+    company = relationship("Company", back_populates="user", uselist=False)
 
     # Quan hệ 1:N đến JobApplication (các đơn ứng tuyển của user)
     applications = relationship("JobApplication", back_populates="user")

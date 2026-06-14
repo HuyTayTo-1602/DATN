@@ -1,93 +1,98 @@
 import { useState } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import Icon from '../components/Icon'
 import { useAuth } from '../context/AuthContext'
+import { useToast } from '../components/Toast'
 
-export default function LoginPage() {
-  const { login } = useAuth()
+const ROLE_HOME = { job_seeker: '/', recruiter: '/recruiter/jobs', admin: '/admin' }
+
+const LoginPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const { login } = useAuth()
+  const toast = useToast()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [showPw, setShowPw] = useState(false)
   const [error, setError] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
-  const from = location.state?.from || '/'
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const submit = async (e) => {
+    e?.preventDefault()
+    if (!email.includes('@')) { setError('Email không hợp lệ'); return }
+    if (!password) { setError('Vui lòng nhập mật khẩu'); return }
     setError('')
-    setLoading(true)
+    setSubmitting(true)
     try {
       const user = await login(email, password)
-      // Redirect based on role
-      if (user.role === 'recruiter') navigate('/my-jobs')
-      else navigate(from)
+      toast.success(`Chào mừng trở lại, ${user.email}!`)
+      const from = location.state?.from?.pathname
+      navigate(from || ROLE_HOME[user.role] || '/')
     } catch (err) {
-      setError(err.message)
+      setError(err.message || 'Đăng nhập thất bại')
     } finally {
-      setLoading(false)
+      setSubmitting(false)
     }
   }
 
   return (
     <div className="auth-page">
-      <div className="auth-card">
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <span style={{ fontSize: '2.5rem' }}>👔</span>
+      <div className="auth-art">
+        <div className="brand" style={{ color: '#fff' }}>
+          <span className="brand-mark" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff' }}>CB</span>
+          CareerBridge
         </div>
-        <h1 className="auth-title">Đăng nhập</h1>
-        <p className="auth-sub">Chào mừng quay lại JobCV</p>
-
-        {error && <div className="alert alert-error">⚠️ {error}</div>}
-
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label className="form-label">Email</label>
-            <input
-              className="input"
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoFocus
-            />
+        <div>
+          <h2>Chào mừng trở lại</h2>
+          <p>Đăng nhập để tiếp tục hành trình sự nghiệp của bạn — kết nối với hàng nghìn nhà tuyển dụng uy tín tại Việt Nam.</p>
+        </div>
+        <div className="auth-quote">
+          <p style={{ margin: 0, fontSize: 'var(--text-sm)', color: 'rgba(255,255,255,0.95)', lineHeight: 1.6 }}>"CareerBridge giúp tôi tìm được công việc mơ ước chỉ sau 2 tuần. Gợi ý việc làm cá nhân hóa cực kỳ chính xác."</p>
+          <div className="row" style={{ gap: 10, marginTop: 14, color: '#fff' }}>
+            <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600 }}>N</div>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 'var(--text-sm)' }}>Nguyễn Minh Hà</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.75)' }}>Frontend Engineer @ Tiki</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="auth-form-wrap">
+        <form className="auth-form" onSubmit={submit}>
+          <div>
+            <h1>Đăng nhập</h1>
+            <div className="sub">Tiếp tục với tài khoản CareerBridge của bạn</div>
           </div>
 
-          <div className="form-group">
-            <label className="form-label">Mật khẩu</label>
-            <input
-              className="input"
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          <div className="field">
+            <label>Email</label>
+            <input type="email" className="input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ban@example.com" autoComplete="username" />
           </div>
-
-          <button
-            type="submit"
-            className="btn btn-primary btn-full btn-lg"
-            disabled={loading}
-            style={{ marginTop: 8 }}
-          >
-            {loading ? '⏳ Đang đăng nhập...' : 'Đăng nhập'}
+          <div className="field">
+            <label>Mật khẩu</label>
+            <div className="password-field">
+              <input type={showPw ? 'text' : 'password'} className="input" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
+              <button type="button" className="password-toggle" onClick={() => setShowPw(!showPw)}>
+                <Icon name={showPw ? 'eye-off' : 'eye'} size={16} />
+              </button>
+            </div>
+          </div>
+          {error && <div className="text-sm" style={{ color: 'var(--color-error)' }}>{error}</div>}
+          <button type="submit" className="btn btn-primary btn-block btn-lg" disabled={submitting}>
+            {submitting ? 'Đang đăng nhập...' : 'Đăng nhập'}
           </button>
+          <div className="auth-divider">hoặc</div>
+          <div className="text-sm" style={{ textAlign: 'center', color: 'var(--color-text-secondary)' }}>
+            Chưa có tài khoản? <a onClick={() => navigate('/register')} style={{ cursor: 'pointer' }}>Đăng ký miễn phí</a>
+          </div>
+          <div className="text-xs text-muted" style={{ textAlign: 'center', marginTop: 8 }}>
+            Demo: admin@example.com / recruiter@example.com / candidate@example.com — mật khẩu tương ứng *123
+          </div>
         </form>
-
-        <div className="auth-link">
-          Chưa có tài khoản?{' '}
-          <Link to="/register">Đăng ký ngay</Link>
-        </div>
-
-        <div className="divider">Tài khoản demo</div>
-        <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', padding: '12px 14px', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
-          <div><strong>Ứng viên:</strong> đăng ký mới với role <code>job_seeker</code></div>
-          <div><strong>Nhà tuyển dụng:</strong> đăng ký mới với role <code>recruiter</code></div>
-        </div>
       </div>
     </div>
   )
 }
+
+export default LoginPage

@@ -5,7 +5,7 @@
 
 from datetime import date
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import or_, cast, Integer, func
 from fastapi import HTTPException, status
 
@@ -58,7 +58,18 @@ def get_jobs(filters: JobFilterParams, db: Session) -> dict:
         ))
 
     if filters.location:
-        query = query.filter(Job.location.ilike(f"%{filters.location}%"))
+        loc = f"%{filters.location}%"
+        query = query.filter(or_(
+            Job.province.ilike(loc),
+            Job.district.ilike(loc),
+            Job.address_detail.ilike(loc),
+        ))
+
+    if filters.province:
+        query = query.filter(Job.province.ilike(f"%{filters.province}%"))
+
+    if filters.district:
+        query = query.filter(Job.district.ilike(f"%{filters.district}%"))
 
     if filters.level:
         query = query.filter(Job.level == filters.level)
@@ -104,7 +115,8 @@ def get_jobs(filters: JobFilterParams, db: Session) -> dict:
     total = query.count()
 
     items = (
-        query.order_by(Job.created_at.desc())
+        query.options(joinedload(Job.company))
+        .order_by(Job.created_at.desc())
         .offset((filters.page - 1) * filters.page_size)
         .limit(filters.page_size)
         .all()

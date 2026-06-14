@@ -92,6 +92,35 @@ def migrate_search_vectors() -> None:
             conn.execute(text(stmt))
 
 
+def migrate_address_fields() -> None:
+    """
+    Thêm 3 cột địa chỉ tách (province, district, address_detail) vào
+    user_profiles, companies, jobs. Dùng ADD COLUMN IF NOT EXISTS nên an
+    toàn khi chạy nhiều lần (idempotent). Không đụng tới cột cũ
+    address/location ở bước này.
+    """
+    tables = ["user_profiles", "companies", "jobs"]
+    statements = []
+    for table in tables:
+        statements.append(
+            f"ALTER TABLE {table} ADD COLUMN IF NOT EXISTS province VARCHAR(100)"
+        )
+        statements.append(
+            f"ALTER TABLE {table} ADD COLUMN IF NOT EXISTS district VARCHAR(100)"
+        )
+        statements.append(
+            f"ALTER TABLE {table} ADD COLUMN IF NOT EXISTS address_detail VARCHAR(255)"
+        )
+    # jobs: thêm work_mode (onsite|hybrid|remote) và bỏ hẳn cột location cũ.
+    statements.append(
+        "ALTER TABLE jobs ADD COLUMN IF NOT EXISTS work_mode VARCHAR(20) DEFAULT 'onsite'"
+    )
+    statements.append("ALTER TABLE jobs DROP COLUMN IF EXISTS location")
+    with engine.begin() as conn:
+        for stmt in statements:
+            conn.execute(text(stmt))
+
+
 def seed_roles(db: Session) -> None:
     """
     Tạo các role mặc định nếu chưa tồn tại.
@@ -132,6 +161,48 @@ def seed_admin(db: Session) -> None:
     db.commit()
 
 
+def migrate_company_unique_user() -> None:
+    """
+    Thêm unique constraint trên companies.user_id (quan hệ 1:1 với users).
+    Dùng IF NOT EXISTS nên an toàn khi chạy nhiều lần.
+    Nếu tồn tại dữ liệu trùng lặp, xóa bớt trước khi thêm constraint.
+    """
+    statements = [
+        # Xóa các bản ghi trùng lặp, chỉ giữ lại công ty có id nhỏ nhất cho mỗi user
+        """
+        DELETE FROM companies
+        WHERE id NOT IN (
+            SELECT MIN(id) FROM companies GROUP BY user_id
+        )
+        """,
+        # Thêm unique constraint nếu chưa có
+        """
+        DO $$
+        BEGIN
+            IF NOT EXISTS (
+                SELECT 1 FROM pg_constraint
+                WHERE conname = 'uq_companies_user_id'
+            ) THEN
+                ALTER TABLE companies ADD CONSTRAINT uq_companies_user_id UNIQUE (user_id);
+            END IF;
+        END $$
+        """,
+    ]
+    with engine.begin() as conn:
+        for stmt in statements:
+            conn.execute(text(stmt))
+
+
+def migrate_job_statuses() -> None:
+    """
+    Chuẩn hóa trạng thái job về 2 giá trị: 'active' và 'closed'.
+    Các job còn ở trạng thái 'draft' (đã bỏ) được chuyển thành 'closed'.
+    Dùng UPDATE có điều kiện nên an toàn khi chạy nhiều lần.
+    """
+    with engine.begin() as conn:
+        conn.execute(text("UPDATE jobs SET status = 'closed' WHERE status = 'draft'"))
+
+
 def init_db() -> None:
     """
     Hàm tổng hợp: tạo bảng, chạy migration nhỏ, và seed dữ liệu ban đầu.
@@ -139,6 +210,9 @@ def init_db() -> None:
     """
     create_tables()
     migrate_search_vectors()
+    migrate_company_unique_user()
+    migrate_job_statuses()
+    migrate_address_fields()
     db = SessionLocal()
     try:
         seed_roles(db)

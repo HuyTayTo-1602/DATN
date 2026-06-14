@@ -11,7 +11,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from app.db.database import SessionLocal
 from app.models.user import User, Role
 from app.models.company import Company
-from scripts.seed.seed_utils import load_json
+from app.utils.location import join_address
+from scripts.seed.seed_utils import load_json, random_location
 
 
 def seed_companies(db, recruiters: list) -> list[dict]:
@@ -40,16 +41,22 @@ def seed_companies(db, recruiters: list) -> list[dict]:
 
         # Make name unique if multiple recruiters use same template
         name_suffix = f" #{i // len(templates) + 1}" if i >= len(templates) else ""
+        province, district, address_detail = random_location()
         company = Company(
             user_id=recruiter.id,
             name=tmpl["name"] + name_suffix,
             description=tmpl["description"],
             size=tmpl["size"],
             type=tmpl["type"],
-            address=tmpl["address"],
+            address=join_address(province, district, address_detail),
+            province=province,
+            district=district,
+            address_detail=address_detail,
             website=tmpl["website"],
             phone=tmpl["phone"],
-            logo_url=tmpl.get("logo_url") or f"https://logo.clearbit.com/{tmpl['website'].replace('https://', '')}",
+            # Only use a real logo URL from the template; otherwise leave None
+            # so the UI renders the company's first letter as a fallback.
+            logo_url=tmpl.get("logo_url"),
         )
         db.add(company)
         db.flush()

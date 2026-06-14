@@ -15,6 +15,7 @@ from app.models.application import JobApplication
 from app.models.job import Job
 from app.models.company import Company
 from app.models.user import User, Role
+from app.utils.location import format_job_location
 
 # Probability that a notification has been read
 READ_PROBABILITY = 0.55
@@ -37,20 +38,6 @@ def _notification_for_submission(application: JobApplication, job: Job, company:
         "message": (
             f"Đơn ứng tuyển của bạn cho vị trí '{job.title}' tại {company.name} "
             f"đã được gửi thành công. Nhà tuyển dụng sẽ xem xét và phản hồi sớm nhất có thể."
-        ),
-        "related_id": application.id,
-        "related_type": "job_application",
-    }
-
-
-def _notification_for_reviewed(application: JobApplication, job: Job, company: Company) -> dict:
-    return {
-        "user_id": application.user_id,
-        "type": "application_reviewed",
-        "title": "Hồ sơ của bạn đang được xem xét",
-        "message": (
-            f"{company.name} đang xem xét hồ sơ ứng tuyển vị trí '{job.title}' của bạn. "
-            f"Hãy kiên nhẫn chờ đợi, chúng tôi sẽ sớm thông báo kết quả."
         ),
         "related_id": application.id,
         "related_type": "job_application",
@@ -93,7 +80,7 @@ def _job_recommendation_notification(user_id: int, job: Job, company: Company) -
         "title": "Việc làm phù hợp với bạn",
         "message": (
             f"Dựa trên hồ sơ của bạn, chúng tôi gợi ý vị trí '{job.title}' tại {company.name}. "
-            f"Mức lương: {job.salary}. Địa điểm: {job.location}. Hãy ứng tuyển ngay hôm nay!"
+            f"Mức lương: {job.salary}. Địa điểm: {format_job_location(job.work_mode, job.province, job.district, job.address_detail)}. Hãy ứng tuyển ngay hôm nay!"
         ),
         "related_id": job.id,
         "related_type": "job",
@@ -144,13 +131,9 @@ def seed_notifications(
         notif_specs.append(_notification_for_submission(application, job, company))
 
         # Status-based notifications
-        if application.status == "reviewed":
-            notif_specs.append(_notification_for_reviewed(application, job, company))
-        elif application.status == "accepted":
-            notif_specs.append(_notification_for_reviewed(application, job, company))
+        if application.status == "accepted":
             notif_specs.append(_notification_for_accepted(application, job, company))
         elif application.status == "rejected":
-            notif_specs.append(_notification_for_reviewed(application, job, company))
             notif_specs.append(_notification_for_rejected(application, job, company))
 
     # Add some job recommendation notifications (1 per 3 candidates)

@@ -42,12 +42,12 @@ _SUMMARY = {
         "change_users_pct": 10.0, "change_jobs_pct": -5.0, "change_applications_pct": 15.0,
         "change_companies_pct": None,
     },
-    "jobs_by_status": {"active": 8, "closed": 3, "draft": 1},
-    "applications_by_status": {"pending": 10, "reviewed": 4, "accepted": 2, "rejected": 4},
+    "jobs_by_status": {"active": 8, "closed": 3},
+    "applications_by_status": {"pending": 10, "accepted": 2, "rejected": 4},
     "top_companies": [{"id": 1, "name": "Acme Corp", "job_count": 5}],
     "cv_parse_stats": {"total": 15, "success": 10, "failed": 3, "pending": 2},
     "weekly_trend": [{"week_start": "01/06", "new_jobs": 3, "new_applications": 8}],
-    "attention": {"draft_jobs": 1, "overdue_applications": 3, "inactive_users": 2},
+    "attention": {"overdue_applications": 3, "inactive_users": 2},
 }
 
 
@@ -131,12 +131,12 @@ class TestDashboardSummarySuccess:
             "period_stats": {"period": "30d", "new_users": 0, "new_jobs": 0, "new_applications": 0,
                              "new_companies": 0, "change_users_pct": None, "change_jobs_pct": None,
                              "change_applications_pct": None, "change_companies_pct": None},
-            "jobs_by_status": {"active": 0, "closed": 0, "draft": 0},
-            "applications_by_status": {"pending": 0, "reviewed": 0, "accepted": 0, "rejected": 0},
+            "jobs_by_status": {"active": 0, "closed": 0},
+            "applications_by_status": {"pending": 0, "accepted": 0, "rejected": 0},
             "top_companies": [],
             "cv_parse_stats": {"total": 0, "success": 0, "failed": 0, "pending": 0},
             "weekly_trend": [],
-            "attention": {"draft_jobs": 0, "overdue_applications": 0, "inactive_users": 0},
+            "attention": {"overdue_applications": 0, "inactive_users": 0},
         }
 
         with patch(

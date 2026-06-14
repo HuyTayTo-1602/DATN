@@ -40,6 +40,9 @@ minio>=7.2.9                # MinIO Python SDK (S3-compatible object storage)
 # --- PDF Parsing ---
 PyMuPDF>=1.24.10            # PDF text extraction (import as fitz) — requires Python 3.13: use 1.27+
 
+# --- PDF Generation (seed CV files) ---
+fpdf2>=2.8.0               # Tạo file CV PDF từ text (render tiếng Việt qua font Unicode DejaVuSans)
+
 # --- Testing ---
 pytest==9.0.3               # Unit testing
 pytest-asyncio==1.4.0       # Async test support

@@ -11,9 +11,12 @@ class ChatState(TypedDict):
     message: str
     job_id: Optional[int]
     intent: Optional[Literal["general_qa", "applicant_query"]]
-    job_info: Optional[dict]     # {id, title, level, salary, location, description, requirements, benefits}
-    applicants: list[dict]       # [{application_id, user_id, email, full_name, skills, …, cv_text}]
-    batch_summaries: list[str]   # intermediate results during map-reduce
+    job_info: Optional[dict]          # {id, title, level, salary, location (work_mode+địa chỉ), description, requirements, benefits}
+    applicants: list[dict]            # [{application_id, user_id, email, full_name, skills, …, cv_text}]
+    batch_summaries: list[str]        # intermediate results during map-reduce
+    candidate_profile: Optional[dict] # job_seeker profile: {full_name, email, phone, address, dob, skills, experience, education, bio}
+    candidate_cv_text: Optional[str]  # extracted text from the job_seeker's active CV (None when not parsed yet)
+    candidate_cv_note: Optional[str]  # status note when cv_text is unavailable (e.g. "CV uploaded but not parsed")
     answer: str
     blocked_reason: Optional[str]
 

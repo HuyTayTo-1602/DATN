@@ -8,15 +8,19 @@ import random
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
+from datetime import timedelta, datetime
+
 from app.db.database import SessionLocal
 from app.models.company import Company
 from app.models.job import Job
 from scripts.seed.seed_utils import (
     load_json,
-    LOCATIONS,
-    random_future_date,
-    random_past_date,
+    random_created_at,
+    job_deadline,
 )
+
+WORK_MODES = ["onsite", "hybrid", "remote"]
+WORK_MODE_WEIGHTS = [0.6, 0.25, 0.15]
 
 LEVELS = ["Fresher", "Junior", "Mid", "Senior", "Manager"]
 LEVEL_WEIGHTS = [0.08, 0.27, 0.38, 0.18, 0.09]
@@ -74,14 +78,10 @@ def seed_jobs(db, companies_with_domain: list[dict]) -> list[dict]:
             continue
 
         n_jobs = random.randint(JOBS_PER_COMPANY_MIN, JOBS_PER_COMPANY_MAX)
-        company_location = company.address.split(",")[-1].strip() if company.address else "Hà Nội"
-        # Normalize location
-        if "Hồ Chí Minh" in company_location or "HCM" in company_location:
-            base_location = "TP. Hồ Chí Minh"
-        elif "Đà Nẵng" in company_location:
-            base_location = "Đà Nẵng"
-        else:
-            base_location = "Hà Nội"
+        # Địa chỉ văn phòng lấy theo trụ sở công ty (đã tách cột ở seed_companies)
+        comp_province = company.province
+        comp_district = company.district
+        comp_address_detail = company.address_detail
 
         for _ in range(n_jobs):
             level = random.choices(LEVELS, weights=LEVEL_WEIGHTS, k=1)[0]
@@ -90,33 +90,49 @@ def seed_jobs(db, companies_with_domain: list[dict]) -> list[dict]:
                 continue
             tmpl = random.choice(level_templates)
 
-            # Occasionally allow remote or hybrid location
-            loc_variant = random.choices(
-                [base_location, f"{base_location} (Hybrid)", "Remote"],
-                weights=[0.6, 0.25, 0.15],
-                k=1,
-            )[0]
+            # Hình thức làm việc thay cho cột location cũ
+            work_mode = random.choices(WORK_MODES, weights=WORK_MODE_WEIGHTS, k=1)[0]
+            if work_mode == "remote":
+                # remote → địa chỉ để trống
+                province = district = address_detail = None
+            else:
+                # onsite/hybrid → theo trụ sở công ty
+                province = comp_province
+                district = comp_district
+                address_detail = comp_address_detail
 
             status = random.choices(
-                ["active", "active", "active", "closed", "draft"],
-                weights=[0.60, 0.15, 0.10, 0.10, 0.05],
+                ["active", "closed"],
+                weights=[0.85, 0.15],
                 k=1,
             )[0]
 
-            # All active/draft jobs must have deadlines after September 2026
-            deadline = random_future_date(120, 365) if status in ("active", "draft") else random_past_date(1, 60)
+            # created_at rải đều 01/01/2026 → hôm nay; updated_at >= created_at
+            created_at = random_created_at()
+            updated_at = min(
+                created_at + timedelta(days=random.randint(0, 14)),
+                datetime.now(),
+            )
+
+            # deadline tương đối theo status: active → tương lai, closed → quá khứ
+            deadline = job_deadline(status, created_at)
 
             job = Job(
                 company_id=company.id,
                 title=tmpl["title"],
                 level=level,
                 salary=tmpl["salary"],
-                location=loc_variant,
+                work_mode=work_mode,
+                province=province,
+                district=district,
+                address_detail=address_detail,
                 deadline=deadline,
                 status=status,
                 description=tmpl["description"],
                 requirements=tmpl["requirements"],
                 benefits=tmpl["benefits"],
+                created_at=created_at,
+                updated_at=updated_at,
             )
             db.add(job)
             db.flush()

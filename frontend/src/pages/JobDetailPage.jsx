@@ -1,320 +1,262 @@
-import { useState, useEffect } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import { jobsApi, applicationsApi, profileApi, cvApi } from '../services/api'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams, Link } from 'react-router-dom'
+import Icon from '../components/Icon'
+import Modal from '../components/Modal'
+import { LevelBadge } from '../components/Badges'
+import { CompanyLogo } from '../components/Avatar'
+import { Spinner } from '../components/Spinner'
+import EmptyState from '../components/EmptyState'
 import { useAuth } from '../context/AuthContext'
-import Spinner from '../components/Spinner'
+import { useToast } from '../components/Toast'
+import { jobsApi, applicationsApi, cvApi } from '../services/api'
+import { LABEL, formatDateVN } from '../utils/format'
 
-const levelColor = { Junior: 'badge-green', Mid: 'badge-blue', Senior: 'badge-orange', Manager: 'badge-purple' }
-const PROFILE_FIELDS = ['full_name', 'phone', 'dob', 'address', 'bio', 'skills', 'experience', 'education']
-const isProfileComplete = (p) => p && PROFILE_FIELDS.every((f) => p[f]?.trim())
-
-export default function JobDetailPage() {
+const JobDetailPage = () => {
   const { id } = useParams()
-  const { user } = useAuth()
   const navigate = useNavigate()
+  const { isAuthenticated, role } = useAuth()
+  const toast = useToast()
 
   const [job, setJob] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-
-  // Profile check
-  const [profile, setProfile] = useState(null)
-  const [profileLoaded, setProfileLoaded] = useState(false)
-
-  // Active CV
-  const [activeCv, setActiveCv] = useState(null)
-  const [cvLoaded, setCvLoaded] = useState(false)
-
-  // Apply state
-  const [showApplyForm, setShowApplyForm] = useState(false)
+  const [notFound, setNotFound] = useState(false)
+  const [applyOpen, setApplyOpen] = useState(false)
+  const [loginOpen, setLoginOpen] = useState(false)
+  const [applied, setApplied] = useState(false)
   const [coverLetter, setCoverLetter] = useState('')
-  const [applying, setApplying] = useState(false)
-  const [applyMsg, setApplyMsg] = useState({ type: '', text: '' })
+  const [submitting, setSubmitting] = useState(false)
+  const [cvList, setCvList] = useState([])
+  const [selectedCvId, setSelectedCvId] = useState(null)
+  const [cvLoading, setCvLoading] = useState(false)
 
   useEffect(() => {
-    jobsApi.get(id)
-      .then(setJob)
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false))
-  }, [id])
+    let active = true
+    setLoading(true)
+    setNotFound(false)
+    setApplied(false)
 
-  useEffect(() => {
-    if (user?.role === 'job_seeker') {
-      profileApi.get()
-        .then(setProfile)
-        .catch(() => setProfile(null))
-        .finally(() => setProfileLoaded(true))
+    const jobPromise = jobsApi.get(id)
+      .then((data) => { if (active) setJob(data) })
+      .catch(() => { if (active) setNotFound(true) })
 
-      cvApi.mine()
-        .then((list) => setActiveCv(list.find((c) => c.is_active) ?? null))
-        .catch(() => setActiveCv(null))
-        .finally(() => setCvLoaded(true))
-    }
-  }, [user])
+    const checkApplied = isAuthenticated && role === 'job_seeker'
+      ? applicationsApi.mine()
+          .then((apps) => {
+            if (active) {
+              const list = Array.isArray(apps) ? apps : (apps?.items || [])
+              setApplied(list.some((a) => String(a.job_id) === String(id)))
+            }
+          })
+          .catch(() => {})
+      : Promise.resolve()
 
-  const handleApply = async (e) => {
-    e.preventDefault()
-    setApplying(true)
-    setApplyMsg({ type: '', text: '' })
+    Promise.all([jobPromise, checkApplied]).finally(() => { if (active) setLoading(false) })
+    return () => { active = false }
+  }, [id, isAuthenticated, role])
+
+  const handleApply = () => {
+    if (!isAuthenticated) { setLoginOpen(true); return }
+    if (role !== 'job_seeker') return
+    setCvLoading(true)
+    cvApi.mine()
+      .then((cvs) => {
+        const list = Array.isArray(cvs) ? cvs : (cvs?.items || [])
+        setCvList(list)
+        const active = list.find((c) => c.is_active) || list[0] || null
+        setSelectedCvId(active?.id || null)
+      })
+      .catch(() => { setCvList([]); setSelectedCvId(null) })
+      .finally(() => setCvLoading(false))
+    setApplyOpen(true)
+  }
+
+  const submitApplication = async () => {
+    setSubmitting(true)
     try {
-      await applicationsApi.apply(id, coverLetter)
-      setApplyMsg({ type: 'success', text: '🎉 Nộp đơn thành công! Chúc bạn may mắn.' })
-      setShowApplyForm(false)
+      await applicationsApi.apply(job.id, coverLetter, selectedCvId)
+      setApplyOpen(false)
+      setApplied(true)
+      toast.success('Đã gửi đơn ứng tuyển thành công!')
     } catch (err) {
-      setApplyMsg({ type: 'error', text: err.message })
+      toast.error(err.message || 'Không thể nộp đơn ứng tuyển')
     } finally {
-      setApplying(false)
+      setSubmitting(false)
     }
   }
 
-  if (loading) return <Spinner />
-
-  if (error) {
+  if (loading) {
     return (
-      <div className="container" style={{ padding: '60px 20px', textAlign: 'center' }}>
-        <div className="alert alert-error" style={{ maxWidth: 480, margin: '0 auto' }}>
-          ⚠️ {error}
-        </div>
-        <Link to="/jobs" className="btn btn-primary mt-4" style={{ display: 'inline-flex' }}>
-          ← Quay lại danh sách
-        </Link>
+      <div className="container" style={{ padding: '64px 0', display: 'flex', justifyContent: 'center' }}>
+        <Spinner />
       </div>
     )
   }
 
-  const deadline = job.deadline
-    ? new Date(job.deadline).toLocaleDateString('vi-VN')
-    : 'Không giới hạn'
+  if (notFound || !job) {
+    return (
+      <div className="container">
+        <EmptyState icon="briefcase" title="Không tìm thấy tin tuyển dụng" description="Tin tuyển dụng này có thể đã bị gỡ hoặc không tồn tại." action={<button className="btn btn-primary" onClick={() => navigate('/jobs')}>Quay lại danh sách việc làm</button>} />
+      </div>
+    )
+  }
 
-  const createdAt = job.created_at
-    ? new Date(job.created_at).toLocaleDateString('vi-VN')
-    : null
+  const company = job.company || {}
+  const requirements = (job.requirements || '').split('\n').map((s) => s.trim().replace(/^-\s*/, '')).filter(Boolean)
+  const benefits = (job.benefits || '').split('\n').map((s) => s.trim().replace(/^-\s*/, '')).filter(Boolean)
 
   return (
     <div className="container">
-      <div className="job-detail-layout">
-        {/* Main Content */}
-        <main>
-          <Link to="/jobs" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: 16, marginTop: 24 }}>
-            ← Quay lại danh sách
-          </Link>
-
-          <div className="job-detail-main">
-            {/* Header */}
-            <div className="job-detail-header">
-              <h1>{job.title}</h1>
-
-              <div className="job-detail-company">
-                <span style={{ fontSize: '1.5rem' }}>🏢</span>
-                <span style={{ fontWeight: 600 }}>{job.company?.name || 'Công ty chưa cập nhật'}</span>
-                {job.company?.address && <span>• {job.company.address}</span>}
-              </div>
-
-              <div className="job-detail-meta">
-                {job.location && <span className="badge badge-gray">📍 {job.location}</span>}
-                {job.salary && <span className="badge badge-green">💰 {job.salary} triệu đồng</span>}
-                {job.level && <span className={`badge ${levelColor[job.level] || 'badge-gray'}`}>{job.level}</span>}
-                <span className={`badge ${job.status === 'active' ? 'badge-green' : 'badge-gray'}`}>
-                  {job.status === 'active' ? '● Đang tuyển' : '● Đã đóng'}
-                </span>
-              </div>
-            </div>
-
-            {/* Body */}
-            <div className="job-detail-body">
-              {applyMsg.text && (
-                <div className={`alert alert-${applyMsg.type === 'success' ? 'success' : 'error'}`}>
-                  {applyMsg.text}
-                </div>
-              )}
-
-              {job.description && (
-                <div className="job-section">
-                  <h3>📋 Mô tả công việc</h3>
-                  <p>{job.description}</p>
-                </div>
-              )}
-
-              {job.requirements && (
-                <div className="job-section">
-                  <h3>✅ Yêu cầu ứng viên</h3>
-                  <p>{job.requirements}</p>
-                </div>
-              )}
-
-              {job.benefits && (
-                <div className="job-section">
-                  <h3>🎁 Quyền lợi</h3>
-                  <p>{job.benefits}</p>
-                </div>
-              )}
-
-              {!job.description && !job.requirements && !job.benefits && (
-                <div className="empty" style={{ padding: '32px 0' }}>
-                  <p>Nhà tuyển dụng chưa cập nhật thông tin chi tiết.</p>
-                </div>
-              )}
-
-              {/* Apply Form */}
-              {showApplyForm && (
-                <div style={{ marginTop: 24, padding: 24, background: 'var(--surface)', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                  <h3 style={{ marginBottom: 16, color: 'var(--primary-light)', fontWeight: 700 }}>
-                    📝 Nộp đơn ứng tuyển
-                  </h3>
-                  <form onSubmit={handleApply}>
-                    {/* CV đính kèm tự động */}
-                    <div className="form-group">
-                      <label className="form-label">CV đính kèm</label>
-                      <div style={{
-                        padding: '10px 14px',
-                        background: 'var(--surface)',
-                        border: '1px solid var(--border)',
-                        borderRadius: 'var(--radius)',
-                        fontSize: '0.9rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 8,
-                      }}>
-                        <span>📎</span>
-                        <span style={{ fontWeight: 500 }}>{activeCv?.file_name}</span>
-                      </div>
-                      <div className="form-hint">
-                        Muốn dùng CV khác? <Link to="/profile" style={{ color: 'var(--primary)' }}>Đổi CV active</Link> trong trang Hồ sơ.
-                      </div>
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Thư xin việc</label>
-                      <textarea
-                        className="input"
-                        rows={5}
-                        placeholder="Giới thiệu bản thân và lý do bạn phù hợp với vị trí này..."
-                        value={coverLetter}
-                        onChange={(e) => setCoverLetter(e.target.value)}
-                        style={{ resize: 'vertical' }}
-                      />
-                    </div>
-                    <div className="flex gap-2">
-                      <button type="submit" className="btn btn-primary" disabled={applying}>
-                        {applying ? '⏳ Đang gửi...' : '📤 Gửi đơn'}
-                      </button>
-                      <button type="button" className="btn btn-ghost" onClick={() => setShowApplyForm(false)}>
-                        Hủy
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
+      <div className="detail-layout">
+        <div className="detail-main">
+          <div className="row" style={{ marginBottom: 12 }}>
+            <CompanyLogo company={company} size={56} />
+            <div>
+              <p className="company-name" style={{ margin: 0 }}>{company.name}</p>
+              <h1 className="detail-h1">{job.title}</h1>
             </div>
           </div>
-        </main>
-
-        {/* Sidebar */}
-        <aside>
-          <div className="job-sidebar-card" style={{ marginTop: 56 }}>
-            <h3>Thông tin tuyển dụng</h3>
-
-            <div className="info-row">
-              <span className="icon">💰</span>
-              <div>
-                <div className="label">Mức lương</div>
-                <div className="value">{job.salary ? `${job.salary} triệu đồng` : 'Thỏa thuận'}</div>
-              </div>
-            </div>
-
-            <div className="info-row">
-              <span className="icon">📍</span>
-              <div>
-                <div className="label">Địa điểm</div>
-                <div className="value">{job.location || 'Chưa cập nhật'}</div>
-              </div>
-            </div>
-
-            <div className="info-row">
-              <span className="icon">🎯</span>
-              <div>
-                <div className="label">Cấp bậc</div>
-                <div className="value">{job.level || 'Chưa cập nhật'}</div>
-              </div>
-            </div>
-
-            <div className="info-row">
-              <span className="icon">🗓</span>
-              <div>
-                <div className="label">Hạn nộp hồ sơ</div>
-                <div className="value">{deadline}</div>
-              </div>
-            </div>
-
-            {createdAt && (
-              <div className="info-row">
-                <span className="icon">📅</span>
-                <div>
-                  <div className="label">Ngày đăng</div>
-                  <div className="value">{createdAt}</div>
-                </div>
-              </div>
-            )}
-
-            <div style={{ marginTop: 20 }}>
-              {!user ? (
-                <div>
-                  <Link to="/login" className="btn btn-primary btn-full">
-                    Đăng nhập để ứng tuyển
-                  </Link>
-                  <p className="text-sm text-muted" style={{ textAlign: 'center', marginTop: 10 }}>
-                    Chưa có tài khoản? <Link to="/register" style={{ color: 'var(--primary)' }}>Đăng ký</Link>
-                  </p>
-                </div>
-              ) : user.role === 'job_seeker' && job.status === 'active' ? (
-                applyMsg.type === 'success' ? (
-                  <div className="alert alert-success">✅ Đã nộp đơn thành công!</div>
-                ) : profileLoaded && !isProfileComplete(profile) ? (
-                  <div style={{ textAlign: 'center' }}>
-                    <div className="alert alert-error" style={{ marginBottom: 12, textAlign: 'left' }}>
-                      ⚠️ Bạn cần hoàn thiện <strong>hồ sơ cá nhân</strong> trước khi ứng tuyển.
-                    </div>
-                    <Link to="/profile" className="btn btn-primary btn-full">
-                      Hoàn thiện hồ sơ ngay
-                    </Link>
-                  </div>
-                ) : cvLoaded && !activeCv ? (
-                  <div style={{ textAlign: 'center' }}>
-                    <div className="alert alert-error" style={{ marginBottom: 12, textAlign: 'left' }}>
-                      📎 Bạn cần <strong>upload CV</strong> trong trang Hồ sơ trước khi ứng tuyển.
-                    </div>
-                    <Link to="/profile" className="btn btn-primary btn-full">
-                      Upload CV ngay
-                    </Link>
-                  </div>
-                ) : (
-                  <button
-                    className="btn btn-primary btn-full btn-lg"
-                    onClick={() => setShowApplyForm(!showApplyForm)}
-                  >
-                    {showApplyForm ? '✕ Đóng form' : '📤 Ứng tuyển ngay'}
-                  </button>
-                )
-              ) : user.role === 'recruiter' ? (
-                <div className="alert alert-info">👔 Bạn đang xem với tư cách nhà tuyển dụng</div>
-              ) : job.status !== 'active' ? (
-                <div className="alert alert-error">⛔ Tin tuyển dụng đã đóng</div>
-              ) : null}
-            </div>
+          <div className="job-meta" style={{ marginBottom: 16 }}>
+            <span className="job-meta-item"><Icon name="map-pin" size={14} />{job.location}</span>
+            <span className="job-meta-item"><Icon name="money" size={14} />{job.salary || 'Thoả thuận'}</span>
+            <span className="job-meta-item"><Icon name="calendar" size={14} />Hạn {formatDateVN(job.deadline)}</span>
+            {job.level && <LevelBadge level={job.level} />}
           </div>
 
-          {/* Company Info */}
-          {job.company && (
-            <div className="job-sidebar-card" style={{ marginTop: 16 }}>
-              <h3>Về công ty</h3>
-              <div style={{ fontWeight: 700, marginBottom: 8 }}>{job.company.name}</div>
-              {job.company.address && (
-                <div className="text-sm text-muted">📍 {job.company.address}</div>
-              )}
+          <div className="detail-section">
+            <h3>Mô tả công việc</h3>
+            <p style={{ whiteSpace: 'pre-line' }}>{job.description}</p>
+          </div>
+          {requirements.length > 0 && (
+            <div className="detail-section">
+              <h3>Yêu cầu</h3>
+              <ul>{requirements.map((r, i) => <li key={i}>{r}</li>)}</ul>
             </div>
           )}
-        </aside>
+          {benefits.length > 0 && (
+            <div className="detail-section">
+              <h3>Quyền lợi</h3>
+              <ul>{benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
+            </div>
+          )}
+        </div>
+
+        <div className="detail-side">
+          <div className="detail-card">
+            {applied ? (
+              <>
+                <div className="badge badge-success" style={{ padding: '8px 16px', fontSize: 'var(--text-sm)', marginBottom: 12, justifyContent: 'center' }}>
+                  <Icon name="check" size={14} />Đã nộp đơn — Đang chờ xét
+                </div>
+                <button className="btn btn-outline btn-block" onClick={() => navigate('/my-applications')}>Xem đơn của tôi</button>
+              </>
+            ) : (
+              <>
+                {role === 'recruiter' || role === 'admin' ? (
+                  <div className="badge badge-neutral" style={{ padding: '8px 16px', fontSize: 'var(--text-sm)' }}>
+                    Tài khoản nhà tuyển dụng — không thể ứng tuyển
+                  </div>
+                ) : (
+                  <button className="btn btn-primary btn-block btn-lg" onClick={handleApply}>
+                    Nộp đơn ngay
+                  </button>
+                )}
+              </>
+            )}
+            <hr className="divider" />
+            <div className="kv-row"><span className="k">Hạn nộp</span><span className="v">{formatDateVN(job.deadline)}</span></div>
+            {job.level && <div className="kv-row"><span className="k">Cấp bậc</span><span className="v">{LABEL[job.level] || job.level}</span></div>}
+            <div className="kv-row"><span className="k">Hình thức</span><span className="v">Toàn thời gian</span></div>
+            <div className="kv-row"><span className="k">Ngày đăng</span><span className="v">{formatDateVN(job.created_at)}</span></div>
+          </div>
+
+          <div className="detail-card">
+            <h4 style={{ fontSize: 'var(--text-sm)', fontFamily: 'var(--font-body)', fontWeight: 700, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 12 }}>Về công ty</h4>
+            <div className="row" style={{ marginBottom: 12 }}>
+              <CompanyLogo company={company} size={44} />
+              <div>
+                <div style={{ fontWeight: 600 }}>{company.name}</div>
+                <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)' }}>{LABEL[company.size] || company.size}</div>
+              </div>
+            </div>
+            {company.address && (
+              <div className="text-sm text-secondary" style={{ display: 'flex', gap: 8, alignItems: 'start', marginBottom: 6 }}>
+                <Icon name="map-pin" size={14} style={{ flexShrink: 0, marginTop: 3 }} />{company.address}
+              </div>
+            )}
+            {company.website && (
+              <div className="text-sm text-secondary" style={{ display: 'flex', gap: 8, alignItems: 'start', marginBottom: 12 }}>
+                <Icon name="globe" size={14} style={{ flexShrink: 0, marginTop: 3 }} />{company.website}
+              </div>
+            )}
+            <button className="btn btn-outline btn-block" onClick={() => navigate(`/companies/${company.id}`)}>Xem hồ sơ công ty</button>
+          </div>
+        </div>
       </div>
+
+      <Modal open={applyOpen} onClose={() => setApplyOpen(false)} title="Nộp đơn ứng tuyển" footer={
+        <>
+          <button className="btn btn-outline" onClick={() => setApplyOpen(false)} disabled={submitting}>Hủy</button>
+          <button className="btn btn-primary" onClick={submitApplication} disabled={submitting || cvLoading || !selectedCvId}>
+            {submitting ? 'Đang gửi...' : 'Gửi đơn ứng tuyển'}
+          </button>
+        </>
+      }>
+        <div className="text-sm text-secondary mb-4">Bạn đang ứng tuyển vào vị trí <strong style={{ color: 'var(--color-text-primary)' }}>{job.title}</strong> tại {company.name}.</div>
+        <div className="field mb-4">
+          <label>Chọn CV để gửi đi</label>
+          {cvLoading ? (
+            <Spinner size={20} />
+          ) : cvList.length > 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {cvList.map((cv) => (
+                <div
+                  key={cv.id}
+                  className="cv-item"
+                  style={{
+                    padding: 14,
+                    cursor: 'pointer',
+                    outline: selectedCvId === cv.id ? '2px solid var(--color-primary)' : '2px solid transparent',
+                    borderRadius: 'var(--radius)',
+                  }}
+                  onClick={() => setSelectedCvId(cv.id)}
+                >
+                  <div className="cv-icon"><Icon name="file" size={20} /></div>
+                  <div className="cv-info">
+                    <div className="cv-name">
+                      {cv.file_name}
+                      {cv.is_active && <span className="badge badge-primary" style={{ marginLeft: 8 }}><Icon name="star" size={11} />CV chính</span>}
+                    </div>
+                    <div className="cv-meta"><span>Cập nhật {formatDateVN(cv.uploaded_at)}</span></div>
+                  </div>
+                  {selectedCvId === cv.id && (
+                    <Icon name="check" size={16} style={{ marginLeft: 'auto', color: 'var(--color-primary)', flexShrink: 0 }} />
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-sm" style={{ color: 'var(--color-error)' }}>
+              Bạn chưa có CV nào. Vui lòng <Link to="/my-cvs">tải lên CV</Link> trước khi ứng tuyển.
+            </div>
+          )}
+        </div>
+        <div className="field">
+          <label>Thư giới thiệu <span className="text-muted text-xs">(tùy chọn)</span></label>
+          <textarea className="textarea" placeholder="Chia sẻ ngắn gọn vì sao bạn phù hợp với vị trí này..." maxLength={2000} value={coverLetter} onChange={(e) => setCoverLetter(e.target.value)} />
+          <div className="text-xs text-muted text-right">{coverLetter.length}/2000</div>
+        </div>
+      </Modal>
+
+      <Modal open={loginOpen} onClose={() => setLoginOpen(false)} title="Đăng nhập để ứng tuyển" footer={
+        <>
+          <button className="btn btn-outline" onClick={() => setLoginOpen(false)}>Để sau</button>
+          <button className="btn btn-primary" onClick={() => { setLoginOpen(false); navigate('/login') }}>Đăng nhập</button>
+        </>
+      }>
+        <p>Để gửi đơn ứng tuyển, bạn cần đăng nhập với tài khoản ứng viên. Nếu chưa có tài khoản, bạn có thể đăng ký miễn phí trong vài phút.</p>
+      </Modal>
     </div>
   )
 }
+
+export default JobDetailPage
