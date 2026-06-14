@@ -31,7 +31,7 @@ def apply_for_job(
             type="application_submitted",
             title="Đơn ứng tuyển mới",
             message=f"{applicant_label} đã nộp đơn vào vị trí {result.get('job_title', '')}",
-            related_id=result["id"],
+            related_id=job_id,
             related_type="job_application",
         )
         background_tasks.add_task(hub.push, recruiter_id, payload)
@@ -80,7 +80,7 @@ def update_status(
     current_user: User = Depends(require_recruiter),
     db: Session = Depends(get_db),
 ):
-    """Nhà tuyển dụng cập nhật trạng thái đơn ứng tuyển (reviewed/accepted/rejected)."""
+    """Nhà tuyển dụng cập nhật trạng thái đơn ứng tuyển (accepted/rejected)."""
     result = application_service.update_application_status(application_id, request, current_user, db)
     candidate_id = result.get("user_id")
     if candidate_id and request.status in ("accepted", "rejected"):

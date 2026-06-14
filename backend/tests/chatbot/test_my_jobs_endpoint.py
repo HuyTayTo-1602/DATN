@@ -145,12 +145,11 @@ class TestMyJobsHappyPath:
         jobs = [
             _make_job_dict(1, "Active Job", "active"),
             _make_job_dict(2, "Closed Job", "closed"),
-            _make_job_dict(3, "Draft Job", "draft"),
         ]
         with patch("app.chatbot.routes.get_jobs_by_recruiter", return_value=jobs):
             response = recruiter_client.get("/api/v1/chatbot/my-jobs")
         statuses = {j["status"] for j in response.json()}
-        assert statuses == {"active", "closed", "draft"}
+        assert statuses == {"active", "closed"}
 
 
 # ---------------------------------------------------------------------------

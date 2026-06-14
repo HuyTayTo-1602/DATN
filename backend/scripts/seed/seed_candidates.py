@@ -15,15 +15,43 @@ from app.models.profile import UserProfile
 from app.models.candidate_cv import CandidateCV
 from app.models.cv_text import CVText
 from app.utils.hashing import hash_password
+from app.config import get_settings
+from app.integrations.minio_client import upload_file
+from app.utils.location import join_address
 from scripts.seed.seed_utils import (
     load_json,
     random_full_name,
     random_phone,
-    random_address,
+    random_location,
     random_dob,
     pick_skills,
     generate_cv_text,
+    render_cv_pdf,
 )
+
+CV_BUCKET = get_settings().MINIO_BUCKET_NAME
+CV_OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_cv_out")
+_minio_warned = False
+
+
+def _store_cv_pdf(pdf_bytes: bytes, object_key: str, file_name: str) -> bool:
+    """
+    Upload CV PDF lên MinIO. Nếu lỗi → lưu file local vào _cv_out/ và cảnh báo
+    (chỉ 1 lần), không làm hỏng quá trình seed. Trả về True nếu upload MinIO ok.
+    """
+    global _minio_warned
+    try:
+        upload_file(pdf_bytes, object_key, content_type="application/pdf")
+        return True
+    except Exception as exc:  # MinIO down / lỗi mạng
+        if not _minio_warned:
+            print(f"  [WARN] MinIO upload thất bại ({exc}); lưu CV PDF local vào {CV_OUT_DIR}")
+            _minio_warned = True
+        os.makedirs(CV_OUT_DIR, exist_ok=True)
+        safe_name = file_name.replace("/", "_")
+        with open(os.path.join(CV_OUT_DIR, safe_name), "wb") as f:
+            f.write(pdf_bytes)
+        return False
 
 CANDIDATE_COUNT = 350
 DOMAINS = [
@@ -62,7 +90,8 @@ def seed_candidates(db, roles: dict, count: int = CANDIDATE_COUNT) -> list[dict]
     created = 0
 
     for i in range(1, count + 1):
-        email = f"candidate{i:04d}@{random.choice(EMAIL_DOMAINS)}"
+        # Email deterministic (domain theo index) để re-seed nhận ra ứng viên đã tồn tại → idempotent
+        email = f"candidate{i:04d}@{EMAIL_DOMAINS[i % len(EMAIL_DOMAINS)]}"
         if email in existing_emails:
             user = db.query(User).filter(User.email == email).first()
             if user and user.profile:
@@ -88,7 +117,8 @@ def seed_candidates(db, roles: dict, count: int = CANDIDATE_COUNT) -> list[dict]
         skills = pick_skills(domain, skills_catalog, count=random.randint(5, 9))
         skills_str = ", ".join(skills)
         phone = random_phone()
-        address = random_address()
+        province, district, address_detail = random_location()
+        address = join_address(province, district, address_detail)
         dob = random_dob(22, 38)
 
         # Create user
@@ -102,7 +132,7 @@ def seed_candidates(db, roles: dict, count: int = CANDIDATE_COUNT) -> list[dict]
         db.flush()
 
         # Experience text
-        exp_years = {"Junior": 1, "Middle": 3, "Senior": 6}[level]
+        exp_years = {"Junior": 1, "Mid": 3, "Middle": 3, "Senior": 6}.get(level, 3)
         experience_text = (
             f"{level} {domain} professional với {exp_years} năm kinh nghiệm. "
             f"Thành thạo: {', '.join(skills[:4])}."
@@ -118,6 +148,9 @@ def seed_candidates(db, roles: dict, count: int = CANDIDATE_COUNT) -> list[dict]
             full_name=full_name,
             phone=phone,
             address=address,
+            province=province,
+            district=district,
+            address_detail=address_detail,
             dob=dob,
             skills=skills_str,
             experience=experience_text,
@@ -127,22 +160,7 @@ def seed_candidates(db, roles: dict, count: int = CANDIDATE_COUNT) -> list[dict]
         db.add(profile)
         db.flush()
 
-        # Create CV metadata (simulated — no actual file)
-        file_name = f"cv_{full_name.replace(' ', '_').lower()}_{i}.pdf"
-        object_key = _make_cv_object_key(user.id, file_name)
-        cv = CandidateCV(
-            user_id=user.id,
-            file_name=file_name,
-            object_key=object_key,
-            bucket_name="cv-files",
-            mime_type="application/pdf",
-            file_size=random.randint(100_000, 800_000),
-            is_active=True,
-        )
-        db.add(cv)
-        db.flush()
-
-        # Create CV text
+        # Generate CV text (khớp tên/kỹ năng/domain), render PDF thật rồi upload MinIO
         cv_raw = generate_cv_text(
             full_name=full_name,
             email=email,
@@ -151,6 +169,24 @@ def seed_candidates(db, roles: dict, count: int = CANDIDATE_COUNT) -> list[dict]
             skills=skills,
             level=level,
         )
+        pdf_bytes = render_cv_pdf(cv_raw)
+        file_name = f"cv_{full_name.replace(' ', '_').lower()}_{i}.pdf"
+        object_key = _make_cv_object_key(user.id, file_name)
+        _store_cv_pdf(pdf_bytes, object_key, file_name)
+
+        cv = CandidateCV(
+            user_id=user.id,
+            file_name=file_name,
+            object_key=object_key,
+            bucket_name=CV_BUCKET,
+            mime_type="application/pdf",
+            file_size=len(pdf_bytes),  # đúng kích thước file thật
+            is_active=True,
+        )
+        db.add(cv)
+        db.flush()
+
+        # Create CV text (nội dung khớp PDF)
         cv_text = CVText(
             cv_id=cv.id,
             extracted_text=cv_raw,

@@ -14,13 +14,13 @@ from app.models.user import User, Role
 from app.models.job import Job
 from app.models.application import JobApplication
 from app.models.company import Company
-from scripts.seed.seed_utils import generate_cover_letter
+from scripts.seed.seed_utils import generate_cover_letter, random_created_at
 
 APPLICATIONS_PER_CANDIDATE_MIN = 2
 APPLICATIONS_PER_CANDIDATE_MAX = 7
 
-APPLICATION_STATUSES = ["pending", "reviewed", "accepted", "rejected"]
-STATUS_WEIGHTS = [0.40, 0.30, 0.15, 0.15]
+APPLICATION_STATUSES = ["pending", "accepted", "rejected"]
+STATUS_WEIGHTS = [0.55, 0.225, 0.225]
 
 
 def seed_applications(
@@ -79,11 +79,16 @@ def seed_applications(
             pair = (user.id, job.id)
             if pair in existing_pairs:
                 continue
-            if job.status == "draft":
-                continue
 
             status = random.choices(APPLICATION_STATUSES, weights=STATUS_WEIGHTS, k=1)[0]
             cover_letter = generate_cover_letter(full_name, domain, job.title)
+
+            # created_at rải đều từ ngày job được đăng → hôm nay (không ứng tuyển
+            # trước khi job tồn tại). Nếu thiếu, mọi đơn sẽ dồn vào thời điểm chạy
+            # seed (func.now()) làm chart "Xu hướng theo tuần" dồn hết vào tuần cuối.
+            applied_at = random_created_at(
+                start=job.created_at.date().isoformat() if job.created_at else "2026-01-01"
+            )
 
             application = JobApplication(
                 job_id=job.id,
@@ -91,6 +96,8 @@ def seed_applications(
                 status=status,
                 cover_letter=cover_letter,
                 cv_url=None,
+                created_at=applied_at,
+                updated_at=applied_at,
             )
             db.add(application)
             existing_pairs.add(pair)
@@ -142,7 +149,7 @@ def _load_existing(db) -> tuple[list[dict], list[dict]]:
             "level": "Middle",
         })
 
-    jobs = db.query(Job).filter(Job.status != "draft").all()
+    jobs = db.query(Job).all()
     jobs_with_domain = []
     for job in jobs:
         company = db.query(Company).filter(Company.id == job.company_id).first()

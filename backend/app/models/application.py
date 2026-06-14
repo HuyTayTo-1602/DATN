@@ -28,7 +28,7 @@ class JobApplication(Base):
     job_id = Column(Integer, ForeignKey("jobs.id"), nullable=False)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
 
-    # Trạng thái đơn: pending | reviewed | accepted | rejected
+    # Trạng thái đơn: pending | accepted | rejected
     status = Column(String(50), default="pending", nullable=False)
 
     # Thư xin việc hoặc ghi chú kèm theo

@@ -1,162 +1,99 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { useAuth } from './context/AuthContext'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { AuthProvider } from './context/AuthContext'
+import { ToastProvider } from './components/Toast'
 import Navbar from './components/Navbar'
-import Spinner from './components/Spinner'
+import Footer from './components/Footer'
+import ProtectedRoute from './components/ProtectedRoute'
 
 import HomePage from './pages/HomePage'
 import JobsPage from './pages/JobsPage'
 import JobDetailPage from './pages/JobDetailPage'
+import CompaniesPage from './pages/CompaniesPage'
+import CompanyDetailPage from './pages/CompanyDetailPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
-import MyApplicationsPage from './pages/MyApplicationsPage'
-import PostJobPage from './pages/PostJobPage'
-import MyJobsPage from './pages/MyJobsPage'
-import ProfilePage from './pages/ProfilePage'
-import AdminPage from './pages/admin/AdminPage'
-import MyCompaniesPage from './pages/MyCompaniesPage'
-import JobApplicantsPage from './pages/JobApplicantsPage'
-import CandidateListPage from './pages/recruiter/CandidateListPage'
-import ChatPage from './pages/ChatPage'
-import NotificationPage from './pages/NotificationPage'
+import NotFoundPage from './pages/NotFoundPage'
 
-function RequireAuth({ children, role }) {
-  const { user, loading } = useAuth()
-  if (loading) return <Spinner />
-  if (!user) return <Navigate to="/login" replace />
-  if (role && user.role !== role) return <Navigate to="/" replace />
-  return children
+import ProfilePage from './pages/ProfilePage'
+import MyCvsPage from './pages/MyCvsPage'
+import MyApplicationsPage from './pages/MyApplicationsPage'
+import RecommendationsPage from './pages/RecommendationsPage'
+import NotificationsPage from './pages/NotificationsPage'
+import ChatbotPage from './pages/ChatbotPage'
+
+import RecruiterCompaniesPage from './pages/recruiter/RecruiterCompaniesPage'
+import RecruiterJobsPage from './pages/recruiter/RecruiterJobsPage'
+import JobApplicantsPage from './pages/recruiter/JobApplicantsPage'
+import CandidateSearchPage from './pages/recruiter/CandidateSearchPage'
+
+import AdminDashboardPage from './pages/admin/AdminDashboardPage'
+import AdminUsersPage from './pages/admin/AdminUsersPage'
+import AdminCompaniesPage from './pages/admin/AdminCompaniesPage'
+import AdminJobsPage from './pages/admin/AdminJobsPage'
+import AdminLayout from './pages/admin/AdminLayout'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname])
+  return null
+}
+
+function PublicLayout({ children }) {
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  )
 }
 
 export default function App() {
-  const { loading } = useAuth()
-
-  if (loading) {
-    return (
-      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Spinner text="Đang khởi động..." />
-      </div>
-    )
-  }
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar />
-      <Routes>
-        {/* Public */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/jobs" element={<JobsPage />} />
-        <Route path="/jobs/:id" element={<JobDetailPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+    <AuthProvider>
+      <ToastProvider>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<PublicLayout><HomePage /></PublicLayout>} />
+          <Route path="/jobs" element={<PublicLayout><JobsPage /></PublicLayout>} />
+          <Route path="/jobs/:id" element={<PublicLayout><JobDetailPage /></PublicLayout>} />
+          <Route path="/companies" element={<PublicLayout><CompaniesPage /></PublicLayout>} />
+          <Route path="/companies/:id" element={<PublicLayout><CompanyDetailPage /></PublicLayout>} />
 
-        {/* Job Seeker */}
-        <Route
-          path="/profile"
-          element={
-            <RequireAuth role="job_seeker">
-              <ProfilePage />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/my-applications"
-          element={
-            <RequireAuth role="job_seeker">
-              <MyApplicationsPage />
-            </RequireAuth>
-          }
-        />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        {/* Recruiter */}
-        <Route
-          path="/my-companies"
-          element={
-            <RequireAuth role="recruiter">
-              <MyCompaniesPage />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/my-jobs"
-          element={
-            <RequireAuth role="recruiter">
-              <MyJobsPage />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/my-jobs/:jobId/applicants"
-          element={
-            <RequireAuth role="recruiter">
-              <JobApplicantsPage />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/post-job"
-          element={
-            <RequireAuth role="recruiter">
-              <PostJobPage />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/candidates/search"
-          element={
-            <RequireAuth role="recruiter">
-              <CandidateListPage />
-            </RequireAuth>
-          }
-        />
+          {/* job_seeker */}
+          <Route path="/profile" element={<PublicLayout><ProtectedRoute roles={['job_seeker']}><ProfilePage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/my-cvs" element={<PublicLayout><ProtectedRoute roles={['job_seeker']}><MyCvsPage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/my-applications" element={<PublicLayout><ProtectedRoute roles={['job_seeker']}><MyApplicationsPage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/recommendations" element={<PublicLayout><ProtectedRoute roles={['job_seeker']}><RecommendationsPage /></ProtectedRoute></PublicLayout>} />
 
-        {/* Chatbot AI — recruiter + job_seeker */}
-        <Route
-          path="/chat"
-          element={
-            <RequireAuth>
-              <ChatPage />
-            </RequireAuth>
-          }
-        />
+          {/* shared authenticated */}
+          <Route path="/notifications" element={<PublicLayout><ProtectedRoute><NotificationsPage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/chatbot" element={<PublicLayout><ProtectedRoute roles={['job_seeker', 'recruiter']}><ChatbotPage /></ProtectedRoute></PublicLayout>} />
 
-        {/* Notifications */}
-        <Route
-          path="/notifications"
-          element={
-            <RequireAuth>
-              <NotificationPage />
-            </RequireAuth>
-          }
-        />
+          {/* recruiter */}
+          <Route path="/recruiter/dashboard" element={<Navigate to="/recruiter/jobs" replace />} />
+          <Route path="/recruiter/companies" element={<PublicLayout><ProtectedRoute roles={['recruiter']}><RecruiterCompaniesPage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/recruiter/jobs" element={<PublicLayout><ProtectedRoute roles={['recruiter']}><RecruiterJobsPage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/recruiter/jobs/:id/applicants" element={<PublicLayout><ProtectedRoute roles={['recruiter']}><JobApplicantsPage /></ProtectedRoute></PublicLayout>} />
+          <Route path="/recruiter/candidates" element={<PublicLayout><ProtectedRoute roles={['recruiter']}><CandidateSearchPage /></ProtectedRoute></PublicLayout>} />
 
-        {/* Admin */}
-        <Route
-          path="/admin"
-          element={
-            <RequireAuth role="admin">
-              <AdminPage />
-            </RequireAuth>
-          }
-        />
+          {/* admin */}
+          <Route path="/admin" element={<ProtectedRoute roles={['admin']}><AdminLayout /></ProtectedRoute>}>
+            <Route index element={<AdminDashboardPage />} />
+            <Route path="users" element={<AdminUsersPage />} />
+            <Route path="companies" element={<AdminCompaniesPage />} />
+            <Route path="jobs" element={<AdminJobsPage />} />
+          </Route>
 
-        {/* 404 */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-
-      {/* Footer */}
-      <footer style={{
-        marginTop: 'auto',
-        background: '#1e293b',
-        color: '#94a3b8',
-        textAlign: 'center',
-        padding: '24px 20px',
-        fontSize: '0.85rem',
-      }}>
-        <div>© 2024 JobCV – Hệ thống tuyển dụng trực tuyến</div>
-        <div style={{ marginTop: 4, fontSize: '0.78rem', opacity: .7 }}>
-          Đồ án tốt nghiệp · Powered by FastAPI + React
-        </div>
-      </footer>
-    </div>
+          <Route path="*" element={<PublicLayout><NotFoundPage /></PublicLayout>} />
+        </Routes>
+      </ToastProvider>
+    </AuthProvider>
   )
 }

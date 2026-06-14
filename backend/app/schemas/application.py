@@ -14,8 +14,8 @@ from typing import Optional
 
 class ApplyRequest(BaseModel):
     """Dữ liệu gửi lên khi ứng viên nộp đơn ứng tuyển vào một job."""
-    cover_letter: Optional[str] = None   # Thư xin việc (không bắt buộc)
-    # cv_url đã bị loại bỏ — CV được lấy tự động từ CV active trong profile
+    cover_letter: Optional[str] = None
+    cv_id: Optional[int] = None   # Nếu không truyền, dùng CV active
 
 
 class ApplicationResponse(BaseModel):
@@ -23,7 +23,7 @@ class ApplicationResponse(BaseModel):
     id: int
     job_id: int
     user_id: int
-    status: str                          # pending | reviewed | accepted | rejected
+    status: str                          # pending | accepted | rejected
     cover_letter: Optional[str] = None
     cv_url: Optional[str] = None
     created_at: Optional[datetime] = None
@@ -42,4 +42,4 @@ class ApplicationResponse(BaseModel):
 
 class StatusUpdateRequest(BaseModel):
     """Dữ liệu nhà tuyển dụng gửi lên để cập nhật trạng thái đơn ứng tuyển."""
-    status: str   # Giá trị hợp lệ: "reviewed" | "accepted" | "rejected"
+    status: str   # Giá trị hợp lệ: "accepted" | "rejected"

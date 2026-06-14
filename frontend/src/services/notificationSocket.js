@@ -26,7 +26,7 @@ export function createNotificationSocket({ onMessage, onOpen, onClose } = {}) {
   function connect() {
     if (stopped) return
     const url = buildUrl()
-    if (!url) return  // not logged in
+    if (!url) return // not logged in
 
     ws = new WebSocket(url)
 

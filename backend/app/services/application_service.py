@@ -16,7 +16,7 @@ from app.integrations.minio_client import get_minio_client
 from app.config import get_settings as _get_settings
 
 
-VALID_STATUSES = {"reviewed", "accepted", "rejected"}
+VALID_STATUSES = {"accepted", "rejected"}
 
 
 def _to_dict(app: JobApplication, include_recruiter_id: bool = False) -> dict:
@@ -50,11 +50,22 @@ def apply_job(job_id: int, request: ApplyRequest, current_user: User, db: Sessio
             detail="Tin tuyển dụng không tồn tại hoặc đã đóng",
         )
 
-    # Bắt buộc ứng viên phải có CV active trong hồ sơ
-    active_cv = db.query(CandidateCV).filter(
-        CandidateCV.user_id == current_user.id,
-        CandidateCV.is_active == True,
-    ).first()
+    # Chọn CV: dùng cv_id nếu được chỉ định, ngược lại dùng CV active
+    if request.cv_id:
+        active_cv = db.query(CandidateCV).filter(
+            CandidateCV.id == request.cv_id,
+            CandidateCV.user_id == current_user.id,
+        ).first()
+        if not active_cv:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="CV không tồn tại hoặc không thuộc về bạn",
+            )
+    else:
+        active_cv = db.query(CandidateCV).filter(
+            CandidateCV.user_id == current_user.id,
+            CandidateCV.is_active == True,
+        ).first()
     if not active_cv:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -132,8 +143,8 @@ def get_cv_stream(application_id: int, current_user: User, db: Session):
     client = get_minio_client()
     try:
         response = client.get_object(settings.MINIO_BUCKET_NAME, application.cv_url)
-    except Exception as exc:
-        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=f"Không thể tải CV từ storage: {exc}")
+    except Exception:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="CV không tồn tại trong hệ thống lưu trữ")
 
     # Lấy tên file từ object_key (phần sau dấu / cuối cùng, bỏ uuid prefix)
     raw_name = application.cv_url.split("/")[-1]

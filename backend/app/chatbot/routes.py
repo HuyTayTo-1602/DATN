@@ -26,6 +26,7 @@ from app.chatbot.graph import build_graph
 from app.chatbot.services.job_service import get_jobs_by_recruiter
 from app.chatbot.services.history_service import append_turn, get_history
 from app.chatbot.services.rate_limiter import check_rate_limit
+from app.chatbot.services.candidate_context_service import load_candidate_context
 
 logger = logging.getLogger(__name__)
 
@@ -75,6 +76,12 @@ async def send_message(
     thread_id = request.thread_id or str(uuid.uuid4())
     t_start = time.monotonic()
 
+    candidate_profile = None
+    candidate_cv_text = None
+    candidate_cv_note = None
+    if role == "job_seeker":
+        candidate_profile, candidate_cv_text, candidate_cv_note = load_candidate_context(current_user.id, db)
+
     initial_state = {
         "user_id": current_user.id,
         "role": role,
@@ -84,6 +91,9 @@ async def send_message(
         "job_info": None,
         "applicants": [],
         "batch_summaries": [],
+        "candidate_profile": candidate_profile,
+        "candidate_cv_text": candidate_cv_text,
+        "candidate_cv_note": candidate_cv_note,
         "answer": "",
         "blocked_reason": None,
     }

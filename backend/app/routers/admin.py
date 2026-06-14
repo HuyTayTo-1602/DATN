@@ -156,7 +156,7 @@ def delete_company(
 def list_jobs(
     page: int = Query(1, ge=1),
     page_size: int = Query(10, ge=1, le=100),
-    status: Optional[str] = Query(None, description="Lọc theo status: active | closed | draft"),
+    status: Optional[str] = Query(None, description="Lọc theo status: active | closed"),
     search: Optional[str] = Query(None, description="Tìm theo tiêu đề"),
     _: User = Depends(require_admin),
     db: Session = Depends(get_db),

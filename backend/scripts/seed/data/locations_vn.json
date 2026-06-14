@@ -1,0 +1,412 @@
+{
+  "Hà Nội": {
+    "Thanh Xuân": [
+      "Nguyễn Tuân",
+      "Lê Văn Lương",
+      "Nguyễn Trãi",
+      "Khuất Duy Tiến",
+      "Vũ Trọng Phụng",
+      "Nguyễn Huy Tưởng",
+      "Hoàng Đạo Thúy"
+    ],
+    "Cầu Giấy": [
+      "Trần Duy Hưng",
+      "Cầu Giấy",
+      "Xuân Thủy",
+      "Dương Đình Nghệ",
+      "Phạm Hùng",
+      "Nguyễn Phong Sắc",
+      "Trung Kính"
+    ],
+    "Hai Bà Trưng": [
+      "Bạch Mai",
+      "Phố Huế",
+      "Minh Khai",
+      "Lạc Trung",
+      "Trần Khát Chân",
+      "Đại Cồ Việt",
+      "Tô Hiến Thành"
+    ],
+    "Đống Đa": [
+      "Tây Sơn",
+      "Chùa Bộc",
+      "Thái Hà",
+      "Láng Hạ",
+      "Nguyễn Lương Bằng",
+      "Khâm Thiên",
+      "Hoàng Cầu"
+    ],
+    "Ba Đình": [
+      "Kim Mã",
+      "Đội Cấn",
+      "Liễu Giai",
+      "Nguyễn Thái Học",
+      "Phan Đình Phùng",
+      "Văn Cao",
+      "Giảng Võ"
+    ],
+    "Hoàn Kiếm": [
+      "Hàng Bài",
+      "Tràng Tiền",
+      "Lý Thường Kiệt",
+      "Hai Bà Trưng",
+      "Trần Hưng Đạo",
+      "Hàng Bông",
+      "Phố Cổ"
+    ],
+    "Hà Đông": [
+      "Quang Trung",
+      "Lê Trọng Tấn",
+      "Tô Hiệu",
+      "Nguyễn Trãi",
+      "Trần Phú",
+      "Lê Văn Lương kéo dài"
+    ],
+    "Nam Từ Liêm": [
+      "Mễ Trì",
+      "Lê Đức Thọ",
+      "Hồ Tùng Mậu",
+      "Phạm Hùng",
+      "Đỗ Đức Dục",
+      "Châu Văn Liêm"
+    ]
+  },
+  "TP. Hồ Chí Minh": {
+    "Quận 1": [
+      "Nguyễn Huệ",
+      "Lê Lợi",
+      "Đồng Khởi",
+      "Hai Bà Trưng",
+      "Nam Kỳ Khởi Nghĩa",
+      "Pasteur",
+      "Tôn Đức Thắng"
+    ],
+    "Quận 3": [
+      "Võ Văn Tần",
+      "Nguyễn Thị Minh Khai",
+      "Cách Mạng Tháng Tám",
+      "Trần Quốc Thảo",
+      "Lê Văn Sỹ",
+      "Nam Kỳ Khởi Nghĩa",
+      "Điện Biên Phủ"
+    ],
+    "Quận 7": [
+      "Nguyễn Văn Linh",
+      "Nguyễn Thị Thập",
+      "Huỳnh Tấn Phát",
+      "Nguyễn Lương Bằng",
+      "Tân Phú",
+      "Phạm Hữu Lầu"
+    ],
+    "Bình Thạnh": [
+      "Điện Biên Phủ",
+      "Xô Viết Nghệ Tĩnh",
+      "Nguyễn Hữu Cảnh",
+      "Phan Đăng Lưu",
+      "Đinh Bộ Lĩnh",
+      "Bạch Đằng"
+    ],
+    "Phú Nhuận": [
+      "Phan Xích Long",
+      "Phan Đình Phùng",
+      "Hoàng Văn Thụ",
+      "Nguyễn Văn Trỗi",
+      "Trường Sa",
+      "Huỳnh Văn Bánh"
+    ],
+    "Tân Bình": [
+      "Cộng Hòa",
+      "Trường Chinh",
+      "Hoàng Văn Thụ",
+      "Lý Thường Kiệt",
+      "Âu Cơ",
+      "Cách Mạng Tháng Tám"
+    ],
+    "Thủ Đức": [
+      "Võ Văn Ngân",
+      "Kha Vạn Cân",
+      "Phạm Văn Đồng",
+      "Đặng Văn Bi",
+      "Lê Văn Việt",
+      "Đỗ Xuân Hợp"
+    ]
+  },
+  "Đà Nẵng": {
+    "Hải Châu": [
+      "Bạch Đằng",
+      "Trần Phú",
+      "Lê Duẩn",
+      "Hùng Vương",
+      "Nguyễn Văn Linh",
+      "Hoàng Diệu",
+      "Quang Trung"
+    ],
+    "Thanh Khê": [
+      "Điện Biên Phủ",
+      "Hà Huy Tập",
+      "Nguyễn Tất Thành",
+      "Lê Độ",
+      "Trần Cao Vân",
+      "Hải Phòng"
+    ],
+    "Sơn Trà": [
+      "Ngô Quyền",
+      "Phạm Văn Đồng",
+      "Võ Nguyên Giáp",
+      "Hoàng Sa",
+      "Lê Đức Thọ",
+      "Nguyễn Công Trứ"
+    ],
+    "Ngũ Hành Sơn": [
+      "Lê Văn Hiến",
+      "Ngũ Hành Sơn",
+      "Trần Đại Nghĩa",
+      "Nguyễn Văn Thoại",
+      "Mai Đăng Chơn",
+      "Hồ Xuân Hương"
+    ],
+    "Liên Chiểu": [
+      "Tôn Đức Thắng",
+      "Nguyễn Lương Bằng",
+      "Âu Cơ",
+      "Hoàng Văn Thái",
+      "Nguyễn Sinh Sắc",
+      "Kinh Dương Vương"
+    ],
+    "Cẩm Lệ": [
+      "Cách Mạng Tháng Tám",
+      "Ông Ích Đường",
+      "Trường Chinh",
+      "Phạm Hùng",
+      "Lê Trọng Tấn",
+      "Nguyễn Nhàn"
+    ]
+  },
+  "Hải Phòng": {
+    "Hồng Bàng": [
+      "Quang Trung",
+      "Điện Biên Phủ",
+      "Hoàng Văn Thụ",
+      "Bạch Đằng",
+      "Hồng Bàng",
+      "Nguyễn Tri Phương"
+    ],
+    "Ngô Quyền": [
+      "Lạch Tray",
+      "Đà Nẵng",
+      "Lê Lợi",
+      "Văn Cao",
+      "Trần Phú",
+      "Lê Lai"
+    ],
+    "Lê Chân": [
+      "Tô Hiệu",
+      "Nguyễn Đức Cảnh",
+      "Cát Cụt",
+      "Hai Bà Trưng",
+      "Trần Nguyên Hãn",
+      "Hồ Sen"
+    ],
+    "Hải An": [
+      "Lê Hồng Phong",
+      "Ngô Gia Tự",
+      "Đằng Hải",
+      "Nguyễn Bỉnh Khiêm",
+      "Cát Bi",
+      "Phú Xá"
+    ],
+    "Kiến An": [
+      "Trần Thành Ngọ",
+      "Trường Chinh",
+      "Nguyễn Lương Bằng",
+      "Phan Đăng Lưu",
+      "Hoàng Quốc Việt"
+    ]
+  },
+  "Cần Thơ": {
+    "Ninh Kiều": [
+      "Hòa Bình",
+      "Nguyễn Trãi",
+      "Trần Hưng Đạo",
+      "Mậu Thân",
+      "30 Tháng 4",
+      "Nguyễn Văn Cừ"
+    ],
+    "Bình Thủy": [
+      "Cách Mạng Tháng Tám",
+      "Lê Hồng Phong",
+      "Bùi Hữu Nghĩa",
+      "Nguyễn Truyền Thanh",
+      "Võ Văn Kiệt"
+    ],
+    "Cái Răng": [
+      "Võ Nguyên Giáp",
+      "Quang Trung",
+      "Hàng Gòn",
+      "Phạm Hùng",
+      "Trần Chiên"
+    ],
+    "Ô Môn": [
+      "Quốc lộ 91",
+      "Lê Lợi",
+      "26 Tháng 3",
+      "Châu Văn Liêm",
+      "Cách Mạng Tháng Tám"
+    ]
+  },
+  "Bình Dương": {
+    "Thủ Dầu Một": [
+      "Đại lộ Bình Dương",
+      "Cách Mạng Tháng Tám",
+      "Yersin",
+      "Bạch Đằng",
+      "Huỳnh Văn Cù",
+      "Phú Lợi"
+    ],
+    "Dĩ An": [
+      "Nguyễn Thị Minh Khai",
+      "Lý Thường Kiệt",
+      "Trần Hưng Đạo",
+      "Nguyễn An Ninh",
+      "Đường số 5"
+    ],
+    "Thuận An": [
+      "Đại lộ Bình Dương",
+      "Nguyễn Văn Tiết",
+      "Cách Mạng Tháng Tám",
+      "Lái Thiêu",
+      "An Phú"
+    ],
+    "Bến Cát": [
+      "Hùng Vương",
+      "Nguyễn Văn Thành",
+      "Mỹ Phước Tân Vạn",
+      "Đường N4",
+      "Thới Hòa"
+    ]
+  },
+  "Đồng Nai": {
+    "Biên Hòa": [
+      "Phạm Văn Thuận",
+      "Nguyễn Ái Quốc",
+      "Đồng Khởi",
+      "Cách Mạng Tháng Tám",
+      "Võ Thị Sáu",
+      "Bùi Văn Hòa"
+    ],
+    "Long Khánh": [
+      "Hùng Vương",
+      "Nguyễn Văn Trị",
+      "Hồ Thị Hương",
+      "Cách Mạng Tháng Tám",
+      "Lê Lợi"
+    ],
+    "Trảng Bom": [
+      "Quốc lộ 1A",
+      "Hùng Vương",
+      "Nguyễn Hữu Cảnh",
+      "Trần Phú",
+      "Đường Sông Thao"
+    ],
+    "Nhơn Trạch": [
+      "Tôn Đức Thắng",
+      "Lý Thái Tổ",
+      "Nguyễn Văn Cừ",
+      "Đường 25B",
+      "Hùng Vương"
+    ]
+  },
+  "Bắc Ninh": {
+    "Bắc Ninh": [
+      "Nguyễn Trãi",
+      "Lý Thái Tổ",
+      "Trần Hưng Đạo",
+      "Ngô Gia Tự",
+      "Kinh Dương Vương",
+      "Lê Văn Thịnh"
+    ],
+    "Từ Sơn": [
+      "Trần Phú",
+      "Lý Thánh Tông",
+      "Nguyễn Văn Cừ",
+      "Lê Quang Đạo",
+      "Minh Khai"
+    ],
+    "Tiên Du": [
+      "Quốc lộ 1A",
+      "Tỉnh lộ 295",
+      "Lim",
+      "Nội Duệ",
+      "Hoàn Sơn"
+    ],
+    "Yên Phong": [
+      "Quốc lộ 18",
+      "Tỉnh lộ 286",
+      "Chờ",
+      "Yên Trung",
+      "Long Châu"
+    ]
+  },
+  "Khánh Hòa": {
+    "Nha Trang": [
+      "Trần Phú",
+      "Nguyễn Thiện Thuật",
+      "Lê Thánh Tôn",
+      "Hùng Vương",
+      "Thái Nguyên",
+      "Yersin"
+    ],
+    "Cam Ranh": [
+      "Đại lộ Hùng Vương",
+      "Nguyễn Trọng Kỷ",
+      "22 Tháng 8",
+      "Ba Tháng Tư",
+      "Nguyễn Công Trứ"
+    ],
+    "Ninh Hòa": [
+      "Trần Quý Cáp",
+      "Phạm Ngũ Lão",
+      "Mạc Đĩnh Chi",
+      "Hai Bà Trưng",
+      "Đinh Tiên Hoàng"
+    ],
+    "Diên Khánh": [
+      "Lý Tự Trọng",
+      "Hùng Vương",
+      "Trần Quý Cáp",
+      "Nguyễn Huệ",
+      "Lạc Long Quân"
+    ]
+  },
+  "Thừa Thiên Huế": {
+    "Huế": [
+      "Lê Lợi",
+      "Hùng Vương",
+      "Trần Hưng Đạo",
+      "Nguyễn Huệ",
+      "Bà Triệu",
+      "Đống Đa"
+    ],
+    "Hương Thủy": [
+      "Nguyễn Tất Thành",
+      "Sóng Hồng",
+      "Quốc lộ 1A",
+      "Phùng Quán",
+      "Thủy Dương"
+    ],
+    "Hương Trà": [
+      "Cách Mạng Tháng Tám",
+      "Quốc lộ 1A",
+      "Lý Nhân Tông",
+      "Tứ Hạ",
+      "Hương Văn"
+    ],
+    "Phú Vang": [
+      "Tỉnh lộ 10",
+      "Thuận An",
+      "Phú Thượng",
+      "Phú Mỹ",
+      "Vinh Thanh"
+    ]
+  }
+}

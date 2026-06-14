@@ -108,7 +108,10 @@ class AdminJobCreate(BaseModel):
     title: str
     level: Optional[str] = None
     salary: Optional[int] = None          # Mức lương (triệu đồng)
-    location: Optional[str] = None
+    work_mode: Optional[str] = None       # onsite | hybrid | remote
+    province: Optional[str] = None
+    district: Optional[str] = None
+    address_detail: Optional[str] = None
     deadline: Optional[str] = None  # ISO date string "YYYY-MM-DD"
     status: Optional[str] = "active"
     description: Optional[str] = None
@@ -120,9 +123,12 @@ class AdminJobUpdate(BaseModel):
     title: Optional[str] = None
     level: Optional[str] = None
     salary: Optional[int] = None          # Mức lương (triệu đồng)
-    location: Optional[str] = None
+    work_mode: Optional[str] = None       # onsite | hybrid | remote
+    province: Optional[str] = None
+    district: Optional[str] = None
+    address_detail: Optional[str] = None
     deadline: Optional[str] = None
-    status: Optional[str] = None  # active | closed | draft
+    status: Optional[str] = None  # active | closed
     description: Optional[str] = None
     requirements: Optional[str] = None
     benefits: Optional[str] = None

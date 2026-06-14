@@ -463,7 +463,6 @@ class TestSeedSmoke:
         try:
             valid_types = {
                 "application_submitted",
-                "application_reviewed",
                 "application_accepted",
                 "application_rejected",
                 "job_recommendation",

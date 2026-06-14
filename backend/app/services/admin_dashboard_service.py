@@ -80,7 +80,7 @@ def get_period_stats(db: Session, period: str = "30d") -> dict:
 
 def get_jobs_by_status(db: Session) -> dict:
     results = db.query(Job.status, func.count(Job.id)).group_by(Job.status).all()
-    status_map = {"active": 0, "closed": 0, "draft": 0}
+    status_map = {"active": 0, "closed": 0}
     for status, count in results:
         if status in status_map:
             status_map[status] = count
@@ -93,7 +93,7 @@ def get_applications_by_status(db: Session) -> dict:
         .group_by(JobApplication.status)
         .all()
     )
-    status_map = {"pending": 0, "reviewed": 0, "accepted": 0, "rejected": 0}
+    status_map = {"pending": 0, "accepted": 0, "rejected": 0}
     for status, count in results:
         if status in status_map:
             status_map[status] = count
@@ -152,7 +152,6 @@ def get_weekly_trend(db: Session, weeks: int = 8) -> list:
 
 
 def get_attention_metrics(db: Session) -> dict:
-    draft_jobs = db.query(func.count(Job.id)).filter(Job.status == "draft").scalar() or 0
     seven_ago = datetime.utcnow() - timedelta(days=7)
     overdue = db.query(func.count(JobApplication.id)).filter(
         and_(JobApplication.status == "pending", JobApplication.created_at <= seven_ago)
@@ -161,7 +160,6 @@ def get_attention_metrics(db: Session) -> dict:
         User.status.in_(["inactive", "banned"])
     ).scalar() or 0
     return {
-        "draft_jobs": draft_jobs,
         "overdue_applications": overdue,
         "inactive_users": inactive,
     }

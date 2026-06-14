@@ -306,7 +306,8 @@ class TestRecruiterOwnership:
         mock_job = MagicMock()
         mock_job.id = 42
         mock_job.title = "Backend Senior"
-        for attr in ("level", "salary", "location", "description", "requirements", "benefits"):
+        for attr in ("level", "salary", "work_mode", "province", "district",
+                     "address_detail", "description", "requirements", "benefits"):
             setattr(mock_job, attr, "")
 
         mock_db = MagicMock()

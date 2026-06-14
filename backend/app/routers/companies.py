@@ -1,11 +1,13 @@
 # =============================================================================
 # routers/companies.py
 # Endpoints quản lý công ty:
-#   POST /companies              → Recruiter tạo công ty mới
-#   GET  /companies/my           → Danh sách công ty của recruiter đang đăng nhập
+#   POST /companies              → Recruiter tạo công ty (chỉ được tạo 1)
+#   GET  /companies/my           → Công ty của recruiter đang đăng nhập (1:1)
 #   GET  /companies/{id}         → Xem thông tin công ty công khai (không cần login)
 #   PUT  /companies/{id}         → Cập nhật công ty (chỉ chủ sở hữu)
 # =============================================================================
+
+from typing import Optional
 
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
@@ -25,17 +27,17 @@ def create_company(
     current_user: User = Depends(require_recruiter),
     db: Session = Depends(get_db),
 ):
-    """Recruiter tạo công ty mới. Một recruiter có thể có nhiều công ty."""
+    """Recruiter tạo công ty. Mỗi tài khoản chỉ được tạo một công ty duy nhất."""
     return company_service.create_company(request, current_user, db)
 
 
-@router.get("/my", response_model=list[CompanyResponse])
-def get_my_companies(
+@router.get("/my", response_model=Optional[CompanyResponse])
+def get_my_company(
     current_user: User = Depends(require_recruiter),
     db: Session = Depends(get_db),
 ):
-    """Lấy danh sách tất cả công ty thuộc quyền sở hữu của recruiter hiện tại."""
-    return company_service.get_companies_by_user(current_user, db)
+    """Lấy thông tin công ty của recruiter hiện tại (null nếu chưa tạo)."""
+    return company_service.get_company_by_user(current_user, db)
 
 
 @router.get("/{company_id}", response_model=CompanyResponse)

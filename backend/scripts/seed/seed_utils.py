@@ -2,7 +2,7 @@
 import os
 import random
 import json
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 # ---------------------------------------------------------------------------
 # Path helpers
@@ -255,6 +255,38 @@ def random_address() -> str:
     return f"Số {num} {street}, {city}"
 
 
+# ---------------------------------------------------------------------------
+# Vietnamese location data (province → district → streets) from locations_vn.json
+# ---------------------------------------------------------------------------
+_LOCATIONS_VN: dict | None = None
+
+
+def _get_locations_vn() -> dict:
+    """Lazy-load và cache dữ liệu tỉnh/quận/đường."""
+    global _LOCATIONS_VN
+    if _LOCATIONS_VN is None:
+        _LOCATIONS_VN = load_json("locations_vn.json")
+    return _LOCATIONS_VN
+
+
+def random_location(province: str | None = None) -> tuple[str, str, str]:
+    """
+    Trả về (province, district, address_detail) nhất quán: quận luôn thuộc tỉnh.
+    address_detail = "{số nhà} {tên đường}". Nếu truyền `province` thì giữ nguyên
+    tỉnh đó (dùng khi job muốn lấy theo trụ sở công ty); nếu province không có
+    trong dữ liệu thì chọn ngẫu nhiên.
+    """
+    data = _get_locations_vn()
+    if not province or province not in data:
+        province = random.choice(list(data.keys()))
+    districts = data[province]
+    district = random.choice(list(districts.keys()))
+    street = random.choice(districts[district])
+    num = random.randint(1, 200)
+    address_detail = f"{num} {street}"
+    return province, district, address_detail
+
+
 def random_dob(min_age: int = 22, max_age: int = 38) -> date:
     today = date.today()
     years_back = random.randint(min_age, max_age)
@@ -268,6 +300,40 @@ def random_future_date(min_days: int = 14, max_days: int = 120) -> date:
 
 def random_past_date(min_days: int = 1, max_days: int = 365) -> date:
     return date.today() - timedelta(days=random.randint(min_days, max_days))
+
+
+def random_created_at(start: str = "2026-01-01", end: date | None = None) -> datetime:
+    """
+    Trả về datetime ngẫu nhiên trong [start, end] (mặc định end = hôm nay).
+    Đảm bảo không vượt quá thời điểm hiện tại (không có job ở tương lai).
+    """
+    start_d = date.fromisoformat(start)
+    end_d = end or date.today()
+    if end_d < start_d:
+        end_d = start_d
+    span_days = (end_d - start_d).days
+    picked = start_d + timedelta(days=random.randint(0, max(span_days, 0)))
+    result = datetime(picked.year, picked.month, picked.day) + timedelta(
+        seconds=random.randint(0, 86399)
+    )
+    now = datetime.now()
+    if result > now:
+        result = now
+    return result
+
+
+def job_deadline(status: str, created_at: datetime) -> date:
+    """
+    Tính deadline hợp lý theo status:
+      - active → ngày trong tương lai (sau hôm nay).
+      - closed → ngày đã qua, nằm giữa created_at và hôm nay.
+    """
+    today = date.today()
+    if status == "active":
+        return today + timedelta(days=random.randint(14, 150))
+    start_d = created_at.date()
+    max_back = max((today - start_d).days - 1, 1)
+    return today - timedelta(days=random.randint(1, max_back))
 
 
 def pick_skills(domain: str, catalog: dict, count: int = None) -> list[str]:
@@ -499,6 +565,40 @@ KỸ NĂNG MỀM
 • Tiếng Anh: {random.choice(['Giao tiếp tốt', 'Đọc hiểu tốt', 'B2 IELTS', 'TOEIC 650+'])}
 """
     return text.strip()
+
+
+FONT_PATH = os.path.join(SEED_DIR, "assets", "DejaVuSans.ttf")
+
+
+def render_cv_pdf(cv_text: str) -> bytes:
+    """
+    Render text CV thành file PDF (bytes) bằng fpdf2 + font Unicode DejaVuSans
+    để hiển thị tiếng Việt có dấu. Trả về bytes bắt đầu bằng b"%PDF".
+    """
+    from fpdf import FPDF
+
+    pdf = FPDF(format="A4")
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.set_margins(left=15, top=15, right=15)
+    pdf.add_page()
+    pdf.add_font("DejaVu", "", FONT_PATH)
+    pdf.set_font("DejaVu", "", 10)
+
+    for raw_line in cv_text.split("\n"):
+        line = raw_line.rstrip()
+        if not line:
+            pdf.ln(3)
+            continue
+        # multi_cell wrap theo ký tự để không vỡ với chuỗi dài/ký tự kẻ khung;
+        # new_x=LMARGIN để mỗi dòng bắt đầu lại từ lề trái (tránh hết chỗ ngang).
+        pdf.multi_cell(
+            0, 5, line,
+            new_x="LMARGIN", new_y="NEXT",
+            wrapmode="CHAR" if " " not in line else "WORD",
+        )
+
+    out = pdf.output()
+    return bytes(out)
 
 
 def generate_cover_letter(full_name: str, domain: str, job_title: str) -> str:

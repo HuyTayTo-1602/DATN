@@ -12,6 +12,10 @@ from sqlalchemy.orm import Session
 from app.models.profile import UserProfile
 from app.models.user import User
 from app.schemas.profile import ProfileUpdateRequest
+from app.utils.location import join_address
+
+# Các cột địa chỉ tách rời — khi cập nhật thì ghép lại thành `address`
+_ADDRESS_PARTS = ("province", "district", "address_detail")
 
 
 def get_profile(current_user: User, db: Session) -> Optional[UserProfile]:
@@ -31,8 +35,15 @@ def update_profile(request: ProfileUpdateRequest, current_user: User, db: Sessio
         profile = UserProfile(user_id=current_user.id)
         db.add(profile)
 
-    for field, value in request.model_dump(exclude_none=True).items():
+    data = request.model_dump(exclude_none=True)
+    for field, value in data.items():
         setattr(profile, field, value)
+
+    # Nếu có cập nhật bất kỳ cột địa chỉ tách rời → ghép lại `address` đầy đủ
+    if any(part in data for part in _ADDRESS_PARTS):
+        profile.address = join_address(
+            profile.province, profile.district, profile.address_detail
+        )
 
     db.commit()
     db.refresh(profile)

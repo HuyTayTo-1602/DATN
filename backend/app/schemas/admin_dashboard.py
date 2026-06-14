@@ -26,12 +26,10 @@ class PeriodStats(BaseModel):
 class JobsByStatus(BaseModel):
     active: int
     closed: int
-    draft: int
 
 
 class ApplicationsByStatus(BaseModel):
     pending: int
-    reviewed: int
     accepted: int
     rejected: int
 
@@ -56,7 +54,6 @@ class WeeklyTrend(BaseModel):
 
 
 class AttentionMetrics(BaseModel):
-    draft_jobs: int
     overdue_applications: int
     inactive_users: int
 

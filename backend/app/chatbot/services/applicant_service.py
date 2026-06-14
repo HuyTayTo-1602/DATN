@@ -6,6 +6,8 @@ from app.models.company import Company
 from app.models.application import JobApplication
 from app.models.user import User
 from app.models.profile import UserProfile
+from app.models.candidate_cv import CandidateCV
+from app.models.cv_text import CVText
 
 
 def verify_job_ownership(job_id: int, recruiter_id: int, db: Session) -> Job:
@@ -35,12 +37,31 @@ def verify_job_ownership(job_id: int, recruiter_id: int, db: Session) -> Job:
     )
 
 
+def _get_cv_text_from_db(user_id: int, db: Session) -> str | None:
+    """Return extracted CV text for the user's active CV, or None if unavailable."""
+    active_cv = (
+        db.query(CandidateCV)
+        .filter(CandidateCV.user_id == user_id, CandidateCV.is_active == True)
+        .first()
+    )
+    if not active_cv:
+        return None
+    cv_record = (
+        db.query(CVText)
+        .filter(CVText.cv_id == active_cv.id, CVText.parse_status == "success")
+        .first()
+    )
+    if cv_record and cv_record.extracted_text:
+        return cv_record.extracted_text
+    return None
+
+
 def get_applicants_by_job(job_id: int, recruiter_id: int, db: Session) -> list[dict]:
     """
     Return all applicants for a job as a list of plain dicts.
 
-    Each dict contains profile data and the best available cv_url
-    (application-level cv_url takes priority over profile cv_url).
+    Each dict contains profile data, cv_url, and cv_text pre-populated from
+    the candidate's active CV in the database (avoids runtime PDF download).
     Raises 403/404 when the recruiter doesn't own the job.
     """
     verify_job_ownership(job_id, recruiter_id, db)
@@ -56,6 +77,7 @@ def get_applicants_by_job(job_id: int, recruiter_id: int, db: Session) -> list[d
     applicants: list[dict] = []
     for application, user, profile in rows:
         cv_url = application.cv_url or (profile.cv_url if profile else None)
+        cv_text = _get_cv_text_from_db(user.id, db)
         applicants.append(
             {
                 "application_id": application.id,
@@ -67,6 +89,7 @@ def get_applicants_by_job(job_id: int, recruiter_id: int, db: Session) -> list[d
                 "education": profile.education if profile else None,
                 "bio": profile.bio if profile else None,
                 "cv_url": cv_url,
+                "cv_text": cv_text,
                 "application_status": application.status,
                 "cover_letter": application.cover_letter,
             }

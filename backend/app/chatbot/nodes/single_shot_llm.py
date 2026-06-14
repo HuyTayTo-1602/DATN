@@ -14,6 +14,7 @@ Usage:
     Tests      : make_single_shot_node(llm=mock)
 """
 
+import re
 from pathlib import Path
 from typing import Any
 
@@ -36,6 +37,14 @@ _SAFE_ERROR_ANSWER = (
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+_HTML_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def strip_html(text: str) -> str:
+    """Replace <br> variants with newlines then strip remaining HTML tags."""
+    text = re.sub(r"<br\s*/?>", "\n", text, flags=re.IGNORECASE)
+    return _HTML_TAG_RE.sub("", text).strip()
 
 
 def truncate_cv(text: str, max_chars: int = CV_MAX_CHARS) -> str:
@@ -63,15 +72,15 @@ def build_human_prompt(state: ChatState) -> str:
     if job_info.get("level"):
         lines.append(f"Cấp bậc   : {job_info['level']}")
     if job_info.get("salary"):
-        lines.append(f"Mức lương  : {job_info['salary']}")
+        lines.append(f"Mức lương  : {job_info['salary']} triệu đồng")
     if job_info.get("location"):
         lines.append(f"Địa điểm  : {job_info['location']}")
     if job_info.get("requirements"):
-        lines.append(f"Yêu cầu   :\n{job_info['requirements']}")
+        lines.append(f"Yêu cầu   :\n{strip_html(job_info['requirements'])}")
     if job_info.get("description"):
-        lines.append(f"Mô tả     :\n{job_info['description']}")
+        lines.append(f"Mô tả     :\n{strip_html(job_info['description'])}")
     if job_info.get("benefits"):
-        lines.append(f"Phúc lợi  : {job_info['benefits']}")
+        lines.append(f"Phúc lợi  :\n{strip_html(job_info['benefits'])}")
 
     # ── Applicant list ─────────────────────────────────────────────────────
     lines.append(f"\n=== DANH SÁCH ỨNG VIÊN ({len(applicants)} người) ===")
