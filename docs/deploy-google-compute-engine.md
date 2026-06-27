@@ -1,57 +1,57 @@
-# Deploy The DATN Job Portal To Google Cloud Compute Engine
+# Triển khai Web tuyển dụng (ĐATN) lên Google Cloud Compute Engine
 
-This guide deploys the **JobCV** job recruitment portal (this repository) to one Google Cloud Compute Engine VM using Docker Compose.
+Hướng dẫn này triển khai web tuyển dụng **JobCV** (repository này) lên một VM Google Cloud Compute Engine bằng Docker Compose.
 
-The app runs these containers:
+Ứng dụng chạy các container sau:
 
-- `frontend` (React + Vite dev server) on port `5173`
-- `backend` (FastAPI) on port `8000`
-- `postgres` (PostgreSQL 16) on port `5432`
-- `minio` (object storage for CV files) on ports `9000` (API) and `9001` (web console)
+- `frontend` (React + Vite dev server) ở cổng `5173`
+- `backend` (FastAPI) ở cổng `8000`
+- `postgres` (PostgreSQL 16) ở cổng `5432`
+- `minio` (object storage lưu file CV) ở cổng `9000` (API) và `9001` (web console)
 
-For a first deployment, open the web app at:
+Lần triển khai đầu tiên, mở web tại:
 
 ```text
 http://YOUR_VM_EXTERNAL_IP:5173
 ```
 
-## 0. What You Need Before Starting
+## 0. Cần chuẩn bị trước khi bắt đầu
 
-You need:
+Bạn cần:
 
-1. A Google account.
-2. A Google Cloud project with billing enabled.
-3. This repository pushed to GitHub (`https://github.com/HuyTayTo-1602/DATN`).
-4. Basic access to the Google Cloud Console.
+1. Một tài khoản Google.
+2. Một project Google Cloud đã bật billing.
+3. Repository này đã được đẩy lên GitHub (`https://github.com/HuyTayTo-1602/DATN`).
+4. Quyền truy cập cơ bản vào Google Cloud Console.
 
-If your code is not pushed anywhere yet, push it first. The VM needs a way to download the code.
+Nếu code chưa được đẩy lên đâu cả, hãy push trước. VM cần một nơi để tải code về.
 
-## 1. Create Or Select A Google Cloud Project
+## 1. Tạo hoặc chọn một project Google Cloud
 
-1. Open the Google Cloud Console: <https://console.cloud.google.com/>
-2. At the top of the page, click the project selector.
-3. Click **New Project**, or select an existing project.
-4. Make sure billing is enabled for the project.
-5. In the search bar, search for **Compute Engine API**.
-6. Open it and click **Enable** if it is not enabled yet.
+1. Mở Google Cloud Console: <https://console.cloud.google.com/>
+2. Ở phía trên cùng, nhấn vào ô chọn project.
+3. Nhấn **New Project**, hoặc chọn một project có sẵn.
+4. Đảm bảo project đã bật billing.
+5. Trong thanh tìm kiếm, gõ **Compute Engine API**.
+6. Mở nó và nhấn **Enable** nếu chưa được bật.
 
-## 2. Create A Compute Engine VM
+## 2. Tạo một VM Compute Engine
 
-1. In Google Cloud Console, search for **Compute Engine**.
-2. Open **Compute Engine > VM instances**.
-3. Click **Create instance**.
-4. Use these settings in the **Machine configuration** section:
+1. Trong Google Cloud Console, tìm **Compute Engine**.
+2. Mở **Compute Engine > VM instances**.
+3. Nhấn **Create instance**.
+4. Dùng các thiết lập sau trong phần **Machine configuration**:
 
 ```text
 Name: jobcv-vm
-Region: choose the region closest to your users (e.g. asia-southeast1)
-Zone: any zone in that region
+Region: chọn region gần người dùng nhất (vd: asia-southeast1)
+Zone: zone bất kỳ trong region đó
 Machine type: e2-standard-2
 ```
 
-5. Find the **OS and Storage** section.
-6. Next to the boot disk, click **Change**.
-7. On the **Public images** tab, choose:
+5. Tìm phần **OS and Storage**.
+6. Cạnh boot disk, nhấn **Change**.
+7. Trong tab **Public images**, chọn:
 
 ```text
 Operating system: Ubuntu
@@ -60,27 +60,27 @@ Boot disk type: Balanced persistent disk
 Size: 30 GB
 ```
 
-8. Click **Select**.
-9. Find the **Networking** section.
-10. Find the **Firewall** area.
-11. Check **Allow HTTP traffic**.
+8. Nhấn **Select**.
+9. Tìm phần **Networking**.
+10. Tìm khu vực **Firewall**.
+11. Tích **Allow HTTP traffic**.
 
-Notes:
+Ghi chú:
 
-- `e2-standard-2` gives 2 vCPU and 8 GB RAM. This is comfortable for the full stack because Postgres, MinIO, backend, and the Vite frontend all run on the same VM.
-- `Allow HTTP traffic` opens port `80`, but this app currently runs on port `5173`, so you still need the custom firewall rule in the next step.
-- If you do not see **Allow HTTP traffic**, it is usually inside **Networking > Firewall** on the left side of the VM creation form.
+- `e2-standard-2` có 2 vCPU và 8 GB RAM. Mức này thoải mái cho toàn bộ stack vì Postgres, MinIO, backend và Vite frontend đều chạy chung trên một VM.
+- `Allow HTTP traffic` mở cổng `80`, nhưng ứng dụng này hiện chạy ở cổng `5173`, nên bạn vẫn cần tạo firewall rule riêng ở bước tiếp theo.
+- Nếu không thấy **Allow HTTP traffic**, nó thường nằm trong **Networking > Firewall** ở bên trái form tạo VM.
 
-12. Click **Create**.
-13. Wait until the VM shows a green check mark.
+12. Nhấn **Create**.
+13. Chờ đến khi VM hiện dấu tích xanh.
 
-## 3. Create A Firewall Rule For The Frontend
+## 3. Tạo firewall rule cho frontend
 
-The frontend container listens on port `5173`.
+Container frontend lắng nghe ở cổng `5173`.
 
-1. In Google Cloud Console, go to **VPC network > Firewall**.
-2. Click **Create firewall rule**.
-3. Fill in:
+1. Trong Google Cloud Console, vào **VPC network > Firewall**.
+2. Nhấn **Create firewall rule**.
+3. Điền:
 
 ```text
 Name: allow-jobcv-frontend-5173
@@ -92,13 +92,13 @@ Source IPv4 ranges: 0.0.0.0/0
 Protocols and ports: tcp:5173
 ```
 
-4. Click **Create**.
+4. Nhấn **Create**.
 
-Optional for testing the backend Swagger docs:
+Tùy chọn để test trang Swagger docs của backend:
 
-Create another firewall rule for `tcp:8000`. If possible, set **Source IPv4 ranges** to your own IP address instead of `0.0.0.0/0`.
+Tạo thêm một firewall rule cho `tcp:8000`. Nếu được, đặt **Source IPv4 ranges** là IP của riêng bạn thay vì `0.0.0.0/0`.
 
-Do not create public firewall rules for:
+Không tạo firewall rule công khai cho:
 
 ```text
 5432
@@ -106,41 +106,41 @@ Do not create public firewall rules for:
 9001
 ```
 
-Those are Postgres and MinIO (storage API + admin console). Keep them private. CV files are served to users through the backend, so the browser does not need direct public access to MinIO during a first IP-based deployment.
+Đó là các cổng của Postgres và MinIO (storage API + admin console). Hãy giữ chúng ở chế độ riêng tư. File CV được phục vụ tới người dùng thông qua backend, nên trình duyệt không cần truy cập trực tiếp công khai vào MinIO trong lần triển khai đầu tiên bằng IP.
 
-## 4. SSH Into The VM
+## 4. SSH vào VM
 
-1. Go to **Compute Engine > VM instances**.
-2. Find `jobcv-vm`.
-3. Click **SSH**.
-4. A browser terminal will open.
+1. Vào **Compute Engine > VM instances**.
+2. Tìm `jobcv-vm`.
+3. Nhấn **SSH**.
+4. Một cửa sổ terminal trên trình duyệt sẽ mở ra.
 
-All commands below are run inside that SSH terminal.
+Tất cả lệnh bên dưới đều chạy trong terminal SSH này.
 
-## 5. Update Ubuntu
+## 5. Cập nhật Ubuntu
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
 
-## 6. Install Git And Nano
+## 6. Cài Git và Nano
 
 ```bash
 sudo apt install -y git nano
 ```
 
-`git` downloads the repository. `nano` is a beginner-friendly terminal editor for editing `docker-compose.yml`.
+`git` để tải repository về. `nano` là một trình soạn thảo terminal dễ dùng để chỉnh `docker-compose.yml`.
 
-Check Git:
+Kiểm tra Git:
 
 ```bash
 git --version
 ```
 
-## 7. Install Docker And Docker Compose
+## 7. Cài Docker và Docker Compose
 
-Run these commands on the VM:
+Chạy các lệnh sau trên VM:
 
 ```bash
 sudo apt update
@@ -166,30 +166,30 @@ sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-Check Docker:
+Kiểm tra Docker:
 
 ```bash
 sudo docker run hello-world
 docker compose version
 ```
 
-Allow your SSH user to run Docker without typing `sudo` every time:
+Cho phép user SSH chạy Docker mà không cần gõ `sudo` mỗi lần:
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-Close the SSH tab, open SSH again, then check:
+Đóng tab SSH, mở SSH lại, rồi kiểm tra:
 
 ```bash
 docker ps
 ```
 
-If `docker ps` works without an error, Docker is ready.
+Nếu `docker ps` chạy không lỗi nghĩa là Docker đã sẵn sàng.
 
-## 8. Download The Project Code
+## 8. Tải code dự án về
 
-The repository is public, so you can clone it over HTTPS:
+Repository ở chế độ public nên bạn có thể clone qua HTTPS:
 
 ```bash
 cd ~
@@ -197,36 +197,36 @@ git clone https://github.com/HuyTayTo-1602/DATN.git
 cd DATN
 ```
 
-Set your Git identity so future commits and pulls are clean:
+Thiết lập danh tính Git để các commit và pull về sau gọn gàng:
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 ```
 
-If the repository is private, create an SSH key on the VM with
-`ssh-keygen -t ed25519 -C "your-email@example.com"`, add the public key from
-`cat ~/.ssh/id_ed25519.pub` to <https://github.com/settings/keys>, then clone
-with `git clone git@github.com:HuyTayTo-1602/DATN.git`.
+Nếu repository ở chế độ private, tạo SSH key trên VM bằng
+`ssh-keygen -t ed25519 -C "your-email@example.com"`, thêm public key từ
+`cat ~/.ssh/id_ed25519.pub` vào <https://github.com/settings/keys>, rồi clone
+bằng `git clone git@github.com:HuyTayTo-1602/DATN.git`.
 
-## 9. Configure Production Values
+## 9. Cấu hình các giá trị cho production
 
-This project reads configuration from the `environment:` blocks in
-`docker-compose.yml`. Those values override any `.env` file, so for deployment
-you edit `docker-compose.yml` directly.
+Dự án này đọc cấu hình từ các khối `environment:` trong `docker-compose.yml`.
+Những giá trị đó ghi đè mọi file `.env`, nên khi triển khai bạn chỉnh trực tiếp
+trong `docker-compose.yml`.
 
-The compose file lives at the repository root:
+File compose nằm ở thư mục gốc của repository:
 
 ```bash
 cd ~/DATN
 nano docker-compose.yml
 ```
 
-Change the following values away from the development defaults.
+Thay đổi các giá trị sau khỏi mặc định của môi trường development.
 
-### 9.1 Postgres password
+### 9.1 Mật khẩu Postgres
 
-In the `postgres` service:
+Trong service `postgres`:
 
 ```yaml
     environment:
@@ -235,12 +235,12 @@ In the `postgres` service:
       POSTGRES_DB: job_recruitment
 ```
 
-### 9.2 Backend settings
+### 9.2 Cấu hình backend
 
-In the `backend` service, update `DATABASE_URL` to use the same password, set a
-strong `SECRET_KEY`, turn off debug, and add `ALLOWED_ORIGINS` so the browser is
-allowed to call the API. `ALLOWED_ORIGINS` is **not** in the default compose
-file, so add the line yourself:
+Trong service `backend`, cập nhật `DATABASE_URL` dùng cùng mật khẩu, đặt
+`SECRET_KEY` mạnh, tắt debug, và thêm `ALLOWED_ORIGINS` để trình duyệt được phép
+gọi API. `ALLOWED_ORIGINS` **không** có sẵn trong compose mặc định, nên hãy tự
+thêm dòng này:
 
 ```yaml
     environment:
@@ -256,171 +256,169 @@ file, so add the line yourself:
       MINIO_SECURE: "false"
 ```
 
-If you use the chatbot feature, also add your LLM keys:
+Nếu dùng tính năng chatbot, thêm các API key của LLM:
 
 ```yaml
       ANTHROPIC_API_KEY: your-claude-api-key
       GROQ_API_KEY: your-groq-api-key
 ```
 
-Generate a strong `SECRET_KEY` with:
+Tạo `SECRET_KEY` mạnh bằng:
 
 ```bash
 python3 -c "import secrets; print(secrets.token_hex(32))"
 ```
 
-Important:
+Quan trọng:
 
-- Replace `YOUR_VM_EXTERNAL_IP` with the VM external IP from the Compute Engine
-  VM list.
-- `ALLOWED_ORIGINS` must be valid JSON (double quotes inside, wrapped in single
-  quotes for YAML).
-- `MINIO_PUBLIC_ENDPOINT` is the address the **browser** uses to download CV
-  files. See the MinIO note below.
+- Thay `YOUR_VM_EXTERNAL_IP` bằng IP external của VM (lấy trong danh sách VM của
+  Compute Engine).
+- `ALLOWED_ORIGINS` phải là JSON hợp lệ (dấu nháy kép bên trong, bọc trong dấu
+  nháy đơn cho YAML).
+- `MINIO_PUBLIC_ENDPOINT` là địa chỉ mà **trình duyệt** dùng để tải file CV. Xem
+  ghi chú về MinIO bên dưới.
 
-Save in nano:
+Lưu trong nano:
 
-1. Press `Ctrl + O`.
-2. Press `Enter`.
-3. Press `Ctrl + X`.
+1. Nhấn `Ctrl + O`.
+2. Nhấn `Enter`.
+3. Nhấn `Ctrl + X`.
 
-### 9.3 MinIO and CV files (important)
+### 9.3 MinIO và file CV (quan trọng)
 
-CV files are stored in MinIO. When a candidate or recruiter previews/downloads a
-CV, the browser fetches it from `MINIO_PUBLIC_ENDPOINT` using a temporary signed
-URL.
+File CV được lưu trong MinIO. Khi ứng viên hoặc nhà tuyển dụng xem/tải một CV,
+trình duyệt lấy file đó từ `MINIO_PUBLIC_ENDPOINT` thông qua một URL có chữ ký
+tạm thời.
 
-For this IP-based deployment, set:
+Với lần triển khai bằng IP này, đặt:
 
 ```yaml
       MINIO_PUBLIC_ENDPOINT: YOUR_VM_EXTERNAL_IP:9000
       MINIO_SECURE: "false"
 ```
 
-and temporarily open `tcp:9000` to your own IP for testing. Once you put the app
-behind a domain with HTTPS, route CV downloads through Nginx instead of exposing
-port `9000` — this is covered in
+và tạm thời mở `tcp:9000` cho riêng IP của bạn để test. Khi đã đưa ứng dụng ra
+sau một tên miền có HTTPS, hãy cho việc tải CV đi qua Nginx thay vì mở cổng
+`9000` — phần này được trình bày trong
 [connect-hostinger-domain-to-gcp-vm.md](connect-hostinger-domain-to-gcp-vm.md).
 
-## 10. Start The App
+## 10. Khởi chạy ứng dụng
 
-Make sure you are at the repository root:
+Đảm bảo bạn đang ở thư mục gốc của repository:
 
 ```bash
 cd ~/DATN
 pwd
 ```
 
-The output should end with:
+Output phải kết thúc bằng:
 
 ```text
 /DATN
 ```
 
-Start everything:
+Khởi chạy tất cả:
 
 ```bash
 docker compose up -d --build
 ```
 
-Check containers:
+Kiểm tra các container:
 
 ```bash
 docker compose ps
 ```
 
-Wait until `postgres` and `minio` are healthy and `backend` and `frontend` are
-running. The backend creates the database tables automatically on first
-startup.
+Chờ đến khi `postgres` và `minio` ở trạng thái healthy và `backend`, `frontend`
+đang chạy. Backend tự tạo các bảng cơ sở dữ liệu trong lần khởi động đầu tiên.
 
-## 11. Seed Sample Data
+## 11. Seed dữ liệu mẫu
 
-The app ships with seed scripts that create roles, demo users, companies, jobs,
-candidates, CVs, applications, and notifications. Run the master seed inside the
-backend container:
+Dự án có sẵn các seed script tạo roles, user demo, công ty, tin tuyển dụng, ứng
+viên, CV, đơn ứng tuyển và thông báo. Chạy seed tổng trong container backend:
 
 ```bash
 docker compose exec backend python scripts/seed/run_full_seed.py
 ```
 
-To wipe existing seed data and re-seed cleanly:
+Để xóa dữ liệu seed hiện có và seed lại từ đầu:
 
 ```bash
 docker compose exec backend python scripts/seed/run_full_seed.py --truncate --yes
 ```
 
-## 12. Test The Deployment
+## 12. Kiểm tra triển khai
 
-In the VM SSH terminal:
+Trong terminal SSH của VM:
 
 ```bash
 curl http://localhost:8000/
 ```
 
-Expected result (the health/root endpoint):
+Kết quả mong đợi (endpoint health/root):
 
 ```json
 {"message":"Job Recruitment API đang hoạt động","docs":"/docs"}
 ```
 
-From your browser:
+Từ trình duyệt của bạn:
 
 ```text
 http://YOUR_VM_EXTERNAL_IP:5173
 ```
 
-If you opened backend port `8000`, you can also test the API docs:
+Nếu bạn đã mở cổng backend `8000`, có thể test thêm trang API docs:
 
 ```text
 http://YOUR_VM_EXTERNAL_IP:8000/docs
 ```
 
-## 13. Common Commands
+## 13. Các lệnh thường dùng
 
-Run these from the `~/DATN` folder.
+Chạy các lệnh này từ thư mục `~/DATN`.
 
-See container status:
+Xem trạng thái container:
 
 ```bash
 docker compose ps
 ```
 
-See logs for all containers:
+Xem log của tất cả container:
 
 ```bash
 docker compose logs -f
 ```
 
-See backend logs only:
+Chỉ xem log backend:
 
 ```bash
 docker compose logs -f backend
 ```
 
-Restart the app:
+Khởi động lại ứng dụng:
 
 ```bash
 docker compose restart
 ```
 
-Stop the app:
+Dừng ứng dụng:
 
 ```bash
 docker compose down
 ```
 
-Stop the app and delete database + CV volumes:
+Dừng ứng dụng và xóa volume database + CV:
 
 ```bash
 docker compose down -v
 ```
 
-Only use `docker compose down -v` if you are okay deleting local Postgres data
-and uploaded CV files on the VM.
+Chỉ dùng `docker compose down -v` khi bạn chấp nhận xóa dữ liệu Postgres và các
+file CV đã upload trên VM.
 
-## 14. Deploy New Code Later
+## 14. Triển khai code mới về sau
 
-When you update the code and push it to GitHub, SSH into the VM and run:
+Khi bạn cập nhật code và push lên GitHub, SSH vào VM rồi chạy:
 
 ```bash
 cd ~/DATN
@@ -428,33 +426,33 @@ git pull
 docker compose up -d --build
 ```
 
-If you changed seed data and want to refresh it:
+Nếu bạn đổi dữ liệu seed và muốn làm mới nó:
 
 ```bash
 docker compose exec backend python scripts/seed/run_full_seed.py --truncate --yes
 ```
 
-Check the app again:
+Kiểm tra lại ứng dụng:
 
 ```bash
 docker compose ps
 curl http://localhost:8000/
 ```
 
-Note: `git pull` may conflict with your edited `docker-compose.yml`. If so, keep
-your production values and re-apply any upstream changes by hand, or move your
-secrets into a separate file later (see Production Notes).
+Lưu ý: `git pull` có thể xung đột với `docker-compose.yml` bạn đã chỉnh. Nếu vậy,
+giữ lại các giá trị production của bạn và áp lại các thay đổi từ upstream bằng
+tay, hoặc về sau hãy tách secret ra một file riêng (xem phần Ghi chú production).
 
-## 15. Troubleshooting
+## 15. Xử lý sự cố
 
-### The Browser Cannot Open The Site
+### Trình duyệt không mở được trang web
 
-Check:
+Kiểm tra:
 
-1. The VM is running.
-2. The external IP is correct.
-3. The firewall rule allows `tcp:5173`.
-4. The frontend container is running:
+1. VM đang chạy.
+2. IP external đúng.
+3. Firewall rule cho phép `tcp:5173`.
+4. Container frontend đang chạy:
 
 ```bash
 cd ~/DATN
@@ -462,96 +460,95 @@ docker compose ps
 docker compose logs -f frontend
 ```
 
-### Backend Is Unhealthy
+### Backend báo unhealthy
 
-Check backend logs:
+Xem log backend:
 
 ```bash
 docker compose logs -f backend
 ```
 
-Common causes:
+Nguyên nhân thường gặp:
 
-- `DATABASE_URL` password does not match `POSTGRES_PASSWORD`.
-- Postgres is still starting.
-- A required environment value is missing or malformed.
+- Mật khẩu trong `DATABASE_URL` không khớp với `POSTGRES_PASSWORD`.
+- Postgres vẫn đang khởi động.
+- Một biến môi trường bắt buộc bị thiếu hoặc sai định dạng.
 
-### API Calls Fail With A CORS Error
+### Gọi API bị lỗi CORS
 
-The browser console shows a CORS error when `ALLOWED_ORIGINS` does not include
-the address you opened the site from. Make sure the `backend` service has, for
-example:
+Console của trình duyệt báo lỗi CORS khi `ALLOWED_ORIGINS` không chứa địa chỉ bạn
+dùng để mở trang. Đảm bảo service `backend` có, ví dụ:
 
 ```yaml
       ALLOWED_ORIGINS: '["http://YOUR_VM_EXTERNAL_IP:5173"]'
 ```
 
-Then rebuild:
+Sau đó build lại:
 
 ```bash
 docker compose up -d --build
 ```
 
-### CV Files Will Not Open Or Download
+### File CV không mở hoặc không tải được
 
-Check:
+Kiểm tra:
 
-- `MINIO_PUBLIC_ENDPOINT` points to an address the browser can reach.
-- The MinIO container is healthy: `docker compose ps`.
-- For an IP deployment, `tcp:9000` is reachable from your machine.
+- `MINIO_PUBLIC_ENDPOINT` trỏ tới địa chỉ mà trình duyệt truy cập được.
+- Container MinIO ở trạng thái healthy: `docker compose ps`.
+- Với triển khai bằng IP, `tcp:9000` truy cập được từ máy của bạn.
 
-### Docker Says Permission Denied
+### Docker báo Permission Denied
 
-Run:
+Chạy:
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-Then close SSH and open it again.
+Sau đó đóng SSH và mở lại.
 
-### The VM Is Too Slow
+### VM quá chậm
 
-Stop the VM and change the machine type to a larger one, such as:
+Dừng VM và đổi machine type sang loại lớn hơn, ví dụ:
 
 ```text
 e2-standard-4
 ```
 
-Then start the VM again.
+Sau đó khởi động lại VM.
 
-## 16. Important Production Notes
+## 16. Ghi chú quan trọng cho production
 
-This guide uses the current repository Docker setup. It is good for a graduation
-demo or a first VM deployment.
+Hướng dẫn này dùng đúng cấu hình Docker hiện có của repository. Nó phù hợp cho
+demo đồ án hoặc lần triển khai VM đầu tiên.
 
-Before using it for real users, improve these items:
+Trước khi dùng cho người dùng thật, hãy cải thiện các mục sau:
 
-1. Add HTTPS with a domain name (see the domain guide).
-2. Serve the frontend as a production build instead of the Vite dev server.
-3. Stop exposing backend port `8000` publicly unless you need it.
-4. Change the MinIO `minioadmin` / `minioadmin` credentials.
-5. Move secrets (`SECRET_KEY`, passwords, API keys) out of `docker-compose.yml`
-   into a separate `.env`/Secret Manager and reference them, so `git pull` does
-   not conflict with your edits.
-6. Add VM disk snapshots or database + MinIO backups.
+1. Thêm HTTPS với tên miền (xem hướng dẫn về tên miền).
+2. Phục vụ frontend bằng production build thay vì Vite dev server.
+3. Ngừng mở công khai cổng backend `8000` trừ khi bạn cần.
+4. Đổi thông tin đăng nhập MinIO `minioadmin` / `minioadmin`.
+5. Tách secret (`SECRET_KEY`, mật khẩu, API key) ra khỏi `docker-compose.yml`
+   sang một file `.env`/Secret Manager riêng và tham chiếu tới, để `git pull`
+   không xung đột với các chỉnh sửa của bạn.
+6. Thêm snapshot disk VM hoặc backup database + MinIO.
 
-## 17. Clean Up To Avoid Charges
+## 17. Dọn dẹp để tránh bị tính phí
 
-If you are finished testing:
+Khi đã test xong:
 
-1. Go to **Compute Engine > VM instances**.
-2. Select `jobcv-vm`.
-3. Click **Stop** to pause compute charges.
-4. Click **Delete** if you no longer need it.
+1. Vào **Compute Engine > VM instances**.
+2. Chọn `jobcv-vm`.
+3. Nhấn **Stop** để tạm dừng tính phí compute.
+4. Nhấn **Delete** nếu không cần nữa.
 
-Also check:
+Kiểm tra thêm:
 
-- **VPC network > IP addresses** for unused static IPs.
-- **Disks** for unattached persistent disks.
-- **Snapshots** if you created any.
+- **VPC network > IP addresses** xem có static IP không dùng nào không.
+- **Disks** xem có persistent disk nào chưa gắn không.
+- **Snapshots** nếu bạn đã tạo.
 
-## References
+## Tài liệu tham khảo
 
 - Google Cloud: Create a Linux VM instance in Compute Engine: <https://cloud.google.com/compute/docs/create-linux-vm-instance>
 - Google Cloud: Use VPC firewall rules: <https://cloud.google.com/firewall/docs/using-firewalls>

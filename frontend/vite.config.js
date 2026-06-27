@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
+    allowedHosts: ['careerbridge.pro', 'www.careerbridge.pro'],
     proxy: {
       '/api': {
         target: process.env.BACKEND_URL || 'http://localhost:8000',
