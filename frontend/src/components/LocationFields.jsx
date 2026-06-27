@@ -1,4 +1,5 @@
 import { PROVINCES, DISTRICTS_BY_PROVINCE } from '../utils/locations'
+import SelectDown from './SelectDown'
 
 // ============================================================
 // LocationFields – nhóm 3 ô địa chỉ tách cột dùng chung:
@@ -22,27 +23,25 @@ const LocationFields = ({
     <>
       <div className="field">
         <label>Tỉnh/Thành phố{star}</label>
-        <select
-          className="select"
+        <SelectDown
           value={province}
-          onChange={(e) => onChange({ province: e.target.value, district: '' })}
-        >
-          <option value="">-- Chọn tỉnh/thành phố --</option>
-          {PROVINCES.map((p) => <option key={p} value={p}>{p}</option>)}
-        </select>
+          options={PROVINCES}
+          placeholder="-- Chọn tỉnh/thành phố --"
+          searchable
+          onChange={(p) => onChange({ province: p, district: '' })}
+        />
       </div>
 
       <div className="field">
         <label>Quận/Huyện{star}</label>
-        <select
-          className="select"
+        <SelectDown
           value={district}
+          options={districts}
           disabled={!province}
-          onChange={(e) => onChange({ district: e.target.value })}
-        >
-          <option value="">{province ? '-- Chọn quận/huyện --' : '-- Chọn tỉnh trước --'}</option>
-          {districts.map((d) => <option key={d} value={d}>{d}</option>)}
-        </select>
+          placeholder={province ? '-- Chọn quận/huyện --' : '-- Chọn tỉnh trước --'}
+          searchable
+          onChange={(d) => onChange({ district: d })}
+        />
       </div>
 
       {showDetail && (
