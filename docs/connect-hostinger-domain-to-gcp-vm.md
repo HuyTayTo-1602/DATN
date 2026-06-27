@@ -1,53 +1,53 @@
-# Connect `careerbridge.pro` To The GCP VM
+# Kết nối tên miền `careerbridge.pro` với VM GCP
 
-This guide points the domain `careerbridge.pro` to the Google Cloud VM running
-the DATN job portal (JobCV).
+Hướng dẫn này trỏ tên miền `careerbridge.pro` về VM Google Cloud đang chạy web
+tuyển dụng ĐATN (JobCV).
 
-Replace `YOUR_VM_EXTERNAL_IP` below with the real external IP of your VM (from
+Thay `YOUR_VM_EXTERNAL_IP` bên dưới bằng IP external thật của VM (lấy trong
 **Compute Engine > VM instances**).
 
-Use this after the app is already running on the VM from
+Dùng hướng dẫn này sau khi ứng dụng đã chạy trên VM theo
 [deploy-google-compute-engine.md](deploy-google-compute-engine.md).
 
-## 1. Reserve A Static IP
+## 1. Đặt một static IP
 
-In Google Cloud Console:
+Trong Google Cloud Console:
 
-1. Open **Compute Engine > VM instances**.
-2. Find the VM running the app (`jobcv-vm`).
-3. Note its **External IP**.
+1. Mở **Compute Engine > VM instances**.
+2. Tìm VM đang chạy ứng dụng (`jobcv-vm`).
+3. Ghi lại **External IP** của nó.
 
-The domain should point to a **static** external IP. If the IP is ephemeral,
-reserve it first:
+Tên miền nên trỏ về một static IP external. Nếu IP đang là ephemeral, hãy đặt nó
+thành cố định trước:
 
-1. Open **VPC network > IP addresses**.
-2. Find the VM's external IP.
-3. If its type is **Ephemeral**, choose **Reserve static address**.
-4. Give it a name such as:
+1. Mở **VPC network > IP addresses**.
+2. Tìm IP external của VM.
+3. Nếu kiểu của nó là **Ephemeral**, chọn **Reserve static address**.
+4. Đặt tên, ví dụ:
 
 ```text
 jobcv-static-ip
 ```
 
-5. Save the reservation.
+5. Lưu reservation.
 
-## 2. Open GCP Firewall Ports
+## 2. Mở các cổng firewall trên GCP
 
-DNS only sends users to the VM. The VM also needs firewall rules that allow web
-traffic.
+DNS chỉ điều hướng người dùng tới VM. VM còn cần các firewall rule cho phép lưu
+lượng web đi vào.
 
-For a production domain, open:
+Với một tên miền production, hãy mở:
 
 ```text
 tcp:80
 tcp:443
 ```
 
-In Google Cloud Console:
+Trong Google Cloud Console:
 
-1. Open **VPC network > Firewall**.
-2. Click **Create firewall rule**.
-3. Create a rule for HTTP:
+1. Mở **VPC network > Firewall**.
+2. Nhấn **Create firewall rule**.
+3. Tạo rule cho HTTP:
 
 ```text
 Name: allow-jobcv-http
@@ -59,7 +59,7 @@ Source IPv4 ranges: 0.0.0.0/0
 Protocols and ports: tcp:80
 ```
 
-4. Create a second rule for HTTPS:
+4. Tạo rule thứ hai cho HTTPS:
 
 ```text
 Name: allow-jobcv-https
@@ -71,7 +71,7 @@ Source IPv4 ranges: 0.0.0.0/0
 Protocols and ports: tcp:443
 ```
 
-Keep database and internal service ports closed to the public internet:
+Giữ các cổng database và dịch vụ nội bộ đóng với internet công khai:
 
 ```text
 5432
@@ -79,18 +79,18 @@ Keep database and internal service ports closed to the public internet:
 9001
 ```
 
-Once Nginx and HTTPS are in place, you can also remove the temporary public
-`tcp:5173` and `tcp:9000` rules from the IP-based deployment, because all
-traffic (including CV downloads) will go through ports `80`/`443`.
+Khi đã có Nginx và HTTPS, bạn cũng có thể xóa các rule công khai tạm thời
+`tcp:5173` và `tcp:9000` từ giai đoạn triển khai bằng IP, vì toàn bộ lưu lượng
+(bao gồm cả tải CV) sẽ đi qua cổng `80`/`443`.
 
-## 3. Add DNS Records At Your Domain Provider
+## 3. Thêm bản ghi DNS tại nhà cung cấp tên miền
 
-Edit DNS at whoever manages the `careerbridge.pro` nameservers (for example
-Hostinger hPanel, or your registrar's DNS panel).
+Chỉnh DNS tại nơi quản lý nameserver của `careerbridge.pro` (ví dụ hPanel của
+Hostinger, hoặc trang quản lý DNS của nhà đăng ký tên miền).
 
-1. Log in to the domain provider.
-2. Open the DNS management page for `careerbridge.pro`.
-3. Add or update these records (replace the IP with your VM's static IP):
+1. Đăng nhập vào nhà cung cấp tên miền.
+2. Mở trang quản lý DNS của `careerbridge.pro`.
+3. Thêm hoặc cập nhật các bản ghi sau (thay IP bằng static IP của VM):
 
 ```text
 Type: A
@@ -106,7 +106,7 @@ Points to: careerbridge.pro
 TTL: default
 ```
 
-If the provider does not allow the `www` CNAME, use an A record instead:
+Nếu nhà cung cấp không cho dùng CNAME cho `www`, hãy dùng bản ghi A thay thế:
 
 ```text
 Type: A
@@ -115,80 +115,79 @@ Points to: YOUR_VM_EXTERNAL_IP
 TTL: default
 ```
 
-Remove or replace old records that point `@` or `www` to another IP address. If
-there are `AAAA` records for `@` or `www` and the VM does not have IPv6
-configured, remove those `AAAA` records so browsers do not try an invalid IPv6
-route.
+Xóa hoặc thay các bản ghi cũ đang trỏ `@` hoặc `www` về một IP khác. Nếu có bản
+ghi `AAAA` cho `@` hoặc `www` mà VM chưa cấu hình IPv6, hãy xóa các bản ghi
+`AAAA` đó để trình duyệt không thử một đường IPv6 không hợp lệ.
 
-## 4. Wait For DNS Propagation
+## 4. Chờ DNS lan truyền (propagation)
 
-DNS changes are not instant. They often work within minutes, but they can take
-several hours.
+Thay đổi DNS không có hiệu lực ngay. Thường chỉ vài phút, nhưng cũng có thể mất
+vài giờ.
 
-Check from your local machine:
+Kiểm tra từ máy của bạn:
 
 ```powershell
 Resolve-DnsName careerbridge.pro
 Resolve-DnsName www.careerbridge.pro
 ```
 
-Expected result:
+Kết quả mong đợi:
 
 ```text
 YOUR_VM_EXTERNAL_IP
 ```
 
-On Linux or macOS:
+Trên Linux hoặc macOS:
 
 ```bash
 dig +short careerbridge.pro
 dig +short www.careerbridge.pro
 ```
 
-## 5. Quick Test With The Existing App Port
+## 5. Test nhanh với cổng hiện có của ứng dụng
 
-The current Docker Compose setup exposes the frontend on port `5173`.
+Cấu hình Docker Compose hiện tại mở frontend ở cổng `5173`.
 
-After DNS resolves, this URL should work if the app is running and the
-`tcp:5173` firewall rule still exists:
+Sau khi DNS phân giải xong, URL này sẽ hoạt động nếu ứng dụng đang chạy và rule
+`tcp:5173` vẫn còn:
 
 ```text
 http://careerbridge.pro:5173
 ```
 
-This is useful for testing, but it is not the final production URL because users
-should not need to type `:5173`.
+Cách này hữu ích để test, nhưng chưa phải URL production cuối cùng vì người dùng
+không nên phải gõ `:5173`.
 
-## 6. Add Nginx For A Clean Domain URL
+## 6. Thêm Nginx cho URL tên miền gọn gàng
 
-Use Nginx on the VM to proxy normal web traffic:
+Dùng Nginx trên VM để proxy lưu lượng web thông thường:
 
-- `http://careerbridge.pro` -> frontend container on `localhost:5173`
-- `/api/...` -> backend container on `localhost:8000`
-- `/cv-files/...` -> MinIO container on `localhost:9000` (so CV files load over
-  the domain instead of a raw IP and port)
+- `http://careerbridge.pro` -> container frontend ở `localhost:5173`
+- `/api/...` -> container backend ở `localhost:8000`
+- `/cv-files/...` -> container MinIO ở `localhost:9000` (để file CV tải qua tên
+  miền thay vì IP và cổng thô)
 
-SSH into the VM, then install Nginx:
+SSH vào VM, sau đó cài Nginx:
 
 ```bash
 sudo apt update
 sudo apt install -y nginx
 ```
 
-Create a site config:
+Tạo file cấu hình site:
 
 ```bash
 sudo nano /etc/nginx/sites-available/careerbridge.pro
 ```
 
-Paste:
+Dán nội dung:
 
 ```nginx
 server {
     listen 80;
     server_name careerbridge.pro www.careerbridge.pro;
 
-    # Backend API (FastAPI serves everything under /api/v1)
+    # Backend API (FastAPI phục vụ mọi thứ dưới /api/v1)
     location /api/ {
         proxy_pass http://127.0.0.1:8000;
         proxy_http_version 1.1;
@@ -198,7 +197,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # CV files stored in MinIO (bucket: cv-files)
+    # File CV lưu trong MinIO (bucket: cv-files)
     location /cv-files/ {
         proxy_pass http://127.0.0.1:9000;
         proxy_http_version 1.1;
@@ -209,7 +208,7 @@ server {
         client_max_body_size 20m;
     }
 
-    # Frontend (Vite dev server, needs WebSocket for hot reload)
+    # Frontend (Vite dev server, cần WebSocket cho hot reload)
     location / {
         proxy_pass http://127.0.0.1:5173;
         proxy_http_version 1.1;
@@ -223,7 +222,7 @@ server {
 }
 ```
 
-Enable the site:
+Kích hoạt site:
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/careerbridge.pro /etc/nginx/sites-enabled/careerbridge.pro
@@ -231,24 +230,24 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-Now test:
+Bây giờ test:
 
 ```text
 http://careerbridge.pro
 ```
 
-## 7. Update App Configuration For The Domain
+## 7. Cập nhật cấu hình ứng dụng cho tên miền
 
-Configuration for this project lives in the `environment:` blocks of
-`docker-compose.yml` at the repository root. Edit it on the VM:
+Cấu hình của dự án này nằm trong các khối `environment:` của `docker-compose.yml`
+ở thư mục gốc repository. Chỉnh nó trên VM:
 
 ```bash
 cd ~/DATN
 nano docker-compose.yml
 ```
 
-In the `backend` service, allow the domain origins and point the public MinIO
-endpoint at the domain so CV links work over `http` (before SSL):
+Trong service `backend`, cho phép các origin của tên miền và trỏ public endpoint
+của MinIO về tên miền để link CV hoạt động qua `http` (trước khi có SSL):
 
 ```yaml
       ALLOWED_ORIGINS: '["http://careerbridge.pro","http://www.careerbridge.pro"]'
@@ -256,7 +255,7 @@ endpoint at the domain so CV links work over `http` (before SSL):
       MINIO_SECURE: "false"
 ```
 
-The frontend Vite dev server rejects unknown hostnames. Allow the domain in
+Vite dev server của frontend từ chối các hostname lạ. Cho phép tên miền trong
 `frontend/vite.config.js`:
 
 ```js
@@ -274,29 +273,29 @@ server: {
 }
 ```
 
-Rebuild and restart:
+Build lại và khởi động lại:
 
 ```bash
 docker compose up -d --build
 ```
 
-## 8. Enable HTTPS With Let's Encrypt
+## 8. Bật HTTPS với Let's Encrypt
 
-After `http://careerbridge.pro` works, install Certbot:
+Sau khi `http://careerbridge.pro` chạy được, cài Certbot:
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
 ```
 
-Request certificates:
+Yêu cầu cấp chứng chỉ:
 
 ```bash
 sudo certbot --nginx -d careerbridge.pro -d www.careerbridge.pro
 ```
 
-Certbot will update the Nginx config for HTTPS and set up auto-renewal.
+Certbot sẽ tự cập nhật cấu hình Nginx cho HTTPS và thiết lập tự động gia hạn.
 
-Then update `docker-compose.yml` again so origins and CV links use `https`:
+Sau đó cập nhật `docker-compose.yml` lại để origin và link CV dùng `https`:
 
 ```yaml
       ALLOWED_ORIGINS: '["https://careerbridge.pro","https://www.careerbridge.pro"]'
@@ -304,25 +303,26 @@ Then update `docker-compose.yml` again so origins and CV links use `https`:
       MINIO_SECURE: "true"
 ```
 
-`MINIO_SECURE: "true"` makes the app generate `https://careerbridge.pro/cv-files/...`
-links so CV files do not trigger mixed-content warnings on an HTTPS page.
+`MINIO_SECURE: "true"` khiến ứng dụng sinh ra link dạng
+`https://careerbridge.pro/cv-files/...` để file CV không gây cảnh báo
+mixed-content trên trang HTTPS.
 
-Rebuild and restart:
+Build lại và khởi động lại:
 
 ```bash
 docker compose up -d --build
 ```
 
-Final URLs:
+URL cuối cùng:
 
 ```text
 https://careerbridge.pro
 https://www.careerbridge.pro
 ```
 
-## 9. Verification Checklist
+## 9. Checklist kiểm tra
 
-Run these checks from your local machine:
+Chạy các lệnh sau từ máy của bạn:
 
 ```powershell
 Resolve-DnsName careerbridge.pro
@@ -331,7 +331,7 @@ curl.exe -I http://careerbridge.pro
 curl.exe -I https://careerbridge.pro
 ```
 
-Run these checks on the VM:
+Chạy các lệnh sau trên VM:
 
 ```bash
 cd ~/DATN
@@ -342,65 +342,65 @@ sudo nginx -t
 sudo systemctl status nginx --no-pager
 ```
 
-Expected:
+Mong đợi:
 
-- DNS returns your VM's static IP.
-- Backend root returns `{"message":"Job Recruitment API đang hoạt động","docs":"/docs"}`.
-- Nginx config test returns `syntax is ok` and `test is successful`.
-- `https://careerbridge.pro` opens the app without needing `:5173`.
-- Logging in works, and uploading + previewing a CV works (this confirms MinIO is
-  reachable through the domain).
+- DNS trả về static IP của VM.
+- Endpoint root của backend trả về `{"message":"Job Recruitment API đang hoạt động","docs":"/docs"}`.
+- Lệnh test cấu hình Nginx trả về `syntax is ok` và `test is successful`.
+- `https://careerbridge.pro` mở được ứng dụng mà không cần `:5173`.
+- Đăng nhập hoạt động, và upload + xem CV hoạt động (xác nhận MinIO truy cập được
+  qua tên miền).
 
-## 10. Troubleshooting
+## 10. Xử lý sự cố
 
-### DNS Does Not Resolve To The VM IP
+### DNS không phân giải về IP của VM
 
-Check:
+Kiểm tra:
 
-- The A record for `@` points to the VM's static IP.
-- The `www` record points to `careerbridge.pro` or directly to the VM IP.
-- You edited DNS at the active nameserver provider.
-- Old conflicting A or AAAA records were removed.
-- Enough time has passed for DNS propagation.
+- Bản ghi A cho `@` trỏ về static IP của VM.
+- Bản ghi `www` trỏ về `careerbridge.pro` hoặc trực tiếp về IP của VM.
+- Bạn đã chỉnh DNS tại nhà cung cấp nameserver đang hoạt động.
+- Các bản ghi A hoặc AAAA cũ bị xung đột đã được xóa.
+- Đã đủ thời gian cho DNS lan truyền.
 
-### `http://careerbridge.pro` Does Not Open
+### `http://careerbridge.pro` không mở được
 
-Check:
+Kiểm tra:
 
-- GCP firewall allows `tcp:80`.
-- Nginx is installed and running.
-- The Docker containers are running.
-- The frontend is reachable on the VM with `curl -I http://localhost:5173`.
+- Firewall GCP cho phép `tcp:80`.
+- Nginx đã cài và đang chạy.
+- Các container Docker đang chạy.
+- Frontend truy cập được trên VM bằng `curl -I http://localhost:5173`.
 
-### Frontend Shows "Blocked request. This host is not allowed."
+### Frontend báo "Blocked request. This host is not allowed."
 
-The Vite dev server is rejecting the domain. Add `allowedHosts` in
-`frontend/vite.config.js` (Section 7) and run `docker compose up -d --build`.
+Vite dev server đang từ chối tên miền. Thêm `allowedHosts` trong
+`frontend/vite.config.js` (Phần 7) rồi chạy `docker compose up -d --build`.
 
-### API Calls Fail With A CORS Error
+### Gọi API bị lỗi CORS
 
-`ALLOWED_ORIGINS` in the `backend` service must include the exact scheme + host
-you opened the site from (`https://careerbridge.pro`). Update it and rebuild.
+`ALLOWED_ORIGINS` trong service `backend` phải chứa đúng scheme + host bạn dùng
+để mở trang (`https://careerbridge.pro`). Cập nhật rồi build lại.
 
-### CV Files Do Not Load
+### File CV không tải được
 
-Check:
+Kiểm tra:
 
-- The Nginx `/cv-files/` location exists and `sudo nginx -t` passes.
-- `MINIO_PUBLIC_ENDPOINT` matches the domain and `MINIO_SECURE` matches the
-  scheme (`true` for HTTPS).
-- The MinIO container is healthy: `docker compose ps`.
+- Location `/cv-files/` trong Nginx tồn tại và `sudo nginx -t` đạt.
+- `MINIO_PUBLIC_ENDPOINT` khớp với tên miền và `MINIO_SECURE` khớp với scheme
+  (`true` cho HTTPS).
+- Container MinIO ở trạng thái healthy: `docker compose ps`.
 
-### HTTPS Certificate Fails
+### Cấp chứng chỉ HTTPS thất bại
 
-Check:
+Kiểm tra:
 
-- Both `careerbridge.pro` and `www.careerbridge.pro` resolve to the VM IP.
-- GCP firewall allows `tcp:80` and `tcp:443`.
-- Nginx passes `sudo nginx -t`.
-- Run Certbot again after DNS is correct.
+- Cả `careerbridge.pro` và `www.careerbridge.pro` đều phân giải về IP của VM.
+- Firewall GCP cho phép `tcp:80` và `tcp:443`.
+- Nginx vượt qua `sudo nginx -t`.
+- Chạy lại Certbot sau khi DNS đã đúng.
 
-## References
+## Tài liệu tham khảo
 
 - Hostinger Help Center: Manage A records at Hostinger: <https://www.hostinger.com/support/4468886/>
 - Hostinger Help Center: Where to find Hostinger nameservers: <https://support.hostinger.com/en/articles/1583247-where-to-find-hostinger-nameservers>
